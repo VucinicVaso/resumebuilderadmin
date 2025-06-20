@@ -1,67 +1,43 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:wtoolbox/3rd_party/lib_getx.dart';
+import 'package:wtoolbox/dependency_injection/impl/wtoolbox_dependency_injection_impl.dart';
+import 'package:wtoolbox/service/router_register/wtoolbox_router_register_service.dart';
+import 'package:wtoolbox/service/theme/wtoolbox_theme_service.dart';
+import 'package:wtoolbox/service/translation/wtoolbox_translation_service.dart';
+import 'package:resumebuilderadmin/presentation/bootstrap/app_bootstrap.dart';
 
-void main() {
-  runApp(const MyApp());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+  ]);
+
+  await dependencyInjection!.register(dotenvFileName: 'assets/.env');
+  await initRoutes();
+
+  runApp(
+    GetMaterialApp(
+      debugShowCheckedModeBanner: false,
+      title:          'ResumeBuilderAdmin',
+      locale:         Get.find<WTTranslationService>().locale!,
+      fallbackLocale: Get.find<WTTranslationService>().fallbackLocale!,
+      translations:   Get.find<WTTranslationService>(),
+      initialRoute:   Get.find<WTRouterRegisterService>().getInitialRoute(),
+      getPages:       Get.find<WTRouterRegisterService>().getRoutes(),
+      theme:          Get.find<WTThemeService>().themeData,
+      darkTheme:      Get.find<WTThemeService>().themeData,
+    )
+  );
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+Future<void> initRoutes() async {
+  var router = Get.find<WTRouterRegisterService>();
+  router
+    ..setInitialRoute('/')
+    ..setRedirectRoute('/')
+    ..setLogoutRoute('/');
 
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text('You have pushed the button this many times:'),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
-    );
-  }
+  await AppBootstrap().register();
 }

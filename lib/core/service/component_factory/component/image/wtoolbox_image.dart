@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'dart:typed_data';
 import '../wtoolbox_component.dart';
 
@@ -34,10 +33,8 @@ abstract class WTImage extends WTComponent {
   void setNetworkImage(String? v) { networkImage = v; }
   void setMemoryImage(Uint8List? v) { memoryImage = v; }
 
-  File? svgImageFile;
   Uint8List? svgImageMemory;
   String? svgImageString, svgImageNetwork, svgImageAsset;
-  void setSvgImageFromFile(File? v) { svgImageFile = v; }
   void setSvgImageFromMemory(Uint8List? v) { svgImageMemory = v; }
   void setSvgImageFromAssets(String? v) { svgImageAsset = v; }
   void setSvgImageFromNetwork(String? v) { svgImageNetwork = v; }

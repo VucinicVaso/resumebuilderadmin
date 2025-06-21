@@ -68,16 +68,6 @@ class WTImageSvgBasic extends WTImage {
       );
     }
 
-    /// file
-    if(svgImageFile != null) {
-      return SvgPicture.file(
-        svgImageFile!,
-        fit: BoxFit.fill,
-        width: width,
-        height: height,
-      );
-    }
-
     /// memory
     if(svgImageMemory != null) {
      return SvgPicture.memory(

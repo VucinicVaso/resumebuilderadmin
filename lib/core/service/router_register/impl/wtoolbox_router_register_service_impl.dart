@@ -48,7 +48,8 @@ class WTRouterRegisterServiceImpl extends WTRouterRegisterService {
   @override
   Future<void> unregisterPackages() async {
     for(WTBootstrap? bootstrap in packages!) {
-      await bootstrap!.unregister(); }
+      await bootstrap!.unregister(); 
+    }
   }
   @override
   Future<void> unregisterPackage(String? name) async {

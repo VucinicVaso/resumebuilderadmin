@@ -12,13 +12,17 @@ class RegistrationView extends WTView<RegistrationController> {
   }
 
   Widget? createScaffold(RegistrationController? con) {
-    var header = componentFactory!.createHeader(WTHeaderVariant.base1);
+    var header = componentFactory!.createHeader(WTHeaderVariant.base1)!
+      ..addAction(
+        action: () async { await con!.navigateOff(route: '/dashboard'); }, 
+        label: 'Dashboard'
+      );
 
     var body = componentFactory!.createBody(WTBodyVariant.base1)!
-      ..addComponent(Text('Hello World!'));
+      ..addComponent(Text('Hello World! RegistrationView'));
 
     var scaffold = componentFactory!.createScaffold(WTScaffoldVariant.base1)!
-      ..setHeader(header!.build())
+      ..setHeader(header.build())
       ..setBody(body.build());
     return scaffold.build();
   }

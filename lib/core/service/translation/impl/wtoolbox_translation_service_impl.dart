@@ -1,7 +1,6 @@
 import 'dart:ui';
 import '../../../3rd_party/lib_getx.dart';
 import '../wtoolbox_translation_service.dart';
-import 'common_translations.dart';
 
 class WTTranslationServiceImpl extends WTTranslationService {
 
@@ -9,9 +8,8 @@ class WTTranslationServiceImpl extends WTTranslationService {
     appKeys.clear();
     keys.clear();
     Get.translations.clear();
-    setKeys(CommonTranslations().keys);
     setInitialLocalization(label: 'en_US');
-    setLocalization(label: initialLocalization!);
+    setLocalization(label: 'en_US');
   }
 
   @override

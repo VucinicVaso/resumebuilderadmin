@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import '../../../../../3rd_party/lib_svg.dart';
@@ -28,7 +27,6 @@ class WTCardWelcome extends WTCard {
       assetImage:          assetImage,
       networkImage:        networkImage,
       memoryImage:         memoryImage,
-      svgFile:             svgFile,
       svgMemory:           svgMemory,
       svgString:           svgString,
       svgNetwork:          svgNetwork,
@@ -56,7 +54,6 @@ class WelcomeCardWidget extends StatefulWidget {
   String? htmlContent, assetImage, networkImage, svgString, svgNetwork, svgAsset, title, subtitle;
   IconData? icon;
   Uint8List? memoryImage, svgMemory;
-  File? svgFile;
   Function? textStyle;
 
   WelcomeCardWidget({
@@ -77,7 +74,6 @@ class WelcomeCardWidget extends StatefulWidget {
     this.assetImage,
     this.networkImage,
     this.memoryImage,
-    this.svgFile,
     this.svgMemory,
     this.svgString,
     this.svgNetwork,
@@ -158,15 +154,6 @@ class _WelcomeCardWidgetState extends State<WelcomeCardWidget> with WTCardBuilde
   Widget? createSvgWidget({ double? size, EdgeInsets? padding = const EdgeInsets.all(0.0), EdgeInsets? margin = const EdgeInsets.all(0.0) }) {
     Widget? svgWidget = WTComponentBuilder.emptyComponent();
 
-    if(widget.svgFile != null) {
-      svgWidget = SvgPicture.file(
-        widget.svgFile!,
-        fit: BoxFit.fill,
-        width: size,
-        height: size,
-      );
-    }
-
     if(widget.svgMemory != null) {
       svgWidget = SvgPicture.memory(
         widget.svgMemory!,
@@ -218,7 +205,7 @@ class _WelcomeCardWidgetState extends State<WelcomeCardWidget> with WTCardBuilde
 
   }
 
-  /// icon || image(assetImage, networkImage, memoryImage) || svg(svgFile, svgMemory, svgString, svgNetwork, svgAsset)...
+  /// icon || image(assetImage, networkImage, memoryImage) || svg(svgMemory, svgString, svgNetwork, svgAsset)...
   Widget? iconWidget() {
     if(widget.icon != null) {
       return createIconHolder(
@@ -240,7 +227,7 @@ class _WelcomeCardWidgetState extends State<WelcomeCardWidget> with WTCardBuilde
       );
     }
 
-    if(widget.svgFile != null || widget.svgMemory != null || widget.svgString != null || widget.svgNetwork != null || widget.svgAsset != null) {
+    if(widget.svgMemory != null || widget.svgString != null || widget.svgNetwork != null || widget.svgAsset != null) {
       return createSvgWidget(
         size: widget.iconSize!,
         padding: const EdgeInsets.all(5.0),

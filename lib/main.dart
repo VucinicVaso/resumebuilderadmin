@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:wtoolbox/3rd_party/lib_getx.dart';
-import 'package:wtoolbox/dependency_injection/impl/wtoolbox_dependency_injection_impl.dart';
-import 'package:wtoolbox/service/router_register/wtoolbox_router_register_service.dart';
-import 'package:wtoolbox/service/theme/wtoolbox_theme_service.dart';
-import 'package:wtoolbox/service/translation/wtoolbox_translation_service.dart';
-import 'package:resumebuilderadmin/presentation/bootstrap/app_bootstrap.dart';
+import 'core/3rd_party/lib_getx.dart';
+import 'core/dependency_injection/impl/wtoolbox_dependency_injection_impl.dart';
+import 'core/service/router_register/wtoolbox_router_register_service.dart';
+import 'core/service/theme/wtoolbox_theme_service.dart';
+import 'core/service/translation/wtoolbox_translation_service.dart';
+import 'core/app_impl/bootstrap/app_bootstrap.dart';
 
-Future<void> main() async {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitUp,
-  ]);
+  // SystemChrome.setPreferredOrientations([
+  //   DeviceOrientation.portraitUp,
+  // ]);
 
-  await dependencyInjection!.register(dotenvFileName: 'assets/.env');
+  await dependecyInjection!.register(dotenvFileName: 'assets/.env');
   await initRoutes();
 
   runApp(

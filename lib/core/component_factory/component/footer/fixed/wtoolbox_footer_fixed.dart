@@ -56,14 +56,15 @@ class WTFooterFixed extends WTFooter {
       currentIndex: selectedItem!,
       selectedItemColor: selectedItemLabelColor,
       unselectedItemColor: unselectedItemIconColor,
-      selectedLabelStyle: textStyle(
-        textColor: selectedItemLabelColor,
+      selectedLabelStyle: TextStyle(
+        color: selectedItemLabelColor,
         fontSize: itemLabelSize,
         fontWeight: FontWeight.bold
       ),
-      unselectedLabelStyle: textStyle(
-        textColor: unselectedItemLabelColor,
-        fontSize: itemLabelSize
+      unselectedLabelStyle: TextStyle(
+        color: unselectedItemLabelColor,
+        fontSize: itemLabelSize,
+        fontWeight: FontWeight.normal
       ),
     );
   }

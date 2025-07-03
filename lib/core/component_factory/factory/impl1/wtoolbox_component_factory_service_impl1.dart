@@ -158,7 +158,6 @@ class WTComponentFactoryImpl1 extends WTComponentFactory {
       case WTFooterType.basic1Fixed:
         var component = WTFooterFixed()
           ..setBuildContext(getCurrentContext())
-          ..setGoogleFonts(fonts)
           ..setWidth(deviceWidth!)
           ..setBackgroundColor(theme!.background1)
           ..setSelectedItemBackgroundColor(theme!.primary4)
@@ -171,7 +170,6 @@ class WTComponentFactoryImpl1 extends WTComponentFactory {
       case WTFooterType.basic2Fixed:
         var component = WTFooterFixed()
           ..setBuildContext(getCurrentContext())
-          ..setGoogleFonts(fonts)
           ..setWidth(deviceWidth!)
           ..setBackgroundColor(theme!.background2)
           ..setSelectedItemBackgroundColor(theme!.primary4)

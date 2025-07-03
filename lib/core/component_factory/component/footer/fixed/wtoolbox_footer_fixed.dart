@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../wtoolbox_footer.dart';
-import '../../wtoolbox_component_builder.dart';
 
 class WTFooterFixed extends WTFooter {
 
@@ -16,8 +15,8 @@ class WTFooterFixed extends WTFooter {
         foregroundDecoration: const BoxDecoration(
           color: Colors.transparent,
         ),
-        child: WTComponentBuilder.createIcon(
-          iconData: e!['icon'],
+        child: Icon(
+          e!['icon'],
           size: itemIconSize,
           color: unselectedItemIconColor
         ),
@@ -30,8 +29,8 @@ class WTFooterFixed extends WTFooter {
           borderRadius: BorderRadius.circular(50.0),
           color: selectedItemBackgroundColor,
         ),
-        child: WTComponentBuilder.createIcon(
-          iconData: e['icon'],
+        child: Icon(
+          e['icon'],
           size: itemIconSize,
           color: selectedItemIconColor
         ),

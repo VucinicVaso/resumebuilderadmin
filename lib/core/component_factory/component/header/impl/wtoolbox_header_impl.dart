@@ -1,7 +1,6 @@
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:resumebuilderadmin/core/external/lib_svg.dart';
-import '../../wtoolbox_component_builder.dart';
 import '../wtoolbox_header.dart';
 import '../wtoolbox_header_builder.dart';
 
@@ -179,6 +178,8 @@ class _ComponentState extends State<ComponentWidget> {
   double? menuIconSize, menuLabelSize;
   Color? menuIconColor, menuBackgroundColor, menuItemIconColor, menuItemLabelColor;
 
+  Widget emptyWidget = SizedBox.shrink();
+
   @override
   void initState() {
     setState(() {
@@ -227,18 +228,18 @@ class _ComponentState extends State<ComponentWidget> {
 
     super.initState();
   }
-
+  
   Widget? widgetsLeft() {
     /// backActionIcon
-    Widget? backActionIconWidget = WTComponentBuilder.emptyComponent();
+    Widget? backActionIconWidget = emptyWidget;
     if(backActionIcon != null) {
       backActionIconWidget = Container(
         margin: const EdgeInsets.fromLTRB(0.0, 0.0, 5.0, 0.0),
         alignment: Alignment.center,
         width: backActionIconSize,
         height: backActionIconSize,
-        child: WTComponentBuilder.createIcon(
-          iconData: backActionIcon,
+        child: Icon(
+          backActionIcon,
           size: backActionIconSize,
           color: backActionIconColor
         ),
@@ -246,7 +247,7 @@ class _ComponentState extends State<ComponentWidget> {
     }
 
     /// backActionNetworkImage
-    Widget? backActionNetworkImageWidget = WTComponentBuilder.emptyComponent();
+    Widget? backActionNetworkImageWidget = emptyWidget;
     if(backActionNetworkImage != null) {
       backActionNetworkImageWidget = WTHeaderBuilder.createNetworkImage(
         margin: const EdgeInsets.fromLTRB(0.0, 0.0, 5.0, 0.0),
@@ -256,7 +257,7 @@ class _ComponentState extends State<ComponentWidget> {
     }
 
     /// backActionAssetImage
-    Widget? backActionAssetImageWidget = WTComponentBuilder.emptyComponent();
+    Widget? backActionAssetImageWidget = emptyWidget;
     if(backActionAssetImage != null) {
       backActionAssetImageWidget = WTHeaderBuilder.createAssetsImage(
         margin: const EdgeInsets.fromLTRB(0.0, 0.0, 5.0, 0.0),
@@ -266,7 +267,7 @@ class _ComponentState extends State<ComponentWidget> {
     }
 
     /// backActionMemoryImage
-    Widget? backActionMemoryImageWidget = WTComponentBuilder.emptyComponent();
+    Widget? backActionMemoryImageWidget = emptyWidget;
     if(backActionMemoryImage != null) {
       backActionMemoryImageWidget = WTHeaderBuilder.createMemoryImage(
         margin: const EdgeInsets.fromLTRB(0.0, 0.0, 5.0, 0.0),
@@ -276,9 +277,9 @@ class _ComponentState extends State<ComponentWidget> {
     }
 
     /// backActionSvgMemory, backActionSvgString, backActionSvgNetwork, backActionSvgAsset
-    Widget? svgImageWidget = WTComponentBuilder.emptyComponent();
+    Widget? svgImageWidget = emptyWidget;
     if(backActionSvgMemory != null || backActionSvgString != null || backActionSvgNetwork != null || backActionSvgAsset != null) {
-      Widget? widget  = WTComponentBuilder.emptyComponent();
+      Widget? widget  = emptyWidget;
       double? svgSize = backActionIconSize;
 
       if(backActionSvgMemory != null) {
@@ -336,38 +337,40 @@ class _ComponentState extends State<ComponentWidget> {
     }
 
     /// backActionLabel
-    Widget? backActionLabelWidget = WTComponentBuilder.emptyComponent();
+    Widget? backActionLabelWidget = emptyWidget;
     if(backActionLabel != null) {
       backActionLabel = backActionLabel!.length > 20 ? '${backActionLabel!.substring(0, 20)}...' : backActionLabel;
 
       backActionLabelWidget = Container(
         margin: const EdgeInsets.fromLTRB(0.0, 0.0, 5.0, 0.0),
-        child: WTComponentBuilder.createText(
-          text: backActionLabel!,
+        child: Text(
+          backActionLabel!,
           textAlign: TextAlign.left,
-          textStyle: WTHeaderBuilder.textStyle(
-            textColor: backActionLabelColor,
+          style: TextStyle(
+            color: backActionLabelColor,
             fontSize: backActionLabelSize,
+            fontWeight: FontWeight.normal,
           ),
-        )!,
+        ),
       );
     }
 
     /// backActionLinkLabel
-    Widget? backActionLinkLabelWidget = WTComponentBuilder.emptyComponent();
+    Widget? backActionLinkLabelWidget = emptyWidget;
     if(backActionLinkLabel != null) {
       backActionLinkLabel = backActionLinkLabel!.length > 20 ? '${backActionLinkLabel!.substring(0, 20)}...' : backActionLinkLabel;
 
       backActionLinkLabelWidget = Container(
         margin: const EdgeInsets.fromLTRB(0.0, 0.0, 5.0, 0.0),
-        child: WTComponentBuilder.createText(
-          text: backActionLinkLabel!,
+        child: Text(
+          backActionLinkLabel!,
           textAlign: TextAlign.left,
-          textStyle: WTHeaderBuilder.textStyle(
-            textColor: backActionLinkLabelColor,
+          style: TextStyle(
+            color: backActionLinkLabelColor,
             fontSize: backActionLinkLabelSize,
+            fontWeight: FontWeight.normal,
           ),
-        )!
+        ),
       );
     }
 
@@ -382,19 +385,13 @@ class _ComponentState extends State<ComponentWidget> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            backActionIconWidget!,
-
-            svgImageWidget!,
-
-            backActionAssetImageWidget!,
-
-            backActionMemoryImageWidget!,
-
+            backActionIconWidget,
+            svgImageWidget,
+            backActionAssetImageWidget,
+            backActionMemoryImageWidget,
             backActionNetworkImageWidget!,
-
-            backActionLabelWidget!,
-
-            backActionLinkLabelWidget!,
+            backActionLabelWidget,
+            backActionLinkLabelWidget,
           ],
         ),
       ),
@@ -411,12 +408,13 @@ class _ComponentState extends State<ComponentWidget> {
         color: Colors.transparent,
         width: double.infinity,
         alignment: Alignment.center,
-        child: WTComponentBuilder.createText(
-          text: label!,
+        child: Text(
+          label!,
           textAlign: TextAlign.center,
-          textStyle: WTHeaderBuilder.textStyle(
-            textColor: labelColor,
-            fontSize: labelSize
+          style: TextStyle(
+            color: labelColor,
+            fontSize: labelSize,
+            fontWeight: FontWeight.normal
           ),
         ),
       ),
@@ -435,31 +433,33 @@ class _ComponentState extends State<ComponentWidget> {
       Widget? iconWidget, labelWidget, linkLabelWidget;
 
       if(a['icon'] != null) {
-        iconWidget = WTComponentBuilder.createIcon(
-          iconData: a['icon'],
+        iconWidget = Icon(
+          a['icon'],
           size: actionIconSize,
           color: actionIconColor
         );
       }
 
       if(a['label'] != null) {
-        labelWidget = WTComponentBuilder.createText(
-          text: a['label']!,
+        labelWidget = Text(
+          a['label']!,
           textAlign: TextAlign.center,
-            textStyle: WTHeaderBuilder.textStyle(
-            textColor: actionLabelColor,
-            fontSize: actionLabelSize
+          style: TextStyle(
+            color: actionLabelColor,
+            fontSize: actionLabelSize,
+            fontWeight: FontWeight.normal,
           ),
         );
       }
 
       if(a['linkLabel'] != null) {
-        linkLabelWidget = WTComponentBuilder.createText(
-          text: a['linkLabel']!,
+        linkLabelWidget = Text(
+          a['linkLabel']!,
           textAlign: TextAlign.center,
-          textStyle: WTHeaderBuilder.textStyle(
-            textColor: actionLinkLabelColor,
-            fontSize: actionLinkLabelSize
+          style: TextStyle(
+            color: actionLinkLabelColor,
+            fontSize: actionLinkLabelSize,
+            fontWeight: FontWeight.normal,
           ),
         );
       }
@@ -487,8 +487,8 @@ class _ComponentState extends State<ComponentWidget> {
               style: TextButton.styleFrom(
                 padding: const EdgeInsets.all(0.0),
               ),
-              icon: iconWidget ?? WTComponentBuilder.emptyComponent(),
-              label: labelWidget ?? linkLabelWidget ?? WTComponentBuilder.emptyComponent()!,
+              icon: iconWidget ?? emptyWidget,
+              label: labelWidget ?? linkLabelWidget ?? emptyWidget,
             ),
           ),
         );
@@ -533,7 +533,7 @@ class _ComponentState extends State<ComponentWidget> {
                       color: menuItemIconColor
                     ),
                   
-                 m['icon'] == null && m['label'] == null ? SizedBox.shrink() : WTComponentBuilder.sizedComponent(width: 5.0)!,
+                 m['icon'] == null && m['label'] == null ? SizedBox.shrink() : SizedBox(width: 5.0),
 
                 m['label'] == null 
                   ? SizedBox.shrink()

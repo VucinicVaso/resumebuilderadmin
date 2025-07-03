@@ -2,7 +2,7 @@ import 'package:resumebuilderadmin/core/logger/wtoolbox_logger.dart';
 import 'package:resumebuilderadmin/core/entity/message/message.dart';
 import '../message_out_repository.dart';
 
-class HiveMessageOutRepository extends MessageOutRepository {
+class MessageOutRepositoryImpl extends MessageOutRepository {
 
   @override
   Future<bool> insert(Message? entity) {

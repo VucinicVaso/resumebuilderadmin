@@ -1,23 +1,23 @@
 import 'package:resumebuilderadmin/core/logger/wtoolbox_logger.dart';
-import 'package:resumebuilderadmin/core/entity/message/message.dart';
-import '../message_in_repository.dart';
+import 'package:resumebuilderadmin/core/entity/account/account.dart';
+import '../account_repository.dart';
 
-class HiveMessageInRepository extends MessageInRepository {
+class AccountRepositoryImpl extends AccountRepository {
 
   @override
-  Future<bool> insert(Message? entity) {
+  Future<bool> insert(Account? entity) {
     // TODO: implement insert
     throw UnimplementedError();
   }
   
   @override
-  Future<bool> update(Message? entity) {
+  Future<bool> update(Account? entity) {
     // TODO: implement update
     throw UnimplementedError();
   }
 
   @override
-  Future<bool> delete(Message? entity) {
+  Future<bool> delete(Account? entity) {
     // TODO: implement delete
     throw UnimplementedError();
   }
@@ -29,13 +29,13 @@ class HiveMessageInRepository extends MessageInRepository {
   }
 
   @override
-  Future<List<Message>> getAll() {
+  Future<List<Account>> getAll() {
     // TODO: implement getAll
     throw UnimplementedError();
   }
 
   @override
-  Future<Message> getByKey(int? key) {
+  Future<Account> getByKey(int? key) {
     // TODO: implement getByKey
     throw UnimplementedError();
   }

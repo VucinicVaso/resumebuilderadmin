@@ -510,99 +510,63 @@ class _ComponentState extends State<ComponentWidget> {
 
     List<PopupMenuItem>? popupMenuItems = List.empty(growable: true);
     for(var m in menuItems!) {
-      if(m['icon'] != null && m['label'] == null) {
-        popupMenuItems.add(
-          PopupMenuItem(
-            onTap: m['action'],
+      popupMenuItems.add(
+        PopupMenuItem(
+          onTap: m['action'],
+          padding: const EdgeInsets.all(0.0),
+          child: Container(
+            color: menuBackgroundColor,
+            width: double.infinity,
+            alignment: Alignment.centerLeft,
             padding: const EdgeInsets.all(0.0),
-            child: Container(
-              color: menuBackgroundColor,
-              width: double.infinity,
-              alignment: Alignment.centerLeft,
-              padding: const EdgeInsets.all(0.0),
-              margin: const EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
-              child: WTComponentBuilder.createIcon(
-                iconData: m['icon'],
-                size: menuIconSize,
-                color: menuItemIconColor
-              ),
-            ),
-          )
-        );
-      }
+            margin: const EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                m['icon'] == null
+                  ? SizedBox.shrink()
+                  : Icon(
+                      m['icon'],
+                      size: menuIconSize,
+                      color: menuItemIconColor
+                    ),
+                  
+                 m['icon'] == null && m['label'] == null ? SizedBox.shrink() : WTComponentBuilder.sizedComponent(width: 5.0)!,
 
-      if(m['icon'] == null && m['label'] != null) {
-        popupMenuItems.add(
-          PopupMenuItem(
-            onTap: m['action'],
-            padding: const EdgeInsets.all(0.0),
-            child: Container(
-              color: menuBackgroundColor,
-              width: double.infinity,
-              alignment: Alignment.centerLeft,
-              padding: const EdgeInsets.all(0.0),
-              margin: const EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
-              child: WTComponentBuilder.createText(
-                text: m['label']!,
-                textAlign: TextAlign.left,
-                textStyle: WTHeaderBuilder.textStyle(
-                  textColor: menuItemIconColor,
-                  fontSize: menuLabelSize
-                ),
-              ),
-            ),
-          )
-        );
-      }
-
-      if(m['icon'] != null && m['label'] != null) {
-        popupMenuItems.add(
-          PopupMenuItem(
-            onTap: m['action'],
-            padding: const EdgeInsets.all(0.0),
-            child: Container(
-              color: menuBackgroundColor,
-              width: double.infinity,
-              alignment: Alignment.centerLeft,
-              padding: const EdgeInsets.all(0.0),
-              margin: const EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  WTComponentBuilder.createIcon(
-                    iconData: m['icon'],
-                    size: menuIconSize,
-                    color: menuItemIconColor
-                  )!,
-                  WTComponentBuilder.sizedComponent(width: 5.0)!,
-                  WTComponentBuilder.createText(
-                    text: m['label']!,
-                    textAlign: TextAlign.left,
-                    textStyle: WTHeaderBuilder.textStyle(
-                      textColor: menuItemIconColor,
-                      fontSize: menuLabelSize
-                    )
-                  )!,
+                m['label'] == null 
+                  ? SizedBox.shrink()
+                  : Text(
+                      m['label']!,
+                      textAlign: TextAlign.left,
+                      style: TextStyle(
+                        color: menuItemIconColor,
+                        fontSize: menuLabelSize,
+                        fontWeight: FontWeight.normal,
+                      ),
+                    ),
                 ],
               ),
             ),
           )
         );
-      }
     }
 
     return PopupMenuButton(
-      iconSize:    menuIconSize,
-      color:       menuBackgroundColor,
+      iconSize: menuIconSize,
+      color: menuBackgroundColor,
       shadowColor: menuBackgroundColor!,
-      padding:     const EdgeInsets.all(0.0),
+      padding: const EdgeInsets.all(0.0),
       menuPadding: const EdgeInsets.all(0.0),
-      position:    PopupMenuPosition.under,
-      onOpened:    () => setState(() { menuIconColor = Colors.blueGrey; }),
-      onCanceled:  () => setState(() { menuIconColor = widget.menuIconColor; }),
-      icon:        WTComponentBuilder.createIcon(iconData: menuIcon, size: menuIconSize, color: menuIconColor)!,
+      position: PopupMenuPosition.under,
+      onOpened: () => setState(() { menuIconColor = Colors.blueGrey; }),
+      onCanceled: () => setState(() { menuIconColor = widget.menuIconColor; }),
+      icon: Icon(
+        menuIcon, 
+        size: menuIconSize, 
+        color: menuIconColor
+      ),
       itemBuilder: (BuildContext context) => [ ...popupMenuItems ],
     );
   }

@@ -25,12 +25,12 @@ class WTDependencyContainerImpl extends WTDependencyContainer {
     await dotenv.load(fileName: dotenvFile!);
 
     Get.put<WTDevice>(WTDeviceImpl());
-    Get.put<WTEncryption>(WTEncryptionImpl());
     Get.put<WTTranslation>(WTTranslationImpl());
+    Get.put<WTThemeCatalog>(WTThemeCatalogImpl());
     Get.put<WTRouter>(WTRouterImpl());
     Get.put<WTNotifierService>(WTNotifierServiceImpl());
-    Get.put<WTHttpAdapter>(WTHttpAdapterImpl(dotenv.get('SSL_CERTIFICATE')));
-    Get.put<WTThemeCatalog>(WTThemeCatalogImpl());
+    Get.put<WTEncryption>(WTEncryptionImpl());
+    Get.put<WTHttpAdapter>(WTHttpAdapterImpl());
 
     WTComponentFactory? componentFactory1 = WTComponentFactoryImpl1()
       ..setTheme(Get.find<WTThemeCatalog>().themeExtension!);

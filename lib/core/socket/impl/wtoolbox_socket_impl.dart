@@ -1,3 +1,4 @@
+import 'package:resumebuilderadmin/core/external/lib_dotenv.dart';
 import 'package:resumebuilderadmin/core/external/lib_getx.dart';
 import 'package:resumebuilderadmin/core/external/lib_stomp.dart';
 import 'package:resumebuilderadmin/core/logger/wtoolbox_logger.dart';
@@ -5,6 +6,12 @@ import 'package:resumebuilderadmin/core/notifier/wtoolbox_notifier_service.dart'
 import '../wtoolbox_socket.dart';
 
 class WTSocketImpl extends WTSocket {
+
+  WTSocketImpl() {
+    setWebSocketAddress(dotenv.get('WS_ADDRESS'));
+    setSubscribeDestination(dotenv.get('WS_SUBSCRIBE_DESTIONATION'));
+    setSendDestionation(dotenv.get('WS_SEND_DESTINATION'));
+  }
 
   @override
   Future<void> start() async {
@@ -102,7 +109,7 @@ class WTSocketImpl extends WTSocket {
 
   @override
   void send({ Map<String, String>? headers, String? body }) {
-    client!.send(destination: messageSendAddress!, headers: headers, body: body);
+    client!.send(destination: sendDestination!, headers: headers, body: body);
   }
 
 }

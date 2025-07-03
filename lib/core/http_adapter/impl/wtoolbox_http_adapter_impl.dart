@@ -5,16 +5,14 @@ import '../wtoolbox_http_adapter.dart';
 
 class WTHttpAdapterImpl extends WTHttpAdapter {
 
-  WTHttpAdapterImpl(String? certificate) {}
-
   @override
   Future<dynamic> post(String? url, Map<String, String>? headers, Map<String, dynamic>? body) async {
     try {
       Uri uri = Uri.parse(url!);
 
       Map<String, String> headersMap = <String, String>{};
-      headersMap['Content-Type'] = 'application/json; charset=UTF-8';
-      headersMap['Charset']      = 'utf-8';
+      headersMap['Content-Type']     = 'application/json; charset=UTF-8';
+      headersMap['Charset']          = 'utf-8';
       if(headers!.isNotEmpty) { headersMap.addAll(headers); }
 
       String encodedBody = jsonEncode(body);
@@ -35,8 +33,8 @@ class WTHttpAdapterImpl extends WTHttpAdapter {
       Uri uri = Uri.parse(url!);
       
       Map<String, String> headersMap = <String, String>{};
-      headersMap['Content-Type'] = 'application/json; charset=UTF-8';
-      headersMap['Charset']      = 'utf-8';
+      headersMap['Content-Type']     = 'application/json; charset=UTF-8';
+      headersMap['Charset']          = 'utf-8';
       if(headers!.isNotEmpty) { headersMap.addAll(headers); }
 
       final http.Response response = await http.get(uri, headers: headers);

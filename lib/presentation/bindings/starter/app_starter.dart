@@ -9,7 +9,7 @@ class AppStarter extends WTApplicationStarter {
   Future<void> register() async {
     setTitle('ResumeBuilderAdmin');
     setSettings({});
-    subscribeObserver(AppNotifier());
+    subscribeNotifier(AppNotifier());
     registerTranslations(AppTranslations());
     registerRoutes(AppRoutes());
   }
@@ -18,7 +18,7 @@ class AppStarter extends WTApplicationStarter {
   Future<void> unregister() async {
     unregisterTranslations();
     unregisterRoutes();
-    unsubscribeObserver();
+    unsubscribeNotifier();
   }
   
 }

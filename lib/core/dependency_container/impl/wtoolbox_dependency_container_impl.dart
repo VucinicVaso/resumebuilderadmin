@@ -6,6 +6,8 @@ import 'package:resumebuilderadmin/core/device/wtoolbox_device.dart';
 import 'package:resumebuilderadmin/core/device/impl/wtoolbox_device_impl.dart';
 import 'package:resumebuilderadmin/core/notifier/wtoolbox_notifier_service.dart';
 import 'package:resumebuilderadmin/core/notifier/impl/wtoolbox_notifier_service_impl.dart';
+import 'package:resumebuilderadmin/core/application_starter/wtoolbox_application_starter_service.dart';
+import 'package:resumebuilderadmin/core/application_starter/impl/wtoolbox_application_starter_service_impl.dart';
 import 'package:resumebuilderadmin/core/router/wtoolbox_router.dart';
 import 'package:resumebuilderadmin/core/router/impl/wtoolbox_router_impl.dart';
 import 'package:resumebuilderadmin/core/translation/wtoolbox_translation.dart';
@@ -27,6 +29,7 @@ class WTDependencyContainerImpl extends WTDependencyContainer {
     Get.put<WTDevice>(WTDeviceImpl());
     Get.put<WTTranslation>(WTTranslationImpl());
     Get.put<WTThemeCatalog>(WTThemeCatalogImpl());
+    Get.put<WTApplicationStarterService>(WTApplicationStarterServiceImpl());
     Get.put<WTRouter>(WTRouterImpl());
     Get.put<WTNotifierService>(WTNotifierServiceImpl());
     Get.put<WTEncryption>(WTEncryptionImpl());
@@ -45,6 +48,7 @@ class WTDependencyContainerImpl extends WTDependencyContainer {
     await Get.delete<WTTranslation>(force: true);
     await Get.delete<WTThemeCatalog>(force: true);
     await Get.delete<WTRouter>(force: true);
+    await Get.delete<WTApplicationStarterService>(force: true);
     await Get.delete<WTComponentFactory>(force: true);
     await Get.delete<WTHttpAdapter>(force: true);    
     dotenv.clean();

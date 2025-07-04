@@ -58,7 +58,6 @@ class AppEnUsTranslations extends WTTranslations {
       "loginOptionFingerprint": "Fingerprint",
       "loginOptionFace": "Face",
       "biometricsMessage": "Please authenticate to access the application.",
-      "testText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       "uploadFile": "Upload files",
       "chooseFile": "Choose files to upload",
       "selectedFiles": "Selected files",
@@ -73,9 +72,6 @@ class AppEnUsTranslations extends WTTranslations {
       "stompError2": "Auth token is invalid.",
       "stompError3": "'Unknown Websocket connection error.",
       "stompError4": "Websocket connection error.",
-      // currency symbols
-      "currencySymbolEuro": "@value \u{20AC}",
-      "currencySymbolDollar": "\$ @value",
       // validation
       "emptySpaceValidator": "''@value'' contains empty space.",
       "emailValidator": "''@value'' is not a valid email.",
@@ -86,8 +82,6 @@ class AppEnUsTranslations extends WTTranslations {
       "nonAlphanumericValidator": "''@value'' contains non-alphanumeric characters.",
       "invalidValidator": "''@value'' is invalid.",
       "negativeValidator": "''@value'' must not be negative.",
-      // other
-      "flyMenuAwaitLabel": "Wait for the result...",
     },
   };
 

@@ -58,7 +58,6 @@ class AppMeMneTranslations extends WTTranslations {
       "loginOptionFingerprint": "Otisak prsta",
       "loginOptionFace": "Lice",
       "biometricsMessage": "Molimo potvrdite autentičnost da biste pristupili aplikaciji.",
-      "testText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       "uploadFile": "Dodaj fajlove",
       "chooseFile": "Odaberite fajlove za otpremanje",
       "selectedFiles": "Odabrani fajlovi",
@@ -73,9 +72,6 @@ class AppMeMneTranslations extends WTTranslations {
       "stompError2": "Auth token nije validan.",
       "stompError3": "Nepoznata Websocket greška.",
       "stompError4": "Greška prilikom uspostavljanja Websocket konekcije.",
-      // currency symbols
-      "currencySymbolEuro": "@value \u{20AC}",
-      "currencySymbolDollar": "\$ @value",
       // validation
       "emptySpaceValidator": "''@value'' sadrži prazan prostor.",
       "emailValidator": "''@value'' nije validan email.",
@@ -86,8 +82,6 @@ class AppMeMneTranslations extends WTTranslations {
       "nonAlphanumericValidator": "''@value'' sadrži nealfanumeričke znakove.",
       "invalidValidator": "''@value'' nije validan.",
       "negativeValidator": "''@value'' ne smije biti negativna.",
-      // other
-      "flyMenuAwaitLabel": "Sačekajte rezultat...",
     },
   };
 

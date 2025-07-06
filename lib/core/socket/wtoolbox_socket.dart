@@ -5,6 +5,11 @@ abstract class WTSocket {
 
   StompClient? client;
 
+  int? reconnectDelayTime, heartbeatIncomingTime, heartbeatOutgoingTime;
+  void setReconnectDelayTime(int? v) { reconnectDelayTime = v; }
+  void setHeartbeatIncomingTime(int? v) { heartbeatIncomingTime = v; }
+  void setHeartbeatOutgoingTime(int? v) { heartbeatOutgoingTime = v; }
+
   String? wsAddress;
   void setWebSocketAddress(String? value) { wsAddress = value; }
 

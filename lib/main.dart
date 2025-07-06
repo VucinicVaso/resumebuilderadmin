@@ -39,5 +39,6 @@ Future<void> initRoutes() async {
 
 Future<void> initApplications() async {
   var applicationService = Get.find<WTApplicationStarterService>();
+  
   applicationService.registerInitialApplicationStarter(AppStarter());
 }

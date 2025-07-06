@@ -8,6 +8,9 @@ import '../wtoolbox_socket.dart';
 class WTSocketImpl extends WTSocket {
 
   WTSocketImpl() {
+    setReconnectDelayTime(5);
+    setHeartbeatIncomingTime(5);
+    setHeartbeatOutgoingTime(10);
     setWebSocketAddress(dotenv.get('WS_ADDRESS'));
     setSubscribeDestination(dotenv.get('WS_SUBSCRIBE_DESTIONATION'));
     setSendDestionation(dotenv.get('WS_SEND_DESTINATION'));
@@ -17,29 +20,29 @@ class WTSocketImpl extends WTSocket {
   Future<void> start() async {
     StompConfig stompConfig = StompConfig(
       url: wsAddress!,
-      reconnectDelay: const Duration(seconds: 5),
-      heartbeatIncoming: const Duration(seconds: 5),
-      heartbeatOutgoing: const Duration(seconds: 10),
+      reconnectDelay: Duration(seconds: reconnectDelayTime!),
+      heartbeatIncoming: Duration(seconds: heartbeatIncomingTime!),
+      heartbeatOutgoing: Duration(seconds: heartbeatOutgoingTime!),
       stompConnectHeaders: clientHeaders,
       webSocketConnectHeaders: clientHeaders,
       onConnect: onConnect,
       onStompError: (StompFrame sF) {
-        WTLogger.write('WTSocket.connect() onStompError: headers: ${sF.headers}, body: ${sF.body}');
+        WTLogger.write('WTSocket.start() onStompError: headers: ${sF.headers}, body: ${sF.body}');
       },
       onDisconnect: (StompFrame sF) {
-        WTLogger.write('WTSocket.connect() onDisconnect: headers: ${sF.headers}, body: ${sF.body}');
+        WTLogger.write('WTSocket.start() onDisconnect: headers: ${sF.headers}, body: ${sF.body}');
       },
       onUnhandledFrame: (StompFrame sF) {
-        WTLogger.write('WTSocket.connect() onUnhandledFrame: headers: ${sF.headers}, body: ${sF.body}');
+        WTLogger.write('WTSocket.start() onUnhandledFrame: headers: ${sF.headers}, body: ${sF.body}');
       },
       onUnhandledMessage: (StompFrame sF) {
-        WTLogger.write('WTSocket.connect() onUnhandledMessage: headers: ${sF.headers}, body: ${sF.body}');
+        WTLogger.write('WTSocket.start() onUnhandledMessage: headers: ${sF.headers}, body: ${sF.body}');
       },
       onUnhandledReceipt: (StompFrame sF) {
-        WTLogger.write('WTSocket.connect() onUnhandledReceipt: headers: ${sF.headers}, body: ${sF.body}');
+        WTLogger.write('WTSocket.start() onUnhandledReceipt: headers: ${sF.headers}, body: ${sF.body}');
       },
       onWebSocketError: (dynamic e) {
-        WTLogger.write('WTSocket.connect() onWebSocketError: ${e.toString()}');
+        WTLogger.write('WTSocket.start() onWebSocketError: ${e.toString()}');
       },
       onDebugMessage: onError,
     );
@@ -87,7 +90,7 @@ class WTSocketImpl extends WTSocket {
 
   @override
   void onConnect(StompFrame sF) async {
-    WTLogger.write('WTSocket.onStart() connected to: $wsAddress.');
+    WTLogger.write('WTSocket.onConnect() address: $wsAddress, destination: $subscribeDestination');
     isConnected(true);
 
     client!.subscribe(

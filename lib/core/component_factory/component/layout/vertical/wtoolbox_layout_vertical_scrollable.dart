@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../wtoolbox_layout.dart';
 
-class WTLayoutVertical extends WTLayout {
+class WTLayoutVerticalScrollable extends WTLayout {
 
   @override
   Widget? build() {
@@ -12,12 +12,14 @@ class WTLayoutVertical extends WTLayout {
       margin: margin,
       width: width,
       alignment: alignment,
-      child: Column(
-        mainAxisAlignment: mainAxisAlignment!,
-        crossAxisAlignment: crossAxisAlignment!,
-        children: <Widget>[
-          ...components!,
-        ],
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: mainAxisAlignment!,
+          crossAxisAlignment: crossAxisAlignment!,
+          children: <Widget>[
+            ...components!,
+          ],
+        ),
       ),
     );
   }

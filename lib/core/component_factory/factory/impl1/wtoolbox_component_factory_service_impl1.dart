@@ -11,6 +11,9 @@ import '../../component/divider/horizontal/wtoolbox_divider_component_horizontal
 import '../../component/layout/wtoolbox_layout.dart';
 import '../../component/layout/horizontal/wtoolbox_layout_horizontal.dart';
 import '../../component/layout/vertical/wtoolbox_layout_vertical.dart';
+import '../../component/layout/vertical/wtoolbox_layout_vertical_scrollable.dart';
+import '../../component/layout/vertical/wtoolbox_layout_vertical_expandable.dart';
+import '../../component/layout/vertical/wtoolbox_layout_vertical_expandable_and_scrollable.dart';
 import '../../component/scaffold/wtoolbox_scaffold.dart';
 import '../../component/scaffold/impl/wtoolbox_scaffold_impl.dart';
 import '../../component/header/wtoolbox_header.dart';
@@ -234,7 +237,7 @@ class WTComponentFactoryImpl1 extends WTComponentFactory {
           ..setCrossAxisAlignment(CrossAxisAlignment.center);
         return component;
       case WTLayoutType.verticalScrollable:
-        var component = WTLayoutVertical()
+        var component = WTLayoutVerticalScrollable()
           ..setBuildContext(getCurrentContext())
           ..setWidth(deviceWidth!)
           ..setHeight(deviceHeight!)
@@ -247,7 +250,7 @@ class WTComponentFactoryImpl1 extends WTComponentFactory {
           ..setCrossAxisAlignment(CrossAxisAlignment.center);
         return component;
       case WTLayoutType.verticalFlatScrollable:
-        var component = WTLayoutVertical()
+        var component = WTLayoutVerticalScrollable()
           ..setBuildContext(getCurrentContext())
           ..setWidth(deviceWidth!)
           ..setHeight(deviceHeight!)
@@ -260,7 +263,7 @@ class WTComponentFactoryImpl1 extends WTComponentFactory {
           ..setCrossAxisAlignment(CrossAxisAlignment.center);
         return component;
       case WTLayoutType.verticalExpanded:
-        var component = WTLayoutVertical()
+        var component = WTLayoutVerticalExpandable()
           ..setBuildContext(getCurrentContext())
           ..setWidth(deviceWidth!)
           ..setHeight(deviceHeight!)
@@ -273,7 +276,7 @@ class WTComponentFactoryImpl1 extends WTComponentFactory {
           ..setCrossAxisAlignment(CrossAxisAlignment.center);
         return component;
       case WTLayoutType.verticalFlatExpanded:
-        var component = WTLayoutVertical()
+        var component = WTLayoutVerticalExpandable()
           ..setBuildContext(getCurrentContext())
           ..setWidth(deviceWidth!)
           ..setHeight(deviceHeight!)
@@ -286,7 +289,7 @@ class WTComponentFactoryImpl1 extends WTComponentFactory {
           ..setCrossAxisAlignment(CrossAxisAlignment.center);
         return component;
       case WTLayoutType.verticalExpandedAndScrollable:
-        var component = WTLayoutVertical()
+        var component = WTLayoutVerticalExpandableAndScrollable()
           ..setBuildContext(getCurrentContext())
           ..setWidth(deviceWidth!)
           ..setHeight(deviceHeight!)
@@ -300,7 +303,7 @@ class WTComponentFactoryImpl1 extends WTComponentFactory {
           ..setCrossAxisAlignment(CrossAxisAlignment.center);
         return component;
       case WTLayoutType.verticalFlatExpandedAndScrollable:
-        var component = WTLayoutVertical()
+        var component = WTLayoutVerticalExpandableAndScrollable()
           ..setBuildContext(getCurrentContext())
           ..setWidth(deviceWidth!)
           ..setHeight(deviceHeight!)

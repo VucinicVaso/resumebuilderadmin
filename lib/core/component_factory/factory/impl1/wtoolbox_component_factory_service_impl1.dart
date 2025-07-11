@@ -13,7 +13,7 @@ import '../../component/layout/horizontal/wtoolbox_layout_horizontal.dart';
 import '../../component/layout/vertical/wtoolbox_layout_vertical.dart';
 import '../../component/layout/vertical/wtoolbox_layout_vertical_scrollable.dart';
 import '../../component/layout/vertical/wtoolbox_layout_vertical_expanded.dart';
-import '../../component/layout/vertical/wtoolbox_layout_vertical_expandable_and_scrollable.dart';
+import '../../component/layout/vertical/wtoolbox_layout_vertical_expanded_and_scrollable.dart';
 import '../../component/scaffold/wtoolbox_scaffold.dart';
 import '../../component/scaffold/impl/wtoolbox_scaffold_impl.dart';
 import '../../component/header/wtoolbox_header.dart';

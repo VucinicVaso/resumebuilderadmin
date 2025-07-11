@@ -1,6 +1,6 @@
 import 'package:resumebuilderadmin/core/logger/wtoolbox_logger.dart';
-import 'package:resumebuilderadmin/core/entity/account/account.dart';
-import '../account_repository.dart';
+import '../../../domain/entity/account/account.dart';
+import '../../../domain/repository/account/account_repository.dart';
 
 class AccountRepositoryImpl extends AccountRepository {
 

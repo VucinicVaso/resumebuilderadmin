@@ -2,8 +2,6 @@ import 'package:resumebuilderadmin/core/external/lib_getx.dart';
 import 'package:resumebuilderadmin/core/external/lib_dotenv.dart';
 import 'package:resumebuilderadmin/core/encryption/wtoolbox_encryption.dart';
 import 'package:resumebuilderadmin/core/encryption/impl/wtoolbox_encryption_impl.dart';
-import 'package:resumebuilderadmin/core/device/wtoolbox_device.dart';
-import 'package:resumebuilderadmin/core/device/impl/wtoolbox_device_impl.dart';
 import 'package:resumebuilderadmin/core/notifier/wtoolbox_notifier_service.dart';
 import 'package:resumebuilderadmin/core/notifier/impl/wtoolbox_notifier_service_impl.dart';
 import 'package:resumebuilderadmin/core/application_starter/wtoolbox_application_starter_service.dart';
@@ -26,7 +24,6 @@ class WTDependencyContainerImpl extends WTDependencyContainer {
   Future<void> register({ String? dotenvFile }) async {
     await dotenv.load(fileName: dotenvFile!);
 
-    Get.put<WTDevice>(WTDeviceImpl());
     Get.put<WTTranslation>(WTTranslationImpl());
     Get.put<WTThemeCatalog>(WTThemeCatalogImpl());
     Get.put<WTApplicationStarterService>(WTApplicationStarterServiceImpl());
@@ -42,7 +39,6 @@ class WTDependencyContainerImpl extends WTDependencyContainer {
 
   @override
   Future<void> unregister() async {
-    await Get.delete<WTDevice>(force: true);
     await Get.delete<WTEncryption>(force: true);
     await Get.delete<WTNotifierService>(force: true);
     await Get.delete<WTTranslation>(force: true);

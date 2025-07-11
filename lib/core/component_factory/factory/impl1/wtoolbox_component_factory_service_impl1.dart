@@ -12,7 +12,7 @@ import '../../component/layout/wtoolbox_layout.dart';
 import '../../component/layout/horizontal/wtoolbox_layout_horizontal.dart';
 import '../../component/layout/vertical/wtoolbox_layout_vertical.dart';
 import '../../component/layout/vertical/wtoolbox_layout_vertical_scrollable.dart';
-import '../../component/layout/vertical/wtoolbox_layout_vertical_expandable.dart';
+import '../../component/layout/vertical/wtoolbox_layout_vertical_expanded.dart';
 import '../../component/layout/vertical/wtoolbox_layout_vertical_expandable_and_scrollable.dart';
 import '../../component/scaffold/wtoolbox_scaffold.dart';
 import '../../component/scaffold/impl/wtoolbox_scaffold_impl.dart';
@@ -200,18 +200,6 @@ class WTComponentFactoryImpl1 extends WTComponentFactory {
           ..setMainAxisAlignment(MainAxisAlignment.center)
           ..setCrossAxisAlignment(CrossAxisAlignment.center);
         return component;
-      case WTLayoutType.horizontalFlat:
-        var component = WTLayoutHorizontal()
-          ..setBuildContext(getCurrentContext())
-          ..setWidth(deviceWidth!)
-          ..setHeight(deviceHeight!)
-          ..setAlignment(null)
-          ..setPadding(left: 0.0, top: 0.0, right: 0.0, bottom: 0.0)
-          ..setMargin(left: 0.0, top: 0.0, right: 0.0, bottom: 0.0)
-          ..setBackgroundColor(Colors.transparent)
-          ..setMainAxisAlignment(MainAxisAlignment.center)
-          ..setCrossAxisAlignment(CrossAxisAlignment.center);
-        return component;
       case WTLayoutType.vertical:
         var component = WTLayoutVertical()
           ..setBuildContext(getCurrentContext())
@@ -219,18 +207,6 @@ class WTComponentFactoryImpl1 extends WTComponentFactory {
           ..setHeight(deviceHeight!)
           ..setAlignment(null)
           ..setPadding(left: 7.5, top: 12.5, right: 7.5, bottom: 12.5)
-          ..setMargin(left: 0.0, top: 0.0, right: 0.0, bottom: 0.0)
-          ..setBackgroundColor(Colors.transparent)
-          ..setMainAxisAlignment(MainAxisAlignment.start)
-          ..setCrossAxisAlignment(CrossAxisAlignment.center);
-        return component;
-      case WTLayoutType.verticalFlat:
-        var component = WTLayoutVertical()
-          ..setBuildContext(getCurrentContext())
-          ..setWidth(deviceWidth!)
-          ..setHeight(deviceHeight!)
-          ..setAlignment(null)
-          ..setPadding(left: 0.0, top: 0.0, right: 0.0, bottom: 0.0)
           ..setMargin(left: 0.0, top: 0.0, right: 0.0, bottom: 0.0)
           ..setBackgroundColor(Colors.transparent)
           ..setMainAxisAlignment(MainAxisAlignment.start)
@@ -249,47 +225,21 @@ class WTComponentFactoryImpl1 extends WTComponentFactory {
           ..setMainAxisAlignment(MainAxisAlignment.start)
           ..setCrossAxisAlignment(CrossAxisAlignment.center);
         return component;
-      case WTLayoutType.verticalFlatScrollable:
-        var component = WTLayoutVerticalScrollable()
-          ..setBuildContext(getCurrentContext())
-          ..setWidth(deviceWidth!)
-          ..setHeight(deviceHeight!)
-          ..setScrollable()
-          ..setAlignment(null)
-          ..setPadding(left: 0.0, top: 0.0, right: 0.0, bottom: 0.0)
-          ..setMargin(left: 0.0, top: 0.0, right: 0.0, bottom: 0.0)
-          ..setBackgroundColor(Colors.transparent)
-          ..setMainAxisAlignment(MainAxisAlignment.start)
-          ..setCrossAxisAlignment(CrossAxisAlignment.center);
-        return component;
       case WTLayoutType.verticalExpanded:
-        var component = WTLayoutVerticalExpandable()
+        var component = WTLayoutVerticalExpanded()
           ..setBuildContext(getCurrentContext())
           ..setWidth(deviceWidth!)
           ..setHeight(deviceHeight!)
           ..setExpandable()
           ..setAlignment(null)
           ..setPadding(left: 7.5, top: 12.5, right: 7.5, bottom: 12.5)
-          ..setMargin(left: 0.0, top: 0.0, right: 0.0, bottom: 0.0)
-          ..setBackgroundColor(Colors.transparent)
-          ..setMainAxisAlignment(MainAxisAlignment.start)
-          ..setCrossAxisAlignment(CrossAxisAlignment.center);
-        return component;
-      case WTLayoutType.verticalFlatExpanded:
-        var component = WTLayoutVerticalExpandable()
-          ..setBuildContext(getCurrentContext())
-          ..setWidth(deviceWidth!)
-          ..setHeight(deviceHeight!)
-          ..setExpandable()
-          ..setAlignment(null)
-          ..setPadding(left: 0.0, top: 0.0, right: 0.0, bottom: 0.0)
           ..setMargin(left: 0.0, top: 0.0, right: 0.0, bottom: 0.0)
           ..setBackgroundColor(Colors.transparent)
           ..setMainAxisAlignment(MainAxisAlignment.start)
           ..setCrossAxisAlignment(CrossAxisAlignment.center);
         return component;
       case WTLayoutType.verticalExpandedAndScrollable:
-        var component = WTLayoutVerticalExpandableAndScrollable()
+        var component = WTLayoutVerticalExpandedAndScrollable()
           ..setBuildContext(getCurrentContext())
           ..setWidth(deviceWidth!)
           ..setHeight(deviceHeight!)
@@ -297,20 +247,6 @@ class WTComponentFactoryImpl1 extends WTComponentFactory {
           ..setScrollable()
           ..setAlignment(null)
           ..setPadding(left: 7.5, top: 12.5, right: 7.5, bottom: 12.5)
-          ..setMargin(left: 0.0, top: 0.0, right: 0.0, bottom: 0.0)
-          ..setBackgroundColor(Colors.transparent)
-          ..setMainAxisAlignment(MainAxisAlignment.start)
-          ..setCrossAxisAlignment(CrossAxisAlignment.center);
-        return component;
-      case WTLayoutType.verticalFlatExpandedAndScrollable:
-        var component = WTLayoutVerticalExpandableAndScrollable()
-          ..setBuildContext(getCurrentContext())
-          ..setWidth(deviceWidth!)
-          ..setHeight(deviceHeight!)
-          ..setExpandable()
-          ..setScrollable()
-          ..setAlignment(null)
-          ..setPadding(left: 0.0, top: 0.0, right: 0.0, bottom: 0.0)
           ..setMargin(left: 0.0, top: 0.0, right: 0.0, bottom: 0.0)
           ..setBackgroundColor(Colors.transparent)
           ..setMainAxisAlignment(MainAxisAlignment.start)

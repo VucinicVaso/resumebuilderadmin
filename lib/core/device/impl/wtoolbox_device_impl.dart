@@ -7,10 +7,6 @@ import '../wtoolbox_device.dart';
 
 class WTDeviceImpl extends WTDevice {
 
-  WTDeviceImpl() {
-    getDeviceData();
-  }
-
   @override
   Future<void> getDeviceData() async {
     final DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();

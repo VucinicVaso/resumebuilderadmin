@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:resumebuilderadmin/core/external/lib_getx.dart';
-import 'package:resumebuilderadmin/core/mvc/view/wtoolbox_view.dart';
+import 'package:resumebuilderadmin/core/clean_architecture/view/wtoolbox_view.dart';
 import 'package:resumebuilderadmin/core/component_factory/type/impl1/wtoolbox_component_type.dart';
 import '../../controller/registration/registration_controller.dart';
 

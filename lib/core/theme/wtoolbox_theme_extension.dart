@@ -39,11 +39,11 @@ class WTThemeExtension extends ThemeExtension<WTThemeExtension> {
   });
 
   Color? background1, background2,
-         text1, text2, text3, text4, text5,
-         primary1, primary2, primary3, primary4, primary5,
-         error1, error2, error3, error4, error5,
-         success1, success2, success3, success4, success5,
-         shade1, shade2, shade3, shade4, shade5, shade6, shade7, shade8, shade9, shade10;
+    text1, text2, text3, text4, text5,
+    primary1, primary2, primary3, primary4, primary5,
+    error1, error2, error3, error4, error5,
+    success1, success2, success3, success4, success5,
+    shade1, shade2, shade3, shade4, shade5, shade6, shade7, shade8, shade9, shade10;
 
   @override
   ThemeExtension<WTThemeExtension> copyWith({

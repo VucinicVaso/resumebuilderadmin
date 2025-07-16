@@ -12,10 +12,12 @@ import 'package:resumebuilderadmin/core/translation/wtoolbox_translation.dart';
 import 'package:resumebuilderadmin/core/translation/impl/wtoolbox_translation_impl.dart';
 import 'package:resumebuilderadmin/core/http_adapter/wtoolbox_http_adapter.dart';
 import 'package:resumebuilderadmin/core/http_adapter/impl/wtoolbox_http_adapter_impl.dart';
-import 'package:resumebuilderadmin/core/theme/wtoolbox_theme_catalog.dart';
+import 'package:resumebuilderadmin/core/theme/wtoolbox_theme_service.dart';
 import 'package:resumebuilderadmin/core/theme/impl/wtoolbox_theme_service_impl.dart';
 import 'package:resumebuilderadmin/core/component_factory/factory/wtoolbox_component_factory.dart';
 import 'package:resumebuilderadmin/core/component_factory/factory/impl1/wtoolbox_component_factory_service_impl1.dart';
+import 'package:resumebuilderadmin/core/file_manager/wtoolbox_file_manager.dart';
+import 'package:resumebuilderadmin/core/file_manager/impl/wtoolbox_file_manager_impl.dart';
 import '../wtoolbox_dependency_container.dart';
 
 class WTDependencyContainerImpl extends WTDependencyContainer {
@@ -25,15 +27,16 @@ class WTDependencyContainerImpl extends WTDependencyContainer {
     await dotenv.load(fileName: dotenvFile!);
 
     Get.put<WTTranslation>(WTTranslationImpl());
-    Get.put<WTThemeCatalog>(WTThemeCatalogImpl());
+    Get.put<WTThemeService>(WTThemeServiceImpl());
     Get.put<WTApplicationStarterService>(WTApplicationStarterServiceImpl());
     Get.put<WTRouter>(WTRouterImpl());
     Get.put<WTNotifierService>(WTNotifierServiceImpl());
     Get.put<WTEncryption>(WTEncryptionImpl());
     Get.put<WTHttpAdapter>(WTHttpAdapterImpl());
+    Get.put<WTFileManager>(WTFileManagerImpl());
 
     WTComponentFactory? componentFactory1 = WTComponentFactoryImpl1()
-      ..setTheme(Get.find<WTThemeCatalog>().themeExtension!);
+      ..setTheme(Get.find<WTThemeService>().themeExtension!);
     Get.put<WTComponentFactory>(componentFactory1);
   }
 
@@ -42,11 +45,12 @@ class WTDependencyContainerImpl extends WTDependencyContainer {
     await Get.delete<WTEncryption>(force: true);
     await Get.delete<WTNotifierService>(force: true);
     await Get.delete<WTTranslation>(force: true);
-    await Get.delete<WTThemeCatalog>(force: true);
+    await Get.delete<WTThemeService>(force: true);
     await Get.delete<WTRouter>(force: true);
     await Get.delete<WTApplicationStarterService>(force: true);
     await Get.delete<WTComponentFactory>(force: true);
-    await Get.delete<WTHttpAdapter>(force: true);    
+    await Get.delete<WTHttpAdapter>(force: true);
+    await Get.delete<WTFileManager>(force: true);  
     dotenv.clean();
   }
 

@@ -16,4 +16,5 @@ abstract class WTEntity<T> {
   T? fromJson(Map<dynamic, dynamic>? json);
 
   T? empty();
+
 }

@@ -11,8 +11,6 @@ abstract class WTNotifierService {
 
   void notifySubscriber(Map<String, dynamic>? message);
 
-  Future<void> checkForUnSendMessages();
-
   Future<void> send({ Map<String, String>? headers, Map<String, dynamic>? body });
 
   Future<void> receive({ Map<String, String>? headers, String? body });

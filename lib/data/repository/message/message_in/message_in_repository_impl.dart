@@ -1,8 +1,8 @@
 import 'package:resumebuilderadmin/core/logger/wtoolbox_logger.dart';
-import '../../../domain/entity/account/account.dart';
-import '../../../domain/repository/account/account_repository.dart';
+import 'package:resumebuilderadmin/domain/entity/message/message.dart';
+import 'package:resumebuilderadmin/domain/repository/message/message_in/message_in_repository.dart';
 
-class AccountRepositoryImpl extends AccountRepository {
+class MessageInRepositoryImpl extends MessageInRepository {
 
   @override
   Future<bool?> init(int? accountKey) {
@@ -17,19 +17,19 @@ class AccountRepositoryImpl extends AccountRepository {
   }
 
   @override
-  Future<bool?> insert(Account? entity) {
+  Future<bool?> insert(Message? entity) {
     // TODO: implement insert
     throw UnimplementedError();
   }
   
   @override
-  Future<bool?> update(Account? entity) {
+  Future<bool?> update(Message? entity) {
     // TODO: implement update
     throw UnimplementedError();
   }
 
   @override
-  Future<bool?> delete(Account? entity) {
+  Future<bool?> delete(Message? entity) {
     // TODO: implement delete
     throw UnimplementedError();
   }
@@ -41,13 +41,13 @@ class AccountRepositoryImpl extends AccountRepository {
   }
 
   @override
-  Future<Account?> getByKey(int? key) {
+  Future<Message?> getByKey(int? key) {
     // TODO: implement getByKey
     throw UnimplementedError();
   }
 
   @override
-  Future<List<Account>?> getAll() {
+  Future<List<Message>?> getAll() {
     // TODO: implement getAll
     throw UnimplementedError();
   }

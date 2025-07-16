@@ -1,4 +1,4 @@
-import 'package:resumebuilderadmin/core/entity/wtoolbox_entity.dart';
+import 'package:resumebuilderadmin/core/clean_architecture/entity/wtoolbox_entity.dart';
 
 class Message extends WTEntity<Message> {
 

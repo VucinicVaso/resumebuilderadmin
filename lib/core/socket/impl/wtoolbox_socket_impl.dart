@@ -98,14 +98,12 @@ class WTSocketImpl extends WTSocket {
       headers: clientHeaders, 
       callback: (f) async => await receive(f)
     );
-
-    await Get.find<WTNotifierService>().checkForUnSendMessages();
   }
 
   @override
   Future<void> receive(StompFrame sF) async {
     Map<String, String> headers = sF.headers;
-    String? body = String.fromCharCodes(sF.binaryBody!);
+    String? body                = String.fromCharCodes(sF.binaryBody!);
 
     await Get.find<WTNotifierService>().receive(headers: headers, body: body);
   }

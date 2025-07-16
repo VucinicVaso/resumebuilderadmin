@@ -41,6 +41,7 @@ class WTApplicationStarterServiceImpl extends WTApplicationStarterService {
     for(var s in starters!) { 
       await s.unregister(); 
     }
+    starters!.clear();
   }
 
 }

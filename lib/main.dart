@@ -5,7 +5,7 @@ import 'core/router/wtoolbox_router.dart';
 import 'core/application_starter/wtoolbox_application_starter_service.dart';
 import 'core/theme/wtoolbox_theme_service.dart';
 import 'core/translation/wtoolbox_translation.dart';
-import 'presentation/bindings/starter/app_starter.dart';
+import 'presentation/bindings/application_starter/app_starter.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

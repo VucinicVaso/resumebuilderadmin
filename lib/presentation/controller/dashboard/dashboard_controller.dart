@@ -17,4 +17,8 @@ class DashboardController extends WTController<DashboardController> {
   @override
   Future<void> listener(Map<String, dynamic>? message) async {}
 
+  Future<void> logout() async {
+    await navigateOff(route: '/');
+  }
+
 }

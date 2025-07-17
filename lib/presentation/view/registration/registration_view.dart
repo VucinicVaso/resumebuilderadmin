@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:resumebuilderadmin/core/external/lib_getx.dart';
+import 'package:resumebuilderadmin/core/external/lib_material_symbols.dart';
 import 'package:resumebuilderadmin/core/clean_architecture/view/wtoolbox_view.dart';
 import 'package:resumebuilderadmin/core/component_factory/type/impl1/wtoolbox_component_type.dart';
 import '../../controller/registration/registration_controller.dart';
@@ -16,22 +17,35 @@ class RegistrationView extends WTView<RegistrationController> {
   }
 
   Widget? createSignInView(RegistrationController? con) {
-    return Text('RegistrationView.createSignInView \n Hello World! \n width: ${componentFactory!.deviceWidth}, height: ${componentFactory!.deviceHeight}');
+    var usernameField = componentFactory!.createFormInputFiled(WTFormInputFieldType.text)!
+      ..setController(con!.usernameController)
+      ..setValidator(con.usernameValidator)
+      ..setLabel('Username:')
+      ..setPrefix(iconData: Symbols.account_circle);
+
+    var passwordField = componentFactory!.createFormInputFiled(WTFormInputFieldType.text)!
+      ..setController(con.passwordController)
+      ..setLabel('Password:')
+      ..setValidator(con.passwordValidator)
+      ..setPrefix(iconData: Symbols.password);
+
+    var form = componentFactory!.createForm(WTFormType.basic)!
+      ..setFormKey(con.formKey)
+      ..addField(key: 'username', order: 0, inputField: usernameField)
+      ..addField(key: 'password', order: 1, inputField: passwordField);
+
+    var layout = componentFactory!.createLayout(WTLayoutType.verticalExpanded)!
+      ..setBackgroundColor(Colors.orange) //delete
+      ..addComponent(Text('RegistrationView.createSignInView \n Hello World! \n width: ${componentFactory!.deviceWidth}, height: ${componentFactory!.deviceHeight}'))
+      ..addComponent(form.build());
+    return layout.build();
   }
 
   Widget? createScaffold(RegistrationController? con) {
-    var header = componentFactory!.createHeader(WTHeaderType.basic1)!
-      ..setBackAction(
-        action: () {}, 
-        icon: Icons.logout
-      )
-      ..addAction(
-        action: () async { await con!.navigateOff(route: '/dashboard'); }, 
-        label: 'Dashboard'
-      );
+    var header = componentFactory!.createHeader(WTHeaderType.basic1)!;
 
     var body = componentFactory!.createBody(WTBodyType.basic1)!
-      ..addComponent(con!.view.value == 0 ? createSignUpView(con)! : createSignInView(con)!);
+      ..addComponent(con!.view.value == 0 ? createSignInView(con)! : createSignUpView(con)!);
 
     var scaffold = componentFactory!.createScaffold(WTScaffoldType.basic1)!
       ..setHeader(header.build())

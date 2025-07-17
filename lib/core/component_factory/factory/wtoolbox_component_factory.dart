@@ -8,6 +8,8 @@ import '../component/layout/wtoolbox_layout.dart';
 import '../component/empty/wtoolbox_empty_component.dart';
 import '../component/space/wtoolbox_space_component.dart';
 import '../component/divider/wtoolbox_divider_component.dart';
+import '../component/form_builder/form/wtoolbox_form.dart';
+import '../component/form_builder/form_input_field/wtoolbox_form_input_filed.dart';
 
 abstract class WTComponentFactory with WTComponentFactoryConfig {
 
@@ -26,5 +28,9 @@ abstract class WTComponentFactory with WTComponentFactoryConfig {
   WTDividerComponent? createDividerComponent(WTDividerType type);
 
   WTSpaceComponent? createSpaceComponet(WTSpaceType type);
+
+  WTForm? createForm(WTFormType type);
+
+  WTFormInputField? createFormInputFiled(WTFormInputFieldType type);
 
 }

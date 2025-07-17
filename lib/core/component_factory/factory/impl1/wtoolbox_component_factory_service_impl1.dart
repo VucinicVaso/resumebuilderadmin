@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:resumebuilderadmin/core/external/lib_getx.dart';
-import 'package:resumebuilderadmin/core/external/lib_fontaws.dart';
 import 'package:resumebuilderadmin/core/external/lib_material_symbols.dart';
 import '../wtoolbox_component_factory.dart';
 import '../../type/impl1/wtoolbox_component_type.dart';
@@ -24,6 +22,10 @@ import '../../component/footer/wtoolbox_footer.dart';
 import '../../component/footer/fixed/wtoolbox_footer_fixed.dart';
 import '../../component/space/wtoolbox_space_component.dart';
 import '../../component/space/basic/wtoolbox_space_component_basic.dart';
+import '../../component/form_builder/form/wtoolbox_form.dart';
+import '../../component/form_builder/form/impl/wtoolbox_form_impl.dart';
+import '../../component/form_builder/form_input_field/wtoolbox_form_input_filed.dart';
+import '../../component/form_builder/form_input_field/text/wtoolbox_form_input_field_text.dart';
 
 class WTComponentFactoryImpl1 extends WTComponentFactory {
 
@@ -314,6 +316,49 @@ class WTComponentFactoryImpl1 extends WTComponentFactory {
           ..setBuildContext(getCurrentContext())
           ..setHeight(15.0)
           ..setWidth(0.0);
+        return component;
+    }
+  }
+
+  @override
+  WTForm? createForm(WTFormType type) {
+    switch(type) {
+      case WTFormType.basic:
+        var component = WTFormImpl()
+          ..setBuildContext(getCurrentContext())
+          ..setScrollController()
+          ..setWidth(deviceWidth!)
+          ..setHeight(deviceHeight!)
+          ..setBackgroundColor(Colors.transparent)
+          ..setMainAxisAlignment(MainAxisAlignment.start)
+          ..setCrossAxisAlignment(CrossAxisAlignment.start)
+          ..setPadding(left: 0.0, top: 0.0, right: 0.0, bottom: 0.0)
+          ..setMargin(left: 0.0, top: 0.0, right: 0.0, bottom: 0.0);
+        return component;
+    }
+  }
+
+  @override
+  WTFormInputField? createFormInputFiled(WTFormInputFieldType type) {
+    switch(type) {
+      case WTFormInputFieldType.text:
+        var component = WTFormInputFieldText()
+          ..setFocusNode()
+          ..setWidth(deviceWidth!)
+          ..setHeight(deviceHeight!)
+          ..setMargin(left: 20.0, top: 20.0, right: 20.0, bottom: 0.0)
+          ..setBackgroundColor(theme!.background1)
+          ..setInputBoder(theme!.background2, 1)
+          ..setInputFocusBorder(theme!.primary1, 1)
+          ..setInputErrorFocusBorder(theme!.error1, 1)
+          ..setTextInputType(TextInputType.text)
+          ..setTextAlign(TextAlign.left)
+          ..setAsterixColor(theme!.error1)
+          ..setInputTextColor(theme!.text1)
+          ..setErrorTextColor(theme!.error1)
+          ..setPrefixColor(theme!.primary1)
+          ..setLabelColor(theme!.text3)
+          ..setSuffixColor(theme!.text1);
         return component;
     }
   }

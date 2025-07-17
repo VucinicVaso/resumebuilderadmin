@@ -2,6 +2,13 @@ import 'package:resumebuilderadmin/presentation/bindings/account/account_service
 
 class AccountServiceImpl extends AccountService {
 
-  
+  @override
+  Future<void> initialize() async {}
+
+  @override
+  Future<void> login() async {}
+
+  @override
+  Future<void> logout() async {}
 
 }

@@ -12,13 +12,17 @@ class DashboardView extends WTView<DashboardController> {
   }
 
   Widget? createScaffold(DashboardController? con) {
-    var header = componentFactory!.createHeader(WTHeaderType.basic1);
+    var header = componentFactory!.createHeader(WTHeaderType.basic1)!
+      ..setBackAction(
+        action: () async { await con!.logout(); }, 
+        icon: Icons.logout
+      );
 
     var body = componentFactory!.createBody(WTBodyType.basic1)!
       ..addComponent(Text('Hello World! DashboardView'));
 
     var scaffold = componentFactory!.createScaffold(WTScaffoldType.basic1)!
-      ..setHeader(header!.build())
+      ..setHeader(header.build())
       ..setBody(body.build());
     return scaffold.build();
   }

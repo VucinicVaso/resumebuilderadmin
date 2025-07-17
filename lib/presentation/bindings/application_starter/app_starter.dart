@@ -1,7 +1,10 @@
+import 'package:resumebuilderadmin/core/external/lib_getx.dart';
 import 'package:resumebuilderadmin/core/application_starter/wtoolbox_application_starter.dart';
 import '../notifier/app_notifier.dart';
 import '../translation/app_translations.dart';
 import '../routes/app_routes.dart';
+import '../account/account_service.dart';
+import '../account/impl/account_service_impl.dart';
 
 class AppStarter extends WTApplicationStarter {
 
@@ -12,6 +15,8 @@ class AppStarter extends WTApplicationStarter {
     subscribeNotifier(AppNotifier());
     registerTranslations(AppTranslations());
     registerRoutes(AppRoutes());
+
+    Get.put<AccountService>(AccountServiceImpl(), permanent: true);
   }
 
   @override
@@ -19,6 +24,8 @@ class AppStarter extends WTApplicationStarter {
     unregisterTranslations();
     unregisterRoutes();
     unsubscribeNotifier();
+
+    Get.delete<AccountService>(force: true);
   }
   
 }

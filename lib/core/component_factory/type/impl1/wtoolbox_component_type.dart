@@ -44,3 +44,11 @@ enum WTSpaceType {
   vertical10,
   vertical15
 }
+
+enum WTFormType {
+  basic
+}
+
+enum WTFormInputFieldType {
+  text
+}

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../wtoolbox_component.dart';
+import '../wt_component.dart';
 
 abstract class WTScaffold extends WTComponent {
 

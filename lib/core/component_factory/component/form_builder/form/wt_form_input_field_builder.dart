@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:resumebuilderadmin/core/component_factory/component/wtoolbox_component.dart';
-import 'package:resumebuilderadmin/core/component_factory/component/form_builder/form_input_field/wtoolbox_form_input_filed.dart';
+import 'package:resumebuilderadmin/core/component_factory/component/wt_component.dart';
+import 'package:resumebuilderadmin/core/component_factory/component/form_builder/input_field/wt_form_input_filed.dart';
 
 class WTFormInputFieldBuilder {
 

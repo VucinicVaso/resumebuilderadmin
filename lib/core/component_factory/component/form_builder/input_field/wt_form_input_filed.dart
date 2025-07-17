@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:resumebuilderadmin/core/component_factory/component/wtoolbox_component.dart';
+import 'package:resumebuilderadmin/core/component_factory/component/wt_component.dart';
 
 abstract class WTFormInputField extends WTComponent {
 

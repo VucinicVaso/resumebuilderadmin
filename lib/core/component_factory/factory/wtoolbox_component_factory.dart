@@ -1,15 +1,15 @@
 import 'wtoolbox_component_factory_config.dart';
 import '../type/impl1/wtoolbox_component_type.dart';
-import '../component/scaffold/wtoolbox_scaffold.dart';
-import '../component/header/wtoolbox_header.dart';
-import '../component/body/wtoolbox_body.dart';
-import '../component/footer/wtoolbox_footer.dart';
-import '../component/layout/wtoolbox_layout.dart';
-import '../component/empty/wtoolbox_empty_component.dart';
-import '../component/space/wtoolbox_space_component.dart';
-import '../component/divider/wtoolbox_divider_component.dart';
-import '../component/form_builder/form/wtoolbox_form.dart';
-import '../component/form_builder/form_input_field/wtoolbox_form_input_filed.dart';
+import '../component/scaffold/wt_scaffold.dart';
+import '../component/header/wt_header.dart';
+import '../component/body/wt_body.dart';
+import '../component/footer/wt_footer.dart';
+import '../component/layout/wt_layout.dart';
+import '../component/empty/wt_empty.dart';
+import '../component/space/wt_space.dart';
+import '../component/divider/wt_divider.dart';
+import '../component/form_builder/form/wt_form.dart';
+import '../component/form_builder/input_field/wt_form_input_filed.dart';
 
 abstract class WTComponentFactory with WTComponentFactoryConfig {
 
@@ -23,11 +23,11 @@ abstract class WTComponentFactory with WTComponentFactoryConfig {
 
   WTLayout? createLayout(WTLayoutType type);
 
-  WTEmptyComponent? createEmptyComponent(WTEmptyType type);
+  WTEmpty? createEmpty(WTEmptyType type);
 
-  WTDividerComponent? createDividerComponent(WTDividerType type);
+  WTDivider? createDivider(WTDividerType type);
 
-  WTSpaceComponent? createSpaceComponet(WTSpaceType type);
+  WTSpace? createSpace(WTSpaceType type);
 
   WTForm? createForm(WTFormType type);
 

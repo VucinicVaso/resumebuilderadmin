@@ -2,30 +2,30 @@ import 'package:flutter/material.dart';
 import 'package:resumebuilderadmin/core/external/lib_material_symbols.dart';
 import '../wtoolbox_component_factory.dart';
 import '../../type/impl1/wtoolbox_component_type.dart';
-import '../../component/empty/wtoolbox_empty_component.dart';
-import '../../component/empty/impl/wtoolbox_empty_impl.dart';
-import '../../component/divider/wtoolbox_divider_component.dart';
-import '../../component/divider/horizontal/wtoolbox_divider_component_horizontal.dart';
-import '../../component/layout/wtoolbox_layout.dart';
-import '../../component/layout/horizontal/wtoolbox_layout_horizontal.dart';
-import '../../component/layout/vertical/wtoolbox_layout_vertical.dart';
-import '../../component/layout/vertical/wtoolbox_layout_vertical_scrollable.dart';
-import '../../component/layout/vertical/wtoolbox_layout_vertical_expanded.dart';
-import '../../component/layout/vertical/wtoolbox_layout_vertical_expanded_and_scrollable.dart';
-import '../../component/scaffold/wtoolbox_scaffold.dart';
-import '../../component/scaffold/impl/wtoolbox_scaffold_impl.dart';
-import '../../component/header/wtoolbox_header.dart';
-import '../../component/header/impl/wtoolbox_header_impl.dart';
-import '../../component/body/wtoolbox_body.dart';
-import '../../component/body/impl/wtoolbox_body_impl.dart';
-import '../../component/footer/wtoolbox_footer.dart';
-import '../../component/footer/fixed/wtoolbox_footer_fixed.dart';
-import '../../component/space/wtoolbox_space_component.dart';
-import '../../component/space/basic/wtoolbox_space_component_basic.dart';
-import '../../component/form_builder/form/wtoolbox_form.dart';
-import '../../component/form_builder/form/impl/wtoolbox_form_impl.dart';
-import '../../component/form_builder/form_input_field/wtoolbox_form_input_filed.dart';
-import '../../component/form_builder/form_input_field/text/wtoolbox_form_input_field_text.dart';
+import '../../component/empty/wt_empty.dart';
+import '../../component/empty/impl/wt_empty_impl.dart';
+import '../../component/divider/wt_divider.dart';
+import '../../component/divider/horizontal/wt_divider_horizontal.dart';
+import '../../component/layout/wt_layout.dart';
+import '../../component/layout/horizontal/wt_layout_horizontal.dart';
+import '../../component/layout/vertical/wt_layout_vertical.dart';
+import '../../component/layout/vertical/wt_layout_vertical_scrollable.dart';
+import '../../component/layout/vertical/wt_layout_vertical_expanded.dart';
+import '../../component/layout/vertical/wt_layout_vertical_expanded_and_scrollable.dart';
+import '../../component/scaffold/wt_scaffold.dart';
+import '../../component/scaffold/impl/wt_scaffold_impl.dart';
+import '../../component/header/wt_header.dart';
+import '../../component/header/impl/wt_header_impl.dart';
+import '../../component/body/wt_body.dart';
+import '../../component/body/basic/wt_body_basic.dart';
+import '../../component/footer/wt_footer.dart';
+import '../../component/footer/fixed/wt_footer_fixed.dart';
+import '../../component/space/wt_space.dart';
+import '../../component/space/basic/wt_space_basic.dart';
+import '../../component/form_builder/form/wt_form.dart';
+import '../../component/form_builder/form/impl/wt_form_impl.dart';
+import '../../component/form_builder/input_field/wt_form_input_filed.dart';
+import '../../component/form_builder/input_field/text/wt_form_input_field_text.dart';
 
 class WTComponentFactoryImpl1 extends WTComponentFactory {
 
@@ -141,14 +141,14 @@ class WTComponentFactoryImpl1 extends WTComponentFactory {
   WTBody? createBody(WTBodyType type) {
     switch(type) {
       case WTBodyType.basic1:
-        var component = WTBodyImpl()
+        var component = WTBodyBasic()
           ..setBuildContext(getCurrentContext())
           ..setBackgroundColor(theme!.background1)
           ..setWidth(deviceWidth!)
           ..setHeight(deviceHeight!);
         return component;
       case WTBodyType.basic2:
-        var component = WTBodyImpl()
+        var component = WTBodyBasic()
           ..setBuildContext(getCurrentContext())
           ..setBackgroundColor(theme!.background2)
           ..setWidth(deviceWidth!)
@@ -258,7 +258,7 @@ class WTComponentFactoryImpl1 extends WTComponentFactory {
   }
 
   @override
-  WTEmptyComponent? createEmptyComponent(WTEmptyType type) {
+  WTEmpty? createEmpty(WTEmptyType type) {
     switch(type) {
       case WTEmptyType.empty:
         var component = WTEmptyImpl();
@@ -267,10 +267,10 @@ class WTComponentFactoryImpl1 extends WTComponentFactory {
   }
 
   @override
-  WTDividerComponent? createDividerComponent(WTDividerType type) {
+  WTDivider? createDivider(WTDividerType type) {
     switch(type) {
       case WTDividerType.horizontal:
-        var component = WTDividerComponentHorizontal()
+        var component = WTDividerHorizontal()
           ..setBuildContext(getCurrentContext())
           ..setBackgroundColor(theme!.shade5)
           ..setThickness(1.0);
@@ -279,40 +279,40 @@ class WTComponentFactoryImpl1 extends WTComponentFactory {
   }
 
   @override
-  WTSpaceComponent? createSpaceComponet(WTSpaceType type) {
+  WTSpace? createSpace(WTSpaceType type) {
     switch(type) {
       case WTSpaceType.horizontal5:
-        var component = WTSpaceComponentBasic()
+        var component = WTSpaceBasic()
           ..setBuildContext(getCurrentContext())
           ..setHeight(0.0)
           ..setWidth(5.0);
         return component;
       case WTSpaceType.horizontal10:
-        var component = WTSpaceComponentBasic()
+        var component = WTSpaceBasic()
           ..setBuildContext(getCurrentContext())
           ..setHeight(0.0)
           ..setWidth(10.0);
         return component;
       case WTSpaceType.horizontal15:
-        var component = WTSpaceComponentBasic()
+        var component = WTSpaceBasic()
           ..setBuildContext(getCurrentContext())
           ..setHeight(0.0)
           ..setWidth(15.0);
         return component;
       case WTSpaceType.vertical5:
-        var component = WTSpaceComponentBasic()
+        var component = WTSpaceBasic()
           ..setBuildContext(getCurrentContext())
           ..setHeight(5.0)
           ..setWidth(0.0);
         return component;
       case WTSpaceType.vertical10:
-        var component = WTSpaceComponentBasic()
+        var component = WTSpaceBasic()
           ..setBuildContext(getCurrentContext())
           ..setHeight(10.0)
           ..setWidth(0.0);
         return component;
       case WTSpaceType.vertical15:
-        var component = WTSpaceComponentBasic()
+        var component = WTSpaceBasic()
           ..setBuildContext(getCurrentContext())
           ..setHeight(15.0)
           ..setWidth(0.0);

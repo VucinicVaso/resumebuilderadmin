@@ -35,6 +35,7 @@ class RegistrationView extends WTView<RegistrationController> {
       ..addField(key: 'password', order: 1, inputField: passwordField);
 
     var layout = componentFactory!.createLayout(WTLayoutType.verticalExpanded)!
+      ..flat()
       ..setBackgroundColor(Colors.orange) //delete
       ..addComponent(Text('RegistrationView.createSignInView \n Hello World! \n width: ${componentFactory!.deviceWidth}, height: ${componentFactory!.deviceHeight}'))
       ..addComponent(form.build());

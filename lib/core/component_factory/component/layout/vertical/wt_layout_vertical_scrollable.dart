@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
-import '../wtoolbox_layout.dart';
+import '../wt_layout.dart';
 
-class WTLayoutVerticalExpanded extends WTLayout {
+class WTLayoutVerticalScrollable extends WTLayout {
 
   @override
   Widget? build() {
-    return Expanded(
+    return Container(
       key: getUniqueKey(),
-      child: Container(
-        color: backgroundColor,
-        width: width,
-        padding: padding!,
-        margin: margin!,
-        alignment: alignment,
+      color: backgroundColor,
+      padding: padding,
+      margin: margin,
+      width: width,
+      alignment: alignment,
+      child: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: mainAxisAlignment!,
           crossAxisAlignment: crossAxisAlignment!,

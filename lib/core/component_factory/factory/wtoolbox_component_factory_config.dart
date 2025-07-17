@@ -11,7 +11,7 @@ mixin WTComponentFactoryConfig {
 
   BuildContext? getCurrentContext() { return Get.key.currentContext; }
 
-  void modalNavigateBack() { Get.back(); }
+  void closeModal() { Get.back(); }
 
   String? fonts;
   void setTextFont({ String? type, String? font }) {

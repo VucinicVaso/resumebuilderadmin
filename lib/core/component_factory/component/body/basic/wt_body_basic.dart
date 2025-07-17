@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../wtoolbox_body.dart';
+import '../wt_body.dart';
 
-class WTBodyImpl extends WTBody {
+class WTBodyBasic extends WTBody {
 
   void isKeyboardOpen() {
     if(buildContext != null) {

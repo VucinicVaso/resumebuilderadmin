@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../wtoolbox_layout.dart';
+import '../wt_layout.dart';
 
 class WTLayoutVertical extends WTLayout {
 

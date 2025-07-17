@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:resumebuilderadmin/core/component_factory/component/form_builder/form/wtoolbox_form.dart';
-import 'package:resumebuilderadmin/core/component_factory/component/form_builder/form/wtoolbox_form_input_field_builder.dart';
+import 'package:resumebuilderadmin/core/component_factory/component/form_builder/form/wt_form.dart';
+import 'package:resumebuilderadmin/core/component_factory/component/form_builder/form/wt_form_input_field_builder.dart';
 
 class WTFormImpl extends WTForm {
 
@@ -16,7 +16,7 @@ class WTFormImpl extends WTForm {
       mainAxisAlignment:  mainAxisAlignment,
       crossAxisAlignment: crossAxisAlignment,
       formKey:            formKey,
-      autovalidateMode:   autoValidateMode,
+      autovalidateMode:   validationMode,
       scrollController:   scrollController,
       fields:             fields,
     );

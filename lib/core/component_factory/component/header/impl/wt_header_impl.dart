@@ -1,8 +1,8 @@
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:resumebuilderadmin/core/external/lib_svg.dart';
-import '../wtoolbox_header.dart';
-import '../wtoolbox_header_builder.dart';
+import '../wt_header.dart';
+import '../wt_header_builder.dart';
 
 class WTHeaderImpl extends WTHeader {
 

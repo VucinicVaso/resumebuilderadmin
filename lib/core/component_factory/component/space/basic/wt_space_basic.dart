@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../wtoolbox_space_component.dart';
+import '../wt_space.dart';
 
-class WTSpaceComponentBasic extends WTSpaceComponent {
+class WTSpaceBasic extends WTSpace {
 
   @override
   Widget? build() {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../wtoolbox_empty_component.dart';
+import '../wt_empty.dart';
 
-class WTEmptyImpl extends WTEmptyComponent {
+class WTEmptyImpl extends WTEmpty {
 
   @override
   Widget? build() {

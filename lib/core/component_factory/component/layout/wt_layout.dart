@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../wtoolbox_component.dart';
+import '../wt_component.dart';
 
 abstract class WTLayout extends WTComponent {
 
@@ -8,6 +8,10 @@ abstract class WTLayout extends WTComponent {
 
   bool? expandable = false;
   void setExpandable() { expandable = true; }
+
+  void sm() { width = width! * 0.3; }
+  void md() { width = width! * 0.5; }
+  void lg() { width = width; }
 
   // 0 padding and margin
   void flat() {

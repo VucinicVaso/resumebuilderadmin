@@ -16,18 +16,32 @@ class WTBodyBasic extends WTBody {
       key: getUniqueKey(),
       child: GestureDetector(
         onTap: () => isKeyboardOpen(),
-        child: Container(
-          color: backgroundColor,
-          child: SizedBox.expand(
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                ...components!,
-              ],
-            ),
-          ),
+        child: LayoutBuilder(
+          builder: (context, constraints) {
+            print('-----------------------------------');
+            print('WTBodyBasic');
+            print('width:  ${constraints.maxWidth}');
+            print('height: ${constraints.maxHeight}');
+            print('-----------------------------------');
+            width  = constraints.maxWidth;
+            height = constraints.maxHeight;
+            
+            return Container(
+              color: backgroundColor,
+              width: width,
+              height: height,
+              child: SizedBox.expand(
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    ...components!,
+                  ],
+                ),
+              ),
+            );
+          }
         ),
       ),
     );

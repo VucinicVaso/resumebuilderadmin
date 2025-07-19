@@ -78,14 +78,6 @@ class ComponentWidgetState extends State<ComponentWidget> {
     if(widget.scrollController != null) {
       widget.scrollController!.dispose();
     }
-
-    // if(fieldsList != null || fieldsList!.isNotEmpty) {
-    //   for(var f in fieldsList!) {
-    //     if(f.inputField?.focusNode != null) {
-    //       f.inputField!.focusNode!.dispose();
-    //     }
-    //   }
-    // }
   }
 
   List<WTFormInputFieldBuilder>? formInputFields = List<WTFormInputFieldBuilder>.empty(growable: true);

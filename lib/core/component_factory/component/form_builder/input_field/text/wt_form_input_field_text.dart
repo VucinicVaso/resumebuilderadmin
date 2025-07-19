@@ -136,6 +136,10 @@ class _ComponentState extends State<ComponentWidget> {
 
   @override
   void dispose() {
+    // if(widget.focusNode != null) {
+    //   widget.focusNode!.dispose();
+    // }
+
     super.dispose();
   }
 

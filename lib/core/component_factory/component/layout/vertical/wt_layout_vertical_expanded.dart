@@ -11,18 +11,11 @@ class WTLayoutVerticalExpanded extends WTLayout {
         width  = constraints.maxWidth;
         height = constraints.maxHeight;
 
-        print('-----------------------------------');
-        print('WTLayoutVerticalExpanded');
-        print('width:  $width');
-        print('height: $height');
-        print('-----------------------------------');
-
         return Expanded(
           key: getUniqueKey(),
           child: Container(
             color: backgroundColor,
             width: width,
-            //height: height,
             padding: padding!,
             margin: margin!,
             alignment: alignment,

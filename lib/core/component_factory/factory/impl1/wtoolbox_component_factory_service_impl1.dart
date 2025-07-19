@@ -18,7 +18,6 @@ import '../../component/header/wt_header.dart';
 import '../../component/header/impl/wt_header_impl.dart';
 import '../../component/body/wt_body.dart';
 import '../../component/body/basic/wt_body_basic.dart';
-import '../../component/body/dynamic/wt_body_dynamic.dart';
 import '../../component/footer/wt_footer.dart';
 import '../../component/footer/fixed/wt_footer_fixed.dart';
 import '../../component/space/wt_space.dart';
@@ -54,7 +53,6 @@ class WTComponentFactoryImpl1 extends WTComponentFactory {
           ..setBuildContext(getCurrentContext())
           ..setGoogleFonts(fonts)
           ..withShadow(false)
-          ..setWidth(deviceWidth!)
           ..setBackgroundColor(theme!.background1)
           ..setBackActionIconColor(theme!.text1)
           ..setBackActionLabelColor(theme!.text1)
@@ -76,7 +74,6 @@ class WTComponentFactoryImpl1 extends WTComponentFactory {
           ..setBuildContext(getCurrentContext())
           ..setGoogleFonts(fonts)
           ..withShadow(true)
-          ..setWidth(deviceWidth!)
           ..setBackgroundColor(theme!.background1)
           ..setBackActionIconColor(theme!.text1)
           ..setBackActionLabelColor(theme!.text1)
@@ -97,7 +94,6 @@ class WTComponentFactoryImpl1 extends WTComponentFactory {
         var component = WTHeaderImpl()
           ..setGoogleFonts(fonts)
           ..withShadow(false)
-          ..setWidth(deviceWidth!)
           ..setBackgroundColor(theme!.background2)
           ..setBackActionIconColor(theme!.text1)
           ..setBackActionLabelColor(theme!.text1)
@@ -118,7 +114,6 @@ class WTComponentFactoryImpl1 extends WTComponentFactory {
         var component = WTHeaderImpl()
           ..setGoogleFonts(fonts)
           ..withShadow(true)
-          ..setWidth(deviceWidth!)
           ..setBackgroundColor(theme!.background2)
           ..setBackActionIconColor(theme!.text1)
           ..setBackActionLabelColor(theme!.text1)
@@ -144,23 +139,10 @@ class WTComponentFactoryImpl1 extends WTComponentFactory {
       case WTBodyType.basic1:
         var component = WTBodyBasic()
           ..setBuildContext(getCurrentContext())
-          ..setBackgroundColor(theme!.background1)
-          ..setWidth(deviceWidth!)
-          ..setHeight(deviceHeight!);
+          ..setBackgroundColor(theme!.background1);
         return component;
       case WTBodyType.basic2:
         var component = WTBodyBasic()
-          ..setBuildContext(getCurrentContext())
-          ..setBackgroundColor(theme!.background2)
-          ..setWidth(deviceWidth!)
-          ..setHeight(deviceHeight!);
-        return component;
-      case WTBodyType.dynamic1:
-        var component = WTBodyDynamic()
-          ..setBuildContext(getCurrentContext());
-        return component;
-      case WTBodyType.dynamic2:
-        var component = WTBodyDynamic()
           ..setBuildContext(getCurrentContext())
           ..setBackgroundColor(theme!.background2);
         return component;
@@ -173,7 +155,6 @@ class WTComponentFactoryImpl1 extends WTComponentFactory {
       case WTFooterType.basic1Fixed:
         var component = WTFooterFixed()
           ..setBuildContext(getCurrentContext())
-          ..setWidth(deviceWidth!)
           ..setBackgroundColor(theme!.background1)
           ..setSelectedItemBackgroundColor(theme!.primary4)
           ..setSelectedItemIconColor(theme!.primary1)
@@ -185,7 +166,6 @@ class WTComponentFactoryImpl1 extends WTComponentFactory {
       case WTFooterType.basic2Fixed:
         var component = WTFooterFixed()
           ..setBuildContext(getCurrentContext())
-          ..setWidth(deviceWidth!)
           ..setBackgroundColor(theme!.background2)
           ..setSelectedItemBackgroundColor(theme!.primary4)
           ..setSelectedItemIconColor(theme!.primary1)

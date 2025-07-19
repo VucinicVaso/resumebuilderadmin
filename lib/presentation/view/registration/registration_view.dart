@@ -56,7 +56,7 @@ class RegistrationView extends WTView<RegistrationController> {
   Widget? createScaffold(RegistrationController? con) {
     var header = componentFactory!.createHeader(WTHeaderType.basic1)!;
 
-    var body = componentFactory!.createBody(WTBodyType.dynamic1)! //basic1
+    var body = componentFactory!.createBody(WTBodyType.basic1)!
       ..addComponent(con!.view.value == 0 ? createSignInView(con)! : createSignUpView(con)!);
 
     var scaffold = componentFactory!.createScaffold(WTScaffoldType.basic1)!

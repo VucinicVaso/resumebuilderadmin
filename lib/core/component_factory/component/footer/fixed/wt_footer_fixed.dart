@@ -40,32 +40,44 @@ class WTFooterFixed extends WTFooter {
 
   @override
   Widget? build() {
-    itemIconSize  = width! * 0.060;
-    itemLabelSize = width! * 0.035;
-    itemPadding   = itemPadding ?? const EdgeInsets.fromLTRB(20.0, 6.0, 20.0, 6.0);
-    itemMargin    = itemMargin ?? const EdgeInsets.fromLTRB(0.0, 5.0, 0.0, 5.0);
-
-    return BottomNavigationBar(
+    return LayoutBuilder(
       key: getUniqueKey(),
-      items: <BottomNavigationBarItem>[
-        ...items!.map((i) => createBarItem(i)!),
-      ],
-      onTap: (int i) => selectedItemAction!(i),
-      type: BottomNavigationBarType.fixed,
-      backgroundColor: backgroundColor,
-      currentIndex: selectedItem!,
-      selectedItemColor: selectedItemLabelColor,
-      unselectedItemColor: unselectedItemIconColor,
-      selectedLabelStyle: TextStyle(
-        color: selectedItemLabelColor,
-        fontSize: itemLabelSize,
-        fontWeight: FontWeight.bold
-      ),
-      unselectedLabelStyle: TextStyle(
-        color: unselectedItemLabelColor,
-        fontSize: itemLabelSize,
-        fontWeight: FontWeight.normal
-      ),
+      builder: (context, constraints) {
+        itemPadding = itemPadding ?? const EdgeInsets.fromLTRB(20.0, 6.0, 20.0, 6.0);
+        itemMargin  = itemMargin ?? const EdgeInsets.fromLTRB(0.0, 5.0, 0.0, 5.0);
+
+        width = constraints.maxWidth;
+        if(width! > 1000) {
+          itemIconSize  = 27;
+          itemLabelSize = 20;
+        }
+        if(width! < 1000) {
+          itemIconSize  = 25;
+          itemLabelSize = 18;
+        }
+
+        return BottomNavigationBar(
+          items: <BottomNavigationBarItem>[
+            ...items!.map((i) => createBarItem(i)!),
+          ],
+          onTap: (int i) => selectedItemAction!(i),
+          type: BottomNavigationBarType.fixed,
+          backgroundColor: backgroundColor,
+          currentIndex: selectedItem!,
+          selectedItemColor: selectedItemLabelColor,
+          unselectedItemColor: unselectedItemIconColor,
+          selectedLabelStyle: TextStyle(
+            color: selectedItemLabelColor,
+            fontSize: itemLabelSize,
+            fontWeight: FontWeight.bold
+          ),
+          unselectedLabelStyle: TextStyle(
+            color: unselectedItemLabelColor,
+            fontSize: itemLabelSize,
+            fontWeight: FontWeight.normal
+          ),
+        );
+      }
     );
   }
 

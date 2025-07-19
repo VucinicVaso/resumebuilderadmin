@@ -12,12 +12,7 @@ class WTLayoutVertical extends WTLayout {
         height = constraints.maxHeight;
         if(small == true) { width = width! * 0.3; }
         if(medium == true) { width = width! * 0.5; }
-
-        print('-----------------------------------');
-        print('WTLayoutVertical');
-        print('width: $width');
-        print('height: $height');
-        print('-----------------------------------');
+        if(large == true) { width = width; }
 
         return Container(
           key: getUniqueKey(),

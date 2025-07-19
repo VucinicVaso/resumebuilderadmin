@@ -593,26 +593,32 @@ class _ComponentState extends State<ComponentWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return AppBar(
+    return LayoutBuilder(
       key: widget.key,
-      elevation: shadow! ? 2.0 : 0.0,
-      titleSpacing: 0.0,
-      automaticallyImplyLeading: false,
-      shadowColor: shadow! ? Colors.grey.shade50 : Colors.transparent,
-      backgroundColor: backgroundColor,
-      title: Container(
-        color: backgroundColor,
-        width: width,
-        height: height,
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            widgetsLeft()!,   /// back action
-            widgetsCenter()!, /// header label
-            widgetsRight()!,  /// actions and menu list
-          ],
-        ),
-      ),
+      builder: (context, constraints) {
+        width = constraints.maxWidth;
+
+        return AppBar(
+          elevation: shadow! ? 2.0 : 0.0,
+          titleSpacing: 0.0,
+          automaticallyImplyLeading: false,
+          shadowColor: shadow! ? Colors.grey.shade50 : Colors.transparent,
+          backgroundColor: backgroundColor,
+          title: Container(
+            color: backgroundColor,
+            width: width,
+            height: height,
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                widgetsLeft()!,   /// back action
+                widgetsCenter()!, /// header label
+                widgetsRight()!,  /// actions and menu list
+              ],
+            ),
+          ),
+        );
+      }
     );
   }
 

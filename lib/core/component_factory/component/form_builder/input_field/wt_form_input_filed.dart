@@ -78,11 +78,11 @@ abstract class WTFormInputField extends WTComponent {
   void withCharactersTextCapitalization() { textCapitalization = TextCapitalization.characters; }
   void withNoneTextCapitalization() { textCapitalization = TextCapitalization.none; }
 
-  AutovalidateMode? autoValidateMode;
-  void setAutoValidation(AutovalidateMode? v) { autoValidateMode = v; }
-  void autoValidateAlways() { autoValidateMode = AutovalidateMode.always; }
-  void autoValidateDisabled() { autoValidateMode = AutovalidateMode.disabled; }
-  void autoValidateOnUserInteraction() { autoValidateMode = AutovalidateMode.onUserInteraction; }
+  AutovalidateMode? validationMode;
+  void setValidationMode(AutovalidateMode? v) { validationMode = v; }
+  void validationAlways() { validationMode = AutovalidateMode.always; }
+  void validationModeDisabled() { validationMode = AutovalidateMode.disabled; }
+  void validationOnUserInteraction() { validationMode = AutovalidateMode.onUserInteraction; }
 
   Color? inputBorderColor, inputFocusBorderColor, inputErrorBorderColor;
   double? inputBorderWidth, inputFocusBorderWidth, inputErrorBorderWidth;

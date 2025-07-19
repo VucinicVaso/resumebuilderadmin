@@ -18,6 +18,7 @@ import '../../component/header/wt_header.dart';
 import '../../component/header/impl/wt_header_impl.dart';
 import '../../component/body/wt_body.dart';
 import '../../component/body/basic/wt_body_basic.dart';
+import '../../component/body/dynamic/wt_body_dynamic.dart';
 import '../../component/footer/wt_footer.dart';
 import '../../component/footer/fixed/wt_footer_fixed.dart';
 import '../../component/space/wt_space.dart';
@@ -154,6 +155,15 @@ class WTComponentFactoryImpl1 extends WTComponentFactory {
           ..setWidth(deviceWidth!)
           ..setHeight(deviceHeight!);
         return component;
+      case WTBodyType.dynamic1:
+        var component = WTBodyDynamic()
+          ..setBuildContext(getCurrentContext());
+        return component;
+      case WTBodyType.dynamic2:
+        var component = WTBodyDynamic()
+          ..setBuildContext(getCurrentContext())
+          ..setBackgroundColor(theme!.background2);
+        return component;
     }
   }
 
@@ -193,8 +203,6 @@ class WTComponentFactoryImpl1 extends WTComponentFactory {
       case WTLayoutType.horizontal:
         var component = WTLayoutHorizontal()
           ..setBuildContext(getCurrentContext())
-          ..setWidth(deviceWidth!)
-          ..setHeight(deviceHeight!)
           ..setAlignment(null)
           ..setPadding(left: 7.5, top: 12.5, right: 7.5, bottom: 12.5)
           ..setMargin(left: 0.0, top: 0.0, right: 0.0, bottom: 0.0)
@@ -205,8 +213,6 @@ class WTComponentFactoryImpl1 extends WTComponentFactory {
       case WTLayoutType.vertical:
         var component = WTLayoutVertical()
           ..setBuildContext(getCurrentContext())
-          ..setWidth(deviceWidth!)
-          ..setHeight(deviceHeight!)
           ..setAlignment(null)
           ..setPadding(left: 7.5, top: 12.5, right: 7.5, bottom: 12.5)
           ..setMargin(left: 0.0, top: 0.0, right: 0.0, bottom: 0.0)
@@ -217,8 +223,6 @@ class WTComponentFactoryImpl1 extends WTComponentFactory {
       case WTLayoutType.verticalScrollable:
         var component = WTLayoutVerticalScrollable()
           ..setBuildContext(getCurrentContext())
-          ..setWidth(deviceWidth!)
-          ..setHeight(deviceHeight!)
           ..setScrollable()
           ..setAlignment(null)
           ..setPadding(left: 7.5, top: 12.5, right: 7.5, bottom: 12.5)
@@ -230,8 +234,6 @@ class WTComponentFactoryImpl1 extends WTComponentFactory {
       case WTLayoutType.verticalExpanded:
         var component = WTLayoutVerticalExpanded()
           ..setBuildContext(getCurrentContext())
-          ..setWidth(deviceWidth!)
-          ..setHeight(deviceHeight!)
           ..setExpandable()
           ..setAlignment(null)
           ..setPadding(left: 7.5, top: 12.5, right: 7.5, bottom: 12.5)
@@ -243,8 +245,6 @@ class WTComponentFactoryImpl1 extends WTComponentFactory {
       case WTLayoutType.verticalExpandedAndScrollable:
         var component = WTLayoutVerticalExpandedAndScrollable()
           ..setBuildContext(getCurrentContext())
-          ..setWidth(deviceWidth!)
-          ..setHeight(deviceHeight!)
           ..setExpandable()
           ..setScrollable()
           ..setAlignment(null)
@@ -327,8 +327,6 @@ class WTComponentFactoryImpl1 extends WTComponentFactory {
         var component = WTFormImpl()
           ..setBuildContext(getCurrentContext())
           ..setScrollController()
-          ..setWidth(deviceWidth!)
-          ..setHeight(deviceHeight!)
           ..setBackgroundColor(Colors.transparent)
           ..setMainAxisAlignment(MainAxisAlignment.start)
           ..setCrossAxisAlignment(CrossAxisAlignment.start)
@@ -344,8 +342,6 @@ class WTComponentFactoryImpl1 extends WTComponentFactory {
       case WTFormInputFieldType.text:
         var component = WTFormInputFieldText()
           ..setFocusNode()
-          ..setWidth(deviceWidth!)
-          ..setHeight(deviceHeight!)
           ..setMargin(left: 20.0, top: 20.0, right: 20.0, bottom: 0.0)
           ..setBackgroundColor(theme!.background1)
           ..setInputBoder(theme!.background2, 1)

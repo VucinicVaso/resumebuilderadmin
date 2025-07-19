@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class WTFormInputFiledHelper {
+class WTFormInputFieldHelper {
 
   static InputBorder? getBorder({ Color? borderColor, double? borderWidth }) {
     return UnderlineInputBorder(

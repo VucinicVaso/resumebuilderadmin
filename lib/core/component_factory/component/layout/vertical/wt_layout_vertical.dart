@@ -5,20 +5,36 @@ class WTLayoutVertical extends WTLayout {
 
   @override
   Widget? build() {
-    return Container(
+    return LayoutBuilder(
       key: getUniqueKey(),
-      color: backgroundColor,
-      padding: padding,
-      margin: margin,
-      width: width,
-      alignment: alignment,
-      child: Column(
-        mainAxisAlignment: mainAxisAlignment!,
-        crossAxisAlignment: crossAxisAlignment!,
-        children: <Widget>[
-          ...components!,
-        ],
-      ),
+      builder: (context, constraints) {
+        width  = constraints.maxWidth;
+        height = constraints.maxHeight;
+        if(small == true) { width = width! * 0.3; }
+        if(medium == true) { width = width! * 0.5; }
+
+        print('-----------------------------------');
+        print('WTLayoutVertical');
+        print('width: $width');
+        print('height: $height');
+        print('-----------------------------------');
+
+        return Container(
+          key: getUniqueKey(),
+          color: backgroundColor,
+          padding: padding,
+          margin: margin,
+          width: width,
+          alignment: alignment,
+          child: Column(
+            mainAxisAlignment: mainAxisAlignment!,
+            crossAxisAlignment: crossAxisAlignment!,
+            children: <Widget>[
+              ...components!,
+            ],
+          ),
+        );
+      }
     );
   }
 

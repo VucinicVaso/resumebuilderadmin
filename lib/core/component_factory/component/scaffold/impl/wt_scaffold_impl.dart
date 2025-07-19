@@ -6,12 +6,12 @@ class WTScaffoldImpl extends WTScaffold {
   @override
   Widget? build() {
     return Scaffold(
-      key:                  globalKey,
-      backgroundColor:      backgroundColor,
-      appBar:               header,
-      body:                 body,
+      key: globalKey,
+      backgroundColor: backgroundColor,
+      appBar: header,
+      body: body,
       floatingActionButton: flyMenu,
-      bottomNavigationBar:  footer,
+      bottomNavigationBar: footer,
     );
   }
 

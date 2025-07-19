@@ -12,7 +12,9 @@ enum WTHeaderType {
 
 enum WTBodyType {
   basic1,
-  basic2
+  basic2,
+  dynamic1,
+  dynamic2,
 }
 
 enum WTFooterType {

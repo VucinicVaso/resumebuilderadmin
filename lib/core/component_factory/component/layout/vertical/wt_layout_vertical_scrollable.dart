@@ -5,22 +5,30 @@ class WTLayoutVerticalScrollable extends WTLayout {
 
   @override
   Widget? build() {
-    return Container(
+    return LayoutBuilder(
       key: getUniqueKey(),
-      color: backgroundColor,
-      padding: padding,
-      margin: margin,
-      width: width,
-      alignment: alignment,
-      child: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: mainAxisAlignment!,
-          crossAxisAlignment: crossAxisAlignment!,
-          children: <Widget>[
-            ...components!,
-          ],
-        ),
-      ),
+      builder: (context, constraints) {
+        width  = constraints.maxWidth;
+        height = constraints.maxHeight;
+    
+        return Container(
+          key: getUniqueKey(),
+          color: backgroundColor,
+          padding: padding,
+          margin: margin,
+          width: width,
+          alignment: alignment,
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: mainAxisAlignment!,
+              crossAxisAlignment: crossAxisAlignment!,
+              children: <Widget>[
+                ...components!,
+              ],
+            ),
+          ),
+        );
+      }
     );
   }
 

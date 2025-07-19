@@ -9,9 +9,11 @@ abstract class WTLayout extends WTComponent {
   bool? expandable = false;
   void setExpandable() { expandable = true; }
 
-  void sm() { width = width! * 0.3; }
-  void md() { width = width! * 0.5; }
-  void lg() { width = width; }
+  // size of a layout
+  bool? small, medium, large = false;
+  void sm() { small = true; }
+  void md() { medium = true; }
+  void lg() { large = true; }
 
   // 0 padding and margin
   void flat() {

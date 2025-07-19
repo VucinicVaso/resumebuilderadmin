@@ -19,6 +19,7 @@ class RegistrationView extends WTView<RegistrationController> {
   Widget? createSignInView(RegistrationController? con) {
     var usernameField = componentFactory!.createFormInputFiled(WTFormInputFieldType.text)!
       ..setController(con!.usernameController)
+      ..validationOnUserInteraction()
       ..setValidator(con.usernameValidator)
       ..setLabel('Username:')
       ..setPrefix(iconData: Symbols.account_circle);
@@ -26,26 +27,36 @@ class RegistrationView extends WTView<RegistrationController> {
     var passwordField = componentFactory!.createFormInputFiled(WTFormInputFieldType.text)!
       ..setController(con.passwordController)
       ..setLabel('Password:')
+      ..validationOnUserInteraction()
       ..setValidator(con.passwordValidator)
       ..setPrefix(iconData: Symbols.password);
 
     var form = componentFactory!.createForm(WTFormType.basic)!
       ..setFormKey(con.formKey)
+      //..validationOnUserInteraction()
       ..addField(key: 'username', order: 0, inputField: usernameField)
       ..addField(key: 'password', order: 1, inputField: passwordField);
 
-    var layout = componentFactory!.createLayout(WTLayoutType.verticalExpanded)!
-      ..flat()
-      ..setBackgroundColor(Colors.orange) //delete
-      ..addComponent(Text('RegistrationView.createSignInView \n Hello World! \n width: ${componentFactory!.deviceWidth}, height: ${componentFactory!.deviceHeight}'))
+    var formLayout = componentFactory!.createLayout(WTLayoutType.vertical)!
+      ..setBackgroundColor(Colors.green)
+      ..setMainAxisAlignment(MainAxisAlignment.center)
+      ..setCrossAxisAlignment(CrossAxisAlignment.center)
+      ..md()
       ..addComponent(form.build());
+
+    var layout = componentFactory!.createLayout(WTLayoutType.verticalExpanded)!
+      ..setBackgroundColor(Colors.orange) //delete
+      ..setMainAxisAlignment(MainAxisAlignment.center)
+      ..setCrossAxisAlignment(CrossAxisAlignment.center)
+      ..addComponent(Text('RegistrationView.createSignInView \n Hello World! \n width: ${componentFactory!.deviceWidth}, height: ${componentFactory!.deviceHeight}'))
+      ..addComponent(formLayout.build());
     return layout.build();
   }
 
   Widget? createScaffold(RegistrationController? con) {
     var header = componentFactory!.createHeader(WTHeaderType.basic1)!;
 
-    var body = componentFactory!.createBody(WTBodyType.basic1)!
+    var body = componentFactory!.createBody(WTBodyType.dynamic1)! //basic1
       ..addComponent(con!.view.value == 0 ? createSignInView(con)! : createSignUpView(con)!);
 
     var scaffold = componentFactory!.createScaffold(WTScaffoldType.basic1)!

@@ -53,6 +53,8 @@ class RegistrationController extends WTController<RegistrationController> {
   TextEditingController? usernameController = TextEditingController();
   void usernameListener() { username = usernameController!.text; }
   usernameValidator(String v) {
+    print('usernameValidator($v)'); //delete
+
     if(v.isEmpty) { return 'settings_account_form3'.tr; }
     if(v.length < 12) { return 'settings_account_form4'.tr; }
     if(v.contains(' ')) { return 'settings_account_form5'.tr; }
@@ -64,6 +66,8 @@ class RegistrationController extends WTController<RegistrationController> {
   TextEditingController? passwordController = TextEditingController();
   void passwordListener() { password = usernameController!.text; }
   passwordValidator(String v) {
+    print('passwordValidator($v)'); //delete
+
     if(v.isEmpty) { return 'settings_account_form3'.tr; }
     if(v.length < 12) { return 'settings_account_form4'.tr; }
     if(v.contains(' ')) { return 'settings_account_form5'.tr; }

@@ -15,14 +15,13 @@ abstract class WTForm extends WTComponent {
   void setValidationMode(AutovalidateMode? v) { validationMode = v; }
   void validationAlways() { validationMode = AutovalidateMode.always; }
   void validationModeDisabled() { validationMode = AutovalidateMode.disabled; }
-  void validateModeOnUserInteraction() { validationMode = AutovalidateMode.onUserInteraction; }
+  void validationOnUserInteraction() { validationMode = AutovalidateMode.onUserInteraction; }
 
   Map<String, WTFormInputFieldBuilder>? fields = <String, WTFormInputFieldBuilder>{};
   void addField({ String? key, int? order, WTFormInputField? inputField, WTComponent? component }) {
     WTFormInputFieldBuilder field = WTFormInputFieldBuilder()
       ..setKey(key)
       ..setOrder(order)
-      ..setFocusNode()
       ..showField();
     if(inputField != null) { field.setInputField(inputField); }
     if(component != null) { field.setComponent(component); }

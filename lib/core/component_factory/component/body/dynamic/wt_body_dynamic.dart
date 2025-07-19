@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:resumebuilderadmin/core/external/lib_getx.dart';
-import 'package:resumebuilderadmin/core/component_factory/factory/wtoolbox_component_factory.dart';
 import '../wt_body.dart';
 
-class WTBodyImpl extends WTBody {
+class WTBodyDynamic extends WTBody {
 
   void isKeyboardOpen() {
     if(buildContext != null) {
@@ -25,11 +23,9 @@ class WTBodyImpl extends WTBody {
             print('width:  ${constraints.maxWidth}');
             print('height: ${constraints.maxHeight}');
             print('-----------------------------------');
-
-            Get.find<WTComponentFactory>()
-              ..setDeviceWidth(constraints.maxWidth)
-              ..setDeviceHeight(constraints.maxHeight);
-
+            width  = constraints.maxWidth;
+            height = constraints.maxHeight;
+            
             return Container(
               color: backgroundColor,
               width: width,

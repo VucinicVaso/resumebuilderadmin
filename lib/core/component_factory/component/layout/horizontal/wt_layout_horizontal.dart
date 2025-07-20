@@ -5,24 +5,28 @@ class WTLayoutHorizontal extends WTLayout {
 
   @override
   Widget? build() {
-    return Container(
+    return LayoutBuilder(
       key: getUniqueKey(),
-      width: width,
-      color: backgroundColor,
-      padding: padding,
-      margin: margin,
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: mainAxisAlignment!,
-        crossAxisAlignment: crossAxisAlignment!,
-        children: <Widget>[
-          ...components!.map((c) {
-            if(c.runtimeType.toString() == 'GestureDetector') { return Container(child: c); }
-            if(c.runtimeType.toString() == 'TextInputField') { return Expanded(child: c); }
-            return c;
-          }),
-        ],
-      ),
+      builder: (context, constraints) {
+        width = constraints.maxWidth;
+        height = constraints.maxHeight;
+      
+        return Container(
+          key: getUniqueKey(),
+          width: width,
+          color: backgroundColor,
+          padding: padding,
+          margin: margin,
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: mainAxisAlignment!,
+            crossAxisAlignment: crossAxisAlignment!,
+            children: <Widget>[
+              ...components!.map((c) => c.build()!),
+            ],
+          ),
+        );
+      }
     );
   }
 

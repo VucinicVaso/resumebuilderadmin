@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import '../wt_component.dart';
 
 abstract class WTLayout extends WTComponent {
@@ -21,8 +20,8 @@ abstract class WTLayout extends WTComponent {
     setMargin(left: 0.0, top: 0.0, right: 0.0, bottom: 0.0);
   }
 
-  List<Widget>? components = List<Widget>.empty(growable: true);
-  void addComponent(Widget? v) { components!.add(v!); }
-  void addComponents(List<Widget>? v) { components!.addAll(v!); }
+  List<WTComponent>? components = List<WTComponent>.empty(growable: true);
+  void addComponent(WTComponent? v) { components!.add(v!); }
+  void addComponents(List<WTComponent>? v) { components!.addAll(v!); }
 
 }

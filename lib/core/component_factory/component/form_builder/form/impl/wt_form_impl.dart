@@ -67,17 +67,18 @@ class ComponentWidgetState extends State<ComponentWidget> {
 
   @override
   void initState() {
-    super.initState();
     setFormInputFieldsList();
+
+    super.initState();
   }
 
   @override
   void dispose() {
-    super.dispose();
-
     if(widget.scrollController != null) {
       widget.scrollController!.dispose();
     }
+
+    super.dispose();
   }
 
   List<WTFormInputFieldBuilder>? formInputFields = List<WTFormInputFieldBuilder>.empty(growable: true);
@@ -150,26 +151,19 @@ class ComponentWidgetState extends State<ComponentWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (context, constrains) {
-        widget.width  = constrains.maxWidth;
-        widget.height = constrains.maxHeight;
-
-        return Form(
-          key: widget.formKey!,
-          autovalidateMode: widget.autovalidateMode,
-          child: Container(
-            color: widget.backgroundColor,
-            padding: widget.padding,
-            margin: widget.margin,
-            alignment: widget.alignment,
-            child: SingleChildScrollView(
-              controller: widget.scrollController,
-              child: generateInputFields()!,
-            ),
-          ),
-        );
-      }
+    return Container(
+      key: widget.key,
+      color: widget.backgroundColor,
+      padding: widget.padding,
+      margin: widget.margin,
+      alignment: widget.alignment,
+      child: Form(
+        key: widget.formKey!,
+        child: SingleChildScrollView(
+          controller: widget.scrollController,
+          child: generateInputFields()!,
+        ),
+      ),
     );
   }
 

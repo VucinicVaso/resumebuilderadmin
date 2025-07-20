@@ -10,7 +10,8 @@ class WTLayoutVertical extends WTLayout {
       builder: (context, constraints) {
         width  = constraints.maxWidth;
         height = constraints.maxHeight;
-        if(small == true) { width = width! * 0.3; }
+
+        if(small == true) { width = width! * 0.33; }
         if(medium == true) { width = width! * 0.5; }
         if(large == true) { width = width; }
 
@@ -21,13 +22,18 @@ class WTLayoutVertical extends WTLayout {
           margin: margin,
           width: width,
           alignment: alignment,
-          child: Column(
-            mainAxisAlignment: mainAxisAlignment!,
-            crossAxisAlignment: crossAxisAlignment!,
-            children: <Widget>[
-              ...components!,
-            ],
-          ),
+          child: components!.isEmpty 
+            ? SizedBox.shrink()
+            : Column(
+                mainAxisAlignment: mainAxisAlignment!,
+                crossAxisAlignment: crossAxisAlignment!,
+                children: <Widget>[
+                  ...components!.map((c) {
+                    c..setWidth(width)..setHeight(height);
+                    return c.build()!;
+                  }),
+                ],
+              ),
         );
       }
     );

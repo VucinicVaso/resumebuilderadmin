@@ -29,7 +29,7 @@ class WTLayoutVerticalExpandedAndScrollable extends WTLayout {
                 mainAxisAlignment: mainAxisAlignment!,
                 crossAxisAlignment: crossAxisAlignment!,
                 children: <Widget>[
-                  ...components!,
+                  ...components!.map((c) => c.build()!),
                 ],
               ),
             ),

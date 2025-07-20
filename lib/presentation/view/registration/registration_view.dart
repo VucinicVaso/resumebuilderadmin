@@ -42,14 +42,14 @@ class RegistrationView extends WTView<RegistrationController> {
       ..setMainAxisAlignment(MainAxisAlignment.center)
       ..setCrossAxisAlignment(CrossAxisAlignment.center)
       ..md()
-      ..addComponent(form.build());
+      ..addComponent(form);
 
     var layout = componentFactory!.createLayout(WTLayoutType.verticalExpanded)!
       ..setBackgroundColor(Colors.orange) //delete
       ..setMainAxisAlignment(MainAxisAlignment.center)
       ..setCrossAxisAlignment(CrossAxisAlignment.center)
-      ..addComponent(Text('RegistrationView.createSignInView \n Hello World! \n width: ${componentFactory!.deviceWidth}, height: ${componentFactory!.deviceHeight}'))
-      ..addComponent(formLayout.build());
+      ..addComponent(formLayout)
+      ;
     return layout.build();
   }
 
@@ -57,6 +57,7 @@ class RegistrationView extends WTView<RegistrationController> {
     var header = componentFactory!.createHeader(WTHeaderType.basic1)!;
 
     var body = componentFactory!.createBody(WTBodyType.basic1)!
+      ..setBackgroundColor(Colors.red)
       ..addComponent(con!.view.value == 0 ? createSignInView(con)! : createSignUpView(con)!);
 
     var scaffold = componentFactory!.createScaffold(WTScaffoldType.basic1)!

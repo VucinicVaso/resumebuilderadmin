@@ -18,12 +18,11 @@ class DashboardView extends WTView<DashboardController> {
         icon: Icons.logout
       );
 
-    var body = componentFactory!.createBody(WTBodyType.basic1)!
-      ..addComponent(Text('Hello World! DashboardView'));
+    var body = componentFactory!.createBody(WTBodyType.basic1);
 
     var scaffold = componentFactory!.createScaffold(WTScaffoldType.basic1)!
       ..setHeader(header.build())
-      ..setBody(body.build());
+      ..setBody(body!.build()!);
     return scaffold.build();
   }
 

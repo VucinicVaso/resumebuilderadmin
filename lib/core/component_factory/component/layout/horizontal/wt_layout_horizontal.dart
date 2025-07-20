@@ -24,7 +24,10 @@ class WTLayoutHorizontal extends WTLayout {
                 mainAxisAlignment: mainAxisAlignment!,
                 crossAxisAlignment: crossAxisAlignment!,
                 children: <Widget>[
-                  ...components!.map((c) => c.build()!),
+                  ...components!.map((c) {
+                    c..setWidth(width)..setHeight(height);
+                    return c.build()!;
+                  }),
                 ],
               ),
         );

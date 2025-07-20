@@ -24,15 +24,20 @@ class WTLayoutVerticalExpandedAndScrollable extends WTLayout {
             padding: padding!,
             margin: margin!,
             alignment: alignment,
-            child: SingleChildScrollView(
-              child: Column(
-                mainAxisAlignment: mainAxisAlignment!,
-                crossAxisAlignment: crossAxisAlignment!,
-                children: <Widget>[
-                  ...components!.map((c) => c.build()!),
-                ],
-              ),
-            ),
+            child: components!.isEmpty 
+              ? SizedBox.shrink()
+              : SingleChildScrollView(
+                  child: Column(
+                    mainAxisAlignment: mainAxisAlignment!,
+                    crossAxisAlignment: crossAxisAlignment!,
+                    children: <Widget>[
+                      ...components!.map((c) {
+                        c..setWidth(width)..setHeight(height);
+                        return c.build()!;
+                      }),
+                    ],
+                  ),
+                ),
           ),
         );
       }

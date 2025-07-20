@@ -37,10 +37,6 @@ class WTBodyBasic extends WTBody {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     ...components!,
-                    // ...components!.map((c) {
-                    //   if(c.runtimeType.toString === 'Expanded') { return Column(children: <Widget>[ c ],); }
-                    //   return c;
-                    // }),
                   ],
                 ),
               ),

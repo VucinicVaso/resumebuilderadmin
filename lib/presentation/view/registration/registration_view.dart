@@ -48,8 +48,7 @@ class RegistrationView extends WTView<RegistrationController> {
       ..setBackgroundColor(Colors.orange) //delete
       ..setMainAxisAlignment(MainAxisAlignment.center)
       ..setCrossAxisAlignment(CrossAxisAlignment.center)
-      ..addComponent(formLayout)
-      ;
+      ..addComponent(formLayout);
     return layout.build();
   }
 

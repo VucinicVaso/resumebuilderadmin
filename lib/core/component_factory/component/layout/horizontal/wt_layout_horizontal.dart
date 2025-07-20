@@ -17,14 +17,16 @@ class WTLayoutHorizontal extends WTLayout {
           color: backgroundColor,
           padding: padding,
           margin: margin,
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: mainAxisAlignment!,
-            crossAxisAlignment: crossAxisAlignment!,
-            children: <Widget>[
-              ...components!.map((c) => c.build()!),
-            ],
-          ),
+          child: components!.isEmpty
+            ? SizedBox.shrink()
+            : Row(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: mainAxisAlignment!,
+                crossAxisAlignment: crossAxisAlignment!,
+                children: <Widget>[
+                  ...components!.map((c) => c.build()!),
+                ],
+              ),
         );
       }
     );

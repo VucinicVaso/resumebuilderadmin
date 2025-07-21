@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:resumebuilderadmin/core/component_factory/component/button/wt_button.dart';
 
-class WTButtonText extends WTButton {
+class WTButtonUnderlineText extends WTButton {
 
   @override
   Widget? build() {
@@ -94,10 +94,11 @@ class _ButtonWidgetState extends State<ButtonWidget> {
         margin: widget.margin,
         decoration: BoxDecoration(
           color: widget.backgroundColor,
-          borderRadius: BorderRadius.all(Radius.circular(8.0)),
-          border: Border.all(
-            color: widget.borderColor!,
-            width: 1,
+          border: Border(
+            bottom: BorderSide(
+              color: widget.borderColor!,
+              width: 1,
+            ),
           ),
         ),
         child: textWidget(),

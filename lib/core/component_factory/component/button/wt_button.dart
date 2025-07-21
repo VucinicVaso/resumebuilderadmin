@@ -14,13 +14,15 @@ abstract class WTButton extends WTComponent {
   void setLabelSize(double? v) { labelSize = v; }
 
   IconData? icon, actionIcon;
-  Color? iconColor, actionIconColor;
+  Color? iconColor, iconBackgroundColor, actionIconColor, actionIconBackgroundColor;
   double? iconSize, actionIconSize;
   void setIcon(IconData? v) { icon = v; }
   void setIconColor(Color? v) { iconColor = v; }
+  void setIconBackgroundColor(Color? v) { iconBackgroundColor = v; }
   void setIconSize(double? v) { iconSize = v; }
   void setActionIcon(IconData? v) { icon = v; }
   void setActionIconColor(Color? v) { iconColor = v; }
   void setActionIconSize(double? v) { iconSize = v; }
+  void setActionIconBackgroundColor(Color? v) { actionIconBackgroundColor = v; }
 
 }

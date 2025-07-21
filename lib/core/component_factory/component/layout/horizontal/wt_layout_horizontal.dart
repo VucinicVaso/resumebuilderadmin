@@ -8,11 +8,16 @@ class WTLayoutHorizontal extends WTLayout {
     return LayoutBuilder(
       key: getUniqueKey(),
       builder: (context, constraints) {
+        print('-------------------------------------');
+        print('WTLayoutHorizontal');
+        print('width: ${constraints.maxWidth}');
+        print('height: ${constraints.maxHeight}');
+        print('-------------------------------------');
+
         width = constraints.maxWidth;
         height = constraints.maxHeight;
-      
+
         return Container(
-          key: getUniqueKey(),
           width: width,
           color: backgroundColor,
           padding: padding,

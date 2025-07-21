@@ -10,6 +10,7 @@ import '../component/space/wt_space.dart';
 import '../component/divider/wt_divider.dart';
 import '../component/form_builder/form/wt_form.dart';
 import '../component/form_builder/input_field/wt_form_input_filed.dart';
+import '../component/button/wt_button.dart';
 
 abstract class WTComponentFactory with WTComponentFactoryConfig {
 
@@ -32,5 +33,7 @@ abstract class WTComponentFactory with WTComponentFactoryConfig {
   WTForm? createForm(WTFormType type);
 
   WTFormInputField? createFormInputFiled(WTFormInputFieldType type);
+
+  WTButton? createButton(WTButtonType type);
 
 }

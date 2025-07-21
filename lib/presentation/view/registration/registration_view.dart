@@ -12,11 +12,7 @@ class RegistrationView extends WTView<RegistrationController> {
     setController(RegistrationController());
   }
 
-  Widget? createSignUpView(RegistrationController? con) {
-    return Text('RegistrationView.createSignUpView \n Hello World! \n width: ${componentFactory!.deviceWidth}, height: ${componentFactory!.deviceHeight}');
-  }
-
-  Widget? createSignInView(RegistrationController? con) {
+  Widget? formView(RegistrationController? con) {
     var usernameField = componentFactory!.createFormInputFiled(WTFormInputFieldType.text)!
       ..setController(con!.usernameController)
       ..validationOnUserInteraction()
@@ -37,12 +33,29 @@ class RegistrationView extends WTView<RegistrationController> {
       ..addField(key: 'username', order: 0, inputField: usernameField)
       ..addField(key: 'password', order: 1, inputField: passwordField);
 
+    var signInButton = componentFactory!.createButton(WTButtonType.text1)!
+      ..setAction(() async => con.signIn())
+      ..setLabel('Sign In');
+    var signUpButton = componentFactory!.createButton(WTButtonType.text2)!
+      ..setAction(() async => con.signUp())
+      ..setLabel('Sign Up');
+    var buttonLayout = componentFactory!.createLayout(WTLayoutType.horizontal)!
+      ..setBackgroundColor(Colors.green) //delete
+      ..setCrossAxisAlignment(CrossAxisAlignment.center)
+      ..setMainAxisAlignment(MainAxisAlignment.spaceAround)
+      ..addComponent(signInButton)
+      ..addComponent(signUpButton);
+
+    var formSpace = componentFactory!.createSpace(WTSpaceType.horizontal10);
+
     var formLayout = componentFactory!.createLayout(WTLayoutType.vertical)!
       ..setBackgroundColor(Colors.green)
       ..setMainAxisAlignment(MainAxisAlignment.center)
       ..setCrossAxisAlignment(CrossAxisAlignment.center)
       ..md()
-      ..addComponent(form);
+      ..addComponent(form)
+      ..addComponent(formSpace)
+      ..addComponent(buttonLayout);
 
     var layout = componentFactory!.createLayout(WTLayoutType.verticalExpanded)!
       ..setBackgroundColor(Colors.orange) //delete
@@ -57,7 +70,7 @@ class RegistrationView extends WTView<RegistrationController> {
 
     var body = componentFactory!.createBody(WTBodyType.basic1)!
       ..setBackgroundColor(Colors.red)
-      ..addComponent(con!.view.value == 0 ? createSignInView(con)! : createSignUpView(con)!);
+      ..addComponent(formView(con));
 
     var scaffold = componentFactory!.createScaffold(WTScaffoldType.basic1)!
       ..setHeader(header.build())
@@ -67,7 +80,8 @@ class RegistrationView extends WTView<RegistrationController> {
 
   @override
   Widget build(BuildContext context) {
-    return Obx(() => createScaffold(controller)!);
+    return createScaffold(controller)!;
+    //return Obx(() => createScaffold(controller)!);
   }
 
 }

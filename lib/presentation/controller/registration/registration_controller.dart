@@ -75,15 +75,39 @@ class RegistrationController extends WTController<RegistrationController> {
     return null;
   }
 
-  Future<void> submit() async {
+  Future<void> signIn() async {
     print('---------------------------------------');
-    print('-- submit()');
+    print('-- signIn()');
     print('-- username: $username');
     print('-- password: $password');
     print('---------------------------------------');
 
     setFormSubmitting(true);
-    final FormState? form = formKey!.currentState;
+    final FormState? form    = formKey!.currentState;
+    final bool formValidated = form!.validate();
+
+    if(!formValidated) {
+      setFormSubmitting(false);
+      WTLogger.write('errorMessage'.tr);
+      formKey!.currentState!.reset();
+    }
+    
+    if(formValidated) {
+      setFormSubmitting(false);
+      formKey!.currentState!.reset();
+      await navigateBack();
+    }
+  }
+
+  Future<void> signUp() async {
+    print('---------------------------------------');
+    print('-- signUp()');
+    print('-- username: $username');
+    print('-- password: $password');
+    print('---------------------------------------');
+
+    setFormSubmitting(true);
+    final FormState? form    = formKey!.currentState;
     final bool formValidated = form!.validate();
 
     if(!formValidated) {

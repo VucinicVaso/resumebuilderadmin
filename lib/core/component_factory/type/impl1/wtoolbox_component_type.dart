@@ -52,3 +52,8 @@ enum WTFormType {
 enum WTFormInputFieldType {
   text
 }
+
+enum WTButtonType {
+  text1,
+  text2
+}

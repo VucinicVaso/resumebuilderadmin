@@ -6,8 +6,8 @@ class WTSpaceBasic extends WTSpace {
   @override
   Widget? build() {
     return SizedBox(
-      width:  width,
-      height: height
+      width: horizontalSpace,
+      height: verticalSpace
     );
   }
 

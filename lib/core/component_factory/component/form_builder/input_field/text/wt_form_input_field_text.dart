@@ -144,21 +144,28 @@ class _ComponentState extends State<ComponentWidget> {
   }
 
   void setSizes() {
+    double? labelSize, hintLabelSize, inputTextSize, prefixSize, suffixSize = 0.0;
+    if(widget.width! > 1000) {
+      labelSize     = 20;
+      hintLabelSize = 18;
+      inputTextSize = 18;
+      prefixSize    = 27;
+      suffixSize    = 27;
+    }
+    if(widget.width! < 1000) {
+      labelSize     = 18;
+      inputTextSize = 16;
+      hintLabelSize = 16;
+      prefixSize    = 25;
+      suffixSize    = 25;
+    }
+
     setState(() {
-      if(widget.width! > 1000) {
-        widget.labelSize     = 20;
-        widget.hintLabelSize = 18;
-        widget.inputTextSize = 18;
-        widget.prefixSize    = 27;
-        widget.suffixSize    = 27;
-      }
-      if(widget.width! < 1000) {
-        widget.labelSize     = 18;
-        widget.inputTextSize = 16;
-        widget.hintLabelSize = 16;
-        widget.prefixSize    = 25;
-        widget.suffixSize    = 25;
-      }
+      widget.labelSize     = labelSize;
+      widget.hintLabelSize = hintLabelSize;
+      widget.inputTextSize = inputTextSize;
+      widget.prefixSize    = prefixSize;
+      widget.suffixSize    = suffixSize;
     });
   }
 

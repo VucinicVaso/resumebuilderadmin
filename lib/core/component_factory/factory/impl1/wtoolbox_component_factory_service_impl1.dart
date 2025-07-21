@@ -26,6 +26,8 @@ import '../../component/form_builder/form/wt_form.dart';
 import '../../component/form_builder/form/impl/wt_form_impl.dart';
 import '../../component/form_builder/input_field/wt_form_input_filed.dart';
 import '../../component/form_builder/input_field/text/wt_form_input_field_text.dart';
+import '../../component/button/wt_button.dart';
+import '../../component/button/text/wt_button_text.dart';
 
 class WTComponentFactoryImpl1 extends WTComponentFactory {
 
@@ -264,38 +266,38 @@ class WTComponentFactoryImpl1 extends WTComponentFactory {
       case WTSpaceType.horizontal5:
         var component = WTSpaceBasic()
           ..setBuildContext(getCurrentContext())
-          ..setHeight(0.0)
-          ..setWidth(5.0);
+          ..setHorizontalSpace(0.0)
+          ..setVerticalSpace(5.0);
         return component;
       case WTSpaceType.horizontal10:
         var component = WTSpaceBasic()
           ..setBuildContext(getCurrentContext())
-          ..setHeight(0.0)
-          ..setWidth(10.0);
+          ..setHorizontalSpace(0.0)
+          ..setVerticalSpace(10.0);
         return component;
       case WTSpaceType.horizontal15:
         var component = WTSpaceBasic()
           ..setBuildContext(getCurrentContext())
-          ..setHeight(0.0)
-          ..setWidth(15.0);
+          ..setHorizontalSpace(0.0)
+          ..setVerticalSpace(15.0);
         return component;
       case WTSpaceType.vertical5:
         var component = WTSpaceBasic()
           ..setBuildContext(getCurrentContext())
-          ..setHeight(5.0)
-          ..setWidth(0.0);
+          ..setHorizontalSpace(5.0)
+          ..setVerticalSpace(0.0);
         return component;
       case WTSpaceType.vertical10:
         var component = WTSpaceBasic()
           ..setBuildContext(getCurrentContext())
-          ..setHeight(10.0)
-          ..setWidth(0.0);
+          ..setHorizontalSpace(10.0)
+          ..setVerticalSpace(0.0);
         return component;
       case WTSpaceType.vertical15:
         var component = WTSpaceBasic()
           ..setBuildContext(getCurrentContext())
-          ..setHeight(15.0)
-          ..setWidth(0.0);
+          ..setHorizontalSpace(15.0)
+          ..setVerticalSpace(0.0);
         return component;
     }
   }
@@ -335,6 +337,28 @@ class WTComponentFactoryImpl1 extends WTComponentFactory {
           ..setPrefixColor(theme!.primary1)
           ..setLabelColor(theme!.text3)
           ..setSuffixColor(theme!.text1);
+        return component;
+    }
+  }
+
+  @override
+  WTButton? createButton(WTButtonType type) {
+    switch(type) {
+      case WTButtonType.text1: 
+        var component = WTButtonText()
+          ..setPadding(left: 5.0, top: 5.0, right: 5.0, bottom: 5.0)
+          ..setMargin(left: 5.0, top: 5.0, right: 5.0, bottom: 5.0)
+          ..setBackgroundColor(theme!.primary1)
+          ..setBorderColor(theme!.primary1)
+          ..setLabelColor(theme!.primary5);
+        return component;
+      case WTButtonType.text2: 
+        var component = WTButtonText()
+          ..setPadding(left: 5.0, top: 5.0, right: 5.0, bottom: 5.0)
+          ..setMargin(left: 5.0, top: 5.0, right: 5.0, bottom: 5.0)
+          ..setBackgroundColor(theme!.primary5)
+          ..setBorderColor(theme!.primary1)
+          ..setLabelColor(theme!.primary1);
         return component;
     }
   }

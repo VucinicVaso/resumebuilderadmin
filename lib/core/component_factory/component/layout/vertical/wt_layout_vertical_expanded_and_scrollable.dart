@@ -5,20 +5,14 @@ class WTLayoutVerticalExpandedAndScrollable extends WTLayout {
 
   @override
   Widget? build() {
-    return LayoutBuilder(
-      key: getUniqueKey(),
-      builder: (context, constraints) {
-        print('-----------------------------------');
-        print('WTLayoutVerticalExpandedAndScrollable');
-        print('width:  ${constraints.maxWidth}');
-        print('height: ${constraints.maxHeight}');
-        print('-----------------------------------');
-        width  = constraints.maxWidth;
-        height = constraints.maxHeight;
+    return Expanded(
+      child: LayoutBuilder(
+        key: getUniqueKey(),
+        builder: (context, constraints) {
+          width  = constraints.maxWidth;
+          height = constraints.maxHeight;
 
-        return Expanded(
-          key: getUniqueKey(),
-          child: Container(
+          return Container(
             color: backgroundColor,
             width: width,
             padding: padding!,
@@ -38,9 +32,9 @@ class WTLayoutVerticalExpandedAndScrollable extends WTLayout {
                     ],
                   ),
                 ),
-          ),
-        );
-      }
+          );
+        }
+      ),
     );
   }
 

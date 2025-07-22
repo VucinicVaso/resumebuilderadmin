@@ -36,25 +36,23 @@ class RegistrationView extends WTView<RegistrationController> {
     var signInButton = componentFactory!.createButton(WTButtonType.text1)!
       ..setAction(() async => con.signIn())
       ..setLabel('Sign In');
-    var signUpButton = componentFactory!.createButton(WTButtonType.text2)!
+    var signUpButton = componentFactory!.createButton(WTButtonType.underlineText1)!
       ..setAction(() async => con.signUp())
       ..setLabel('Sign Up');
     var buttonLayout = componentFactory!.createLayout(WTLayoutType.horizontal)!
-      ..setBackgroundColor(Colors.green) //delete
+      ..setBackgroundColor(Colors.red) //delete
       ..setCrossAxisAlignment(CrossAxisAlignment.center)
       ..setMainAxisAlignment(MainAxisAlignment.spaceAround)
       ..addComponent(signInButton)
       ..addComponent(signUpButton);
 
-    var formSpace = componentFactory!.createSpace(WTSpaceType.horizontal10);
-
     var formLayout = componentFactory!.createLayout(WTLayoutType.vertical)!
-      ..setBackgroundColor(Colors.green)
+      ..setBackgroundColor(Colors.green) //delete
       ..setMainAxisAlignment(MainAxisAlignment.center)
       ..setCrossAxisAlignment(CrossAxisAlignment.center)
       ..md()
       ..addComponent(form)
-      ..addComponent(formSpace)
+      ..addComponent(componentFactory!.createSpace(WTSpaceType.horizontal10))
       ..addComponent(buttonLayout);
 
     var layout = componentFactory!.createLayout(WTLayoutType.verticalExpanded)!
@@ -73,7 +71,7 @@ class RegistrationView extends WTView<RegistrationController> {
       ..addComponent(formView(con));
 
     var scaffold = componentFactory!.createScaffold(WTScaffoldType.basic1)!
-      ..setHeader(header.build())
+      ..setHeader(header)
       ..setBody(body.build());
     return scaffold.build();
   }

@@ -21,6 +21,17 @@ abstract class WTHeader {
   bool? shadow = false;
   void withShadow(bool? v) { shadow = v; }
 
+  bool? sidebar = false;
+  IconData? sidebarIcon;
+  Color? sidebarIconColor;
+  double? sidebarIconSize;
+  VoidCallback? sidebarAction;
+  void withSidebar() { sidebar = true; }
+  void setSidebarIcon(IconData? v) { sidebarIcon = v; }
+  void setSidebarIconColor(Color? v) { sidebarIconColor = v; }
+  void setSidebarIconSize(double? v) { sidebarIconSize = v; }
+  void setSidebarAction(VoidCallback? v) { sidebarAction = v; }
+
   VoidCallback? backAction;
 
   String? backActionNetworkImage, backActionAssetImage;

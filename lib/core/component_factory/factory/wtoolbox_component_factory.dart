@@ -11,12 +11,15 @@ import '../component/divider/wt_divider.dart';
 import '../component/form_builder/form/wt_form.dart';
 import '../component/form_builder/input_field/wt_form_input_filed.dart';
 import '../component/button/wt_button.dart';
+import '../component/sidebar/wt_sidebar.dart';
 
 abstract class WTComponentFactory with WTComponentFactoryConfig {
 
   WTScaffold? createScaffold(WTScaffoldType type);
 
   WTHeader? createHeader(WTHeaderType type);
+
+  WTSidebar? createSidebar(WTSidebarType type);
 
   WTBody? createBody(WTBodyType type);
 

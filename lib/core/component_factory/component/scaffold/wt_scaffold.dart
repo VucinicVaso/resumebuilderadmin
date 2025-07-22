@@ -1,21 +1,28 @@
 import 'package:flutter/material.dart';
 import '../wt_component.dart';
+import '../header/wt_header.dart';
+import '../sidebar/wt_sidebar.dart';
+import '../footer/wt_footer.dart';
+import '../floating_menu/w_floating_menu.dart';
 
 abstract class WTScaffold extends WTComponent {
 
-  GlobalKey? globalKey;
+  GlobalKey<ScaffoldState>? globalKey;
   void setGlobalKey() { globalKey = GlobalKey<ScaffoldState>(); }
 
-  PreferredSizeWidget? header;
-  void setHeader(PreferredSizeWidget? v) { header = v; }
+  WTHeader? header;
+  void setHeader(WTHeader? v) { header = v; }
+
+  WTSidebar? sidebar;
+  void setSidebar(WTSidebar? v) { sidebar = v; }
 
   Widget? body;
   void setBody(Widget? v) { body = v; }
 
-  Widget? flyMenu;
-  void setFlyMenu(Widget? v) { flyMenu = v; }
+  WTFloatingMenu? floatingMenu;
+  void setFloatingMenu(WTFloatingMenu? v) { floatingMenu = v; }
 
-  Widget? footer;
-  void setFooter(Widget? v) { footer = v; }
+  WTFooter? footer;
+  void setFooter(WTFooter? v) { footer = v; }
 
 }

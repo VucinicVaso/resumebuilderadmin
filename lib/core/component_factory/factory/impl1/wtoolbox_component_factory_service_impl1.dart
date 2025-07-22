@@ -16,6 +16,8 @@ import '../../component/scaffold/wt_scaffold.dart';
 import '../../component/scaffold/impl/wt_scaffold_impl.dart';
 import '../../component/header/wt_header.dart';
 import '../../component/header/impl/wt_header_impl.dart';
+import '../../component/sidebar/wt_sidebar.dart';
+import '../../component/sidebar/basic/wt_sidebar_basic.dart';
 import '../../component/body/wt_body.dart';
 import '../../component/body/basic/wt_body_basic.dart';
 import '../../component/footer/wt_footer.dart';
@@ -28,6 +30,7 @@ import '../../component/form_builder/input_field/wt_form_input_filed.dart';
 import '../../component/form_builder/input_field/text/wt_form_input_field_text.dart';
 import '../../component/button/wt_button.dart';
 import '../../component/button/text/wt_button_text.dart';
+import '../../component/button/underline_text/wt_button_underline_text.dart';
 
 class WTComponentFactoryImpl1 extends WTComponentFactory {
 
@@ -56,6 +59,8 @@ class WTComponentFactoryImpl1 extends WTComponentFactory {
           ..setGoogleFonts(fonts)
           ..withShadow(false)
           ..setBackgroundColor(theme!.background1)
+          ..setSidebarIcon(Symbols.menu)
+          ..setSidebarIconColor(theme!.text1)
           ..setBackActionIconColor(theme!.text1)
           ..setBackActionLabelColor(theme!.text1)
           ..setBackActionLinkLabelColor(theme!.primary1)
@@ -77,6 +82,8 @@ class WTComponentFactoryImpl1 extends WTComponentFactory {
           ..setGoogleFonts(fonts)
           ..withShadow(true)
           ..setBackgroundColor(theme!.background1)
+          ..setSidebarIcon(Symbols.menu)
+          ..setSidebarIconColor(theme!.text1)
           ..setBackActionIconColor(theme!.text1)
           ..setBackActionLabelColor(theme!.text1)
           ..setBackActionLinkLabelColor(theme!.primary1)
@@ -97,6 +104,8 @@ class WTComponentFactoryImpl1 extends WTComponentFactory {
           ..setGoogleFonts(fonts)
           ..withShadow(false)
           ..setBackgroundColor(theme!.background2)
+          ..setSidebarIcon(Symbols.menu)
+          ..setSidebarIconColor(theme!.text1)
           ..setBackActionIconColor(theme!.text1)
           ..setBackActionLabelColor(theme!.text1)
           ..setBackActionLinkLabelColor(theme!.primary1)
@@ -117,6 +126,8 @@ class WTComponentFactoryImpl1 extends WTComponentFactory {
           ..setGoogleFonts(fonts)
           ..withShadow(true)
           ..setBackgroundColor(theme!.background2)
+          ..setSidebarIcon(Symbols.menu)
+          ..setSidebarIconColor(theme!.text1)
           ..setBackActionIconColor(theme!.text1)
           ..setBackActionLabelColor(theme!.text1)
           ..setBackActionLinkLabelColor(theme!.primary1)
@@ -132,6 +143,26 @@ class WTComponentFactoryImpl1 extends WTComponentFactory {
           ..setMenuItemIconColor(theme!.text1)
           ..setMenuItemLabelColor(theme!.text1);
         return component;
+    }
+  }
+
+  @override
+  WTSidebar? createSidebar(WTSidebarType type) {
+    switch(type) {
+      case WTSidebarType.basic1:
+        var component = WTSidebarBasic()
+          ..setBackgroundColor(theme!.background1)
+          ..setBorderColor(theme!.background2)
+          ..setIconColor(theme!.text1)
+          ..setLabelColor(theme!.text1);
+        return component;
+      case WTSidebarType.basic2:
+        var component = WTSidebarBasic()
+          ..setBackgroundColor(theme!.background2)
+          ..setBorderColor(theme!.background1)
+          ..setIconColor(theme!.text1)
+          ..setLabelColor(theme!.text1);
+        return component;     
     }
   }
 
@@ -357,6 +388,14 @@ class WTComponentFactoryImpl1 extends WTComponentFactory {
           ..setPadding(left: 5.0, top: 5.0, right: 5.0, bottom: 5.0)
           ..setMargin(left: 5.0, top: 5.0, right: 5.0, bottom: 5.0)
           ..setBackgroundColor(theme!.primary5)
+          ..setBorderColor(theme!.primary1)
+          ..setLabelColor(theme!.primary1);
+        return component;
+      case WTButtonType.underlineText1:
+        var component = WTButtonUnderlineText()
+          ..setPadding(left: 5.0, top: 5.0, right: 5.0, bottom: 5.0)
+          ..setMargin(left: 5.0, top: 5.0, right: 5.0, bottom: 5.0)
+          ..setBackgroundColor(Colors.transparent)
           ..setBorderColor(theme!.primary1)
           ..setLabelColor(theme!.primary1);
         return component;

@@ -10,6 +10,11 @@ enum WTHeaderType {
   basic2WithShadow
 }
 
+enum WTSidebarType {
+  basic1,
+  basic2
+}
+
 enum WTBodyType {
   basic1,
   basic2,
@@ -55,5 +60,6 @@ enum WTFormInputFieldType {
 
 enum WTButtonType {
   text1,
-  text2
+  text2,
+  underlineText1,
 }

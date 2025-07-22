@@ -81,6 +81,7 @@ class RegistrationController extends WTController<RegistrationController> {
     print('-- username: $username');
     print('-- password: $password');
     print('---------------------------------------');
+    await navigateOff(route: '/dashboard', arguments: {});
 
     setFormSubmitting(true);
     final FormState? form    = formKey!.currentState;
@@ -105,6 +106,7 @@ class RegistrationController extends WTController<RegistrationController> {
     print('-- username: $username');
     print('-- password: $password');
     print('---------------------------------------');
+    await navigateOff(route: '/dashboard', arguments: {});
 
     setFormSubmitting(true);
     final FormState? form    = formKey!.currentState;

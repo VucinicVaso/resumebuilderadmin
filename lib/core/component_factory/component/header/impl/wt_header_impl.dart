@@ -14,6 +14,11 @@ class WTHeaderImpl extends WTHeader {
       backgroundColor:              backgroundColor,
       shadow:                       shadow,
       fontFamily:                   googleFonts,
+      sidebar:                      sidebar,
+      sidebarIcon:                  sidebarIcon,
+      sidebarIconColor:             sidebarIconColor,
+      sidebarIconSize:              sidebarIconSize,
+      sidebarAction:                sidebarAction,
       backAction:                   backAction,
       backActionNetworkImage:       backActionNetworkImage,
       backActionAssetImage:         backActionAssetImage,
@@ -64,6 +69,12 @@ class ComponentWidget extends StatefulWidget implements PreferredSizeWidget {
   Color? backgroundColor, borderColor;
   String? fontFamily;
 
+  bool? sidebar;
+  IconData? sidebarIcon;
+  Color? sidebarIconColor;
+  double? sidebarIconSize;
+  VoidCallback? sidebarAction;
+
   VoidCallback? backAction;
   IconData? backActionIcon;
   String? backActionLabel, backActionLinkLabel;
@@ -97,6 +108,11 @@ class ComponentWidget extends StatefulWidget implements PreferredSizeWidget {
     this.borderColor,
     this.fontFamily,
     this.shadow,
+    this.sidebar,
+    this.sidebarIcon,
+    this.sidebarIconColor,
+    this.sidebarIconSize,
+    this.sidebarAction,
     this.backAction,
     this.backActionNetworkImage,
     this.backActionAssetImage,
@@ -152,6 +168,12 @@ class _ComponentState extends State<ComponentWidget> {
   Color? backgroundColor;
   String? fontFamily;
 
+  bool? sidebar;
+  IconData? sidebarIcon;
+  Color? sidebarIconColor;
+  double? sidebarIconSize;
+  VoidCallback? sidebarAction;
+
   VoidCallback? backAction;
   IconData? backActionIcon;
   String? backActionLabel, backActionLinkLabel;
@@ -178,8 +200,6 @@ class _ComponentState extends State<ComponentWidget> {
   double? menuIconSize, menuLabelSize;
   Color? menuIconColor, menuBackgroundColor, menuItemIconColor, menuItemLabelColor;
 
-  Widget emptyWidget = SizedBox.shrink();
-
   @override
   void initState() {
     setState(() {
@@ -196,6 +216,11 @@ class _ComponentState extends State<ComponentWidget> {
       menuLabelSize                = height! * 0.3;
       backgroundColor              = widget.backgroundColor;
       shadow                       = widget.shadow;
+      sidebar                      = widget.sidebar;
+      sidebarIcon                  = widget.sidebarIcon;
+      sidebarIconColor             = widget.sidebarIconColor;
+      sidebarIconSize              = height! * 0.5;
+      sidebarAction                = widget.sidebarAction;
       backAction                   = widget.backAction;
       backActionNetworkImage       = widget.backActionNetworkImage;
       backActionAssetImage         = widget.backActionAssetImage;
@@ -227,6 +252,27 @@ class _ComponentState extends State<ComponentWidget> {
     });
 
     super.initState();
+  }
+
+  Widget emptyWidget = SizedBox.shrink();
+
+  Widget? createSidebarButton() {
+    if(sidebar == false) { return emptyWidget; }
+
+    return GestureDetector(
+      onTap: () { sidebarAction!(); },
+      child:Container(
+        margin: const EdgeInsets.fromLTRB(5.0, 0.0, 5.0, 0.0),
+        alignment: Alignment.center,
+        width: sidebarIconSize,
+        height: sidebarIconSize,
+        child: Icon(
+          sidebarIcon,
+          size: sidebarIconSize,
+          color: sidebarIconColor
+        ),
+      ),
+    );
   }
   
   Widget? widgetsLeft() {
@@ -611,9 +657,10 @@ class _ComponentState extends State<ComponentWidget> {
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
-                widgetsLeft()!,   /// back action
-                widgetsCenter()!, /// header label
-                widgetsRight()!,  /// actions and menu list
+                createSidebarButton()!, /// show sidebar action
+                widgetsLeft()!,         /// back actions
+                widgetsCenter()!,       /// header label
+                widgetsRight()!,        /// actions and menu list
               ],
             ),
           ),

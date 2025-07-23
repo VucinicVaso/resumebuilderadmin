@@ -27,10 +27,15 @@ class DashboardView extends WTView<DashboardController> {
 
     var body = componentFactory!.createBody(WTBodyType.basic1);
 
+    var floatingMenu = componentFactory!.createFloatingMenu(WTFloatingMenuType.basic1)!
+      ..setAction(() { print('floatingMenu action.'); })
+      ..setIcon(Symbols.menu);
+
     var scaffold = componentFactory!.createScaffold(WTScaffoldType.basic1)!
       ..setHeader(header)
       ..setSidebar(sidebar)
-      ..setBody(body);
+      ..setBody(body)
+      ..setFloatingMenu(floatingMenu);
     return scaffold;
   }
 

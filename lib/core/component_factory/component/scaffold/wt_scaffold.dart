@@ -4,7 +4,7 @@ import '../header/wt_header.dart';
 import '../sidebar/wt_sidebar.dart';
 import '../body/wt_body.dart';
 import '../footer/wt_footer.dart';
-import '../floating_menu/w_floating_menu.dart';
+import '../floating_menu/wt_floating_menu.dart';
 
 abstract class WTScaffold extends WTComponent {
 

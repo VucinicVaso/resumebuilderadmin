@@ -31,6 +31,9 @@ import '../../component/form_builder/input_field/text/wt_form_input_field_text.d
 import '../../component/button/wt_button.dart';
 import '../../component/button/text/wt_button_text.dart';
 import '../../component/button/underline_text/wt_button_underline_text.dart';
+import '../../component/floating_menu/wt_floating_menu.dart';
+import '../../component/floating_menu/basic/wt_floating_menu_basic.dart';
+import '../../component/floating_menu/extended/wt_floating_menu_extended.dart';
 
 class WTComponentFactoryImpl1 extends WTComponentFactory {
 
@@ -392,6 +395,23 @@ class WTComponentFactoryImpl1 extends WTComponentFactory {
           ..setMargin(left: 5.0, top: 5.0, right: 5.0, bottom: 5.0)
           ..setBackgroundColor(Colors.transparent)
           ..setBorderColor(theme!.primary1)
+          ..setLabelColor(theme!.primary1);
+        return component;
+    }
+  }
+
+  @override
+  WTFloatingMenu? createFloatingMenu(WTFloatingMenuType type) {
+    switch(type) {
+      case WTFloatingMenuType.basic1:
+        var component = WtFloatingMenuBasic()
+          ..setBackgroundColor(theme!.primary1)
+          ..setIconColor(theme!.primary5);
+        return component;
+      case WTFloatingMenuType.extended1:
+        var component = WtFloatingMenuExdended()
+          ..setBackgroundColor(theme!.primary5)
+          ..setIconColor(theme!.primary1)
           ..setLabelColor(theme!.primary1);
         return component;
     }

@@ -588,33 +588,31 @@ class _ComponentState extends State<ComponentWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(
-      key: widget.key,
-      builder: (context, constraints) {
-        width = constraints.maxWidth;
+    print('--------------------------------------------');
+    print('WTHeaderImpl(width: $width, height: $height)');
+    print('--------------------------------------------');
 
-        return AppBar(
-          elevation: shadow! ? 2.0 : 0.0,
-          titleSpacing: 0.0,
-          automaticallyImplyLeading: false,
-          shadowColor: shadow! ? Colors.grey.shade50 : Colors.transparent,
-          backgroundColor: backgroundColor,
-          title: Container(
-            color: backgroundColor,
-            width: width,
-            height: height,
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                sidebarWidget()!,         /// show sidebar action
-                backActionsWidgets()!,    /// back actions
-                titleWidget()!,           /// label
-                actionsAndMenuWidgets()!, /// actions and menu list
-              ],
-            ),
-          ),
-        );
-      }
+    return AppBar(
+      key: widget.key,
+      elevation: shadow! ? 2.0 : 0.0,
+      titleSpacing: 0.0,
+      automaticallyImplyLeading: false,
+      shadowColor: shadow! ? Colors.grey.shade50 : Colors.transparent,
+      backgroundColor: backgroundColor,
+      title: Container(
+        color: backgroundColor,
+        width: width,
+        height: height,
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            sidebarWidget()!,         /// show sidebar action
+            backActionsWidgets()!,    /// back actions
+            titleWidget()!,           /// label
+            actionsAndMenuWidgets()!, /// actions and menu list
+          ],
+        ),
+      ),
     );
   }
 

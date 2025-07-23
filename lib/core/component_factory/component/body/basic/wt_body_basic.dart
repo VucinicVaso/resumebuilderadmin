@@ -12,36 +12,28 @@ class WTBodyBasic extends WTBody {
 
   @override
   Widget? build() {
+    print('--------------------------------------------');
+    print('WTBodyBasic(width: $width, height: $height)');
+    print('--------------------------------------------');
+
     return SafeArea(
       key: getUniqueKey(),
       child: GestureDetector(
         onTap: () => isKeyboardOpen(),
-        child: LayoutBuilder(
-          builder: (context, constraints) {
-            print('-----------------------------------');
-            print('WTBodyBasic');
-            print('width:  ${constraints.maxWidth}');
-            print('height: ${constraints.maxHeight}');
-            print('-----------------------------------');
-            width  = constraints.maxWidth;
-            height = constraints.maxHeight;
-            
-            return Container(
-              color: backgroundColor,
-              width: width,
-              height: height,
-              child: SizedBox.expand(
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    ...components!.map((c) => c.build()!),
-                  ],
-                ),
-              ),
-            );
-          }
+        child: Container(
+          color: backgroundColor,
+          width: width,
+          height: height,
+          child: SizedBox.expand(
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                ...components!.map((c) => c.build()!),
+              ],
+            ),
+          ),
         ),
       ),
     );

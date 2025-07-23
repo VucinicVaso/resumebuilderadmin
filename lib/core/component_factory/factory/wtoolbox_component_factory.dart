@@ -2,6 +2,7 @@ import 'wtoolbox_component_factory_config.dart';
 import '../type/impl1/wtoolbox_component_type.dart';
 import '../component/scaffold/wt_scaffold.dart';
 import '../component/header/wt_header.dart';
+import '../component/sidebar/wt_sidebar.dart';
 import '../component/body/wt_body.dart';
 import '../component/footer/wt_footer.dart';
 import '../component/layout/wt_layout.dart';
@@ -11,7 +12,7 @@ import '../component/divider/wt_divider.dart';
 import '../component/form_builder/form/wt_form.dart';
 import '../component/form_builder/input_field/wt_form_input_filed.dart';
 import '../component/button/wt_button.dart';
-import '../component/sidebar/wt_sidebar.dart';
+import '../component/floating_menu/wt_floating_menu.dart';
 
 abstract class WTComponentFactory with WTComponentFactoryConfig {
 
@@ -38,5 +39,7 @@ abstract class WTComponentFactory with WTComponentFactoryConfig {
   WTFormInputField? createFormInputFiled(WTFormInputFieldType type);
 
   WTButton? createButton(WTButtonType type);
+
+  WTFloatingMenu? createFloatingMenu(WTFloatingMenuType type);
 
 }

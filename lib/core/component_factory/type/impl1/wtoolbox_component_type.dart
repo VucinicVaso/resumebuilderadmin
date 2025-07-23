@@ -63,3 +63,8 @@ enum WTButtonType {
   text2,
   underlineText1,
 }
+
+enum WTFloatingMenuType {
+  basic1,
+  extended1,
+}

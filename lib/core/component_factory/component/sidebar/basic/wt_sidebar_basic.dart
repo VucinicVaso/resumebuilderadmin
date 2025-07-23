@@ -68,20 +68,20 @@ class WTSidebarBasic extends WTSidebar {
 
   @override
   Widget? build() {
-    return LayoutBuilder(
-      key: getUniqueKey(),
-      builder: (context, constraints) {
-        width     = constraints.maxWidth * 0.3;
-        iconSize  = width! > 1000 ? 27 : 25;
-        labelSize = width! > 1000 ? 20 : 18;
+    print('--------------------------------------------');
+    print('WTSidebarBasic(width: $width, height: $height)');
+    print('--------------------------------------------');
 
-        return Drawer(
-          backgroundColor: backgroundColor,
-          shadowColor: borderColor,
-          width: width,
-          child: actionsList(),
-        );
-      },
+    width     = width! * 0.3;
+    iconSize  = width! > 1000 ? 27 : 25;
+    labelSize = width! > 1000 ? 20 : 18;
+      
+    return Drawer(
+      key: getUniqueKey(),
+      backgroundColor: backgroundColor,
+      shadowColor: borderColor,
+      width: width,
+      child: actionsList(),
     );
   }
 

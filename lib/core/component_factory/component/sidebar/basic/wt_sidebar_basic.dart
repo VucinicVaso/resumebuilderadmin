@@ -12,6 +12,7 @@ class WTSidebarBasic extends WTSidebar {
       Widget? w = GestureDetector(
         onTap: a['action']! != null ? a['action'] : () {},
         child: Container(
+          width: width,
           padding: EdgeInsets.fromLTRB(5.0, 5.0, 5.0, 5.0),
           margin: EdgeInsets.fromLTRB(5.0, 0.0, 5.0, 5.0),
           color: Colors.transparent,
@@ -53,7 +54,7 @@ class WTSidebarBasic extends WTSidebar {
 
     return Container(
       padding: EdgeInsets.fromLTRB(5.0, 10.0, 5.0, 10.0),
-      width: sidebarWidth,
+      width: width,
       alignment: Alignment.topLeft,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -70,15 +71,14 @@ class WTSidebarBasic extends WTSidebar {
     return LayoutBuilder(
       key: getUniqueKey(),
       builder: (context, constraints) {
-        width        = constraints.maxWidth;
-        sidebarWidth = width! * 0.3;
-        iconSize     = width! > 1000 ? 27 : 25;
-        labelSize    = width! > 1000 ? 20 : 18;
+        width     = constraints.maxWidth * 0.3;
+        iconSize  = width! > 1000 ? 27 : 25;
+        labelSize = width! > 1000 ? 20 : 18;
 
         return Drawer(
           backgroundColor: backgroundColor,
           shadowColor: borderColor,
-          width: sidebarWidth,
+          width: width,
           child: actionsList(),
         );
       },

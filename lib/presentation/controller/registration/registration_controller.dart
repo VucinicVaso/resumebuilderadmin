@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:resumebuilderadmin/core/external/lib_getx.dart';
 import 'package:resumebuilderadmin/core/logger/wtoolbox_logger.dart';
 import 'package:resumebuilderadmin/core/clean_architecture/controller/wtoolbox_controller.dart';
+import 'package:resumebuilderadmin/domain/usecase/account_signin_usecase.dart';
+import 'package:resumebuilderadmin/domain/usecase/account_signup_usecase.dart';
 
 class RegistrationController extends WTController<RegistrationController> {
 
@@ -53,36 +55,24 @@ class RegistrationController extends WTController<RegistrationController> {
   TextEditingController? usernameController = TextEditingController();
   void usernameListener() { username = usernameController!.text; }
   usernameValidator(String v) {
-    print('usernameValidator($v)'); //delete
-
-    if(v.isEmpty) { return 'settings_account_form3'.tr; }
-    if(v.length < 12) { return 'settings_account_form4'.tr; }
-    if(v.contains(' ')) { return 'settings_account_form5'.tr; }
-    if(!v.contains('.')) { return 'settings_account_form6'.tr; }
+    if(v.isEmpty) { return 'usernameController_form1'.tr; }
+    if(v.length < 12) { return 'usernameController_form2'.tr; }
+    if(v.contains(' ')) { return 'usernameController_form3'.tr; }
+    if(!v.contains('.')) { return 'usernameController_form4'.tr; }
     return null;
   }
 
   String? password;
   TextEditingController? passwordController = TextEditingController();
-  void passwordListener() { password = usernameController!.text; }
+  void passwordListener() { password = passwordController!.text; }
   passwordValidator(String v) {
-    print('passwordValidator($v)'); //delete
-
-    if(v.isEmpty) { return 'settings_account_form3'.tr; }
-    if(v.length < 12) { return 'settings_account_form4'.tr; }
-    if(v.contains(' ')) { return 'settings_account_form5'.tr; }
-    if(!v.contains('.')) { return 'settings_account_form6'.tr; }
+    if(v.isEmpty) { return 'passwordController_form1'.tr; }
+    if(v.length < 12) { return 'passwordController_form2'.tr; }
+    if(v.contains(' ')) { return 'passwordController_form3'.tr; }
     return null;
   }
 
   Future<void> signIn() async {
-    print('---------------------------------------');
-    print('-- signIn()');
-    print('-- username: $username');
-    print('-- password: $password');
-    print('---------------------------------------');
-    await navigateOff(route: '/dashboard', arguments: {});
-
     setFormSubmitting(true);
     final FormState? form    = formKey!.currentState;
     final bool formValidated = form!.validate();
@@ -95,19 +85,13 @@ class RegistrationController extends WTController<RegistrationController> {
     
     if(formValidated) {
       setFormSubmitting(false);
+      bool? result = await AccountSignInUseCase().call(AccountSignInUseCaseParams(username: username!, password: password!));
       formKey!.currentState!.reset();
-      await navigateBack();
+      await navigateOff(route: '/dashboard', arguments: {});
     }
   }
 
   Future<void> signUp() async {
-    print('---------------------------------------');
-    print('-- signUp()');
-    print('-- username: $username');
-    print('-- password: $password');
-    print('---------------------------------------');
-    await navigateOff(route: '/dashboard', arguments: {});
-
     setFormSubmitting(true);
     final FormState? form    = formKey!.currentState;
     final bool formValidated = form!.validate();
@@ -120,8 +104,9 @@ class RegistrationController extends WTController<RegistrationController> {
     
     if(formValidated) {
       setFormSubmitting(false);
+      bool? result = await AccountSignUpUseCase().call(AccountSignUpUseCaseParams(username: username!, password: password!));
       formKey!.currentState!.reset();
-      await navigateBack();
+      await navigateOff(route: '/dashboard', arguments: {});
     }
   }
 

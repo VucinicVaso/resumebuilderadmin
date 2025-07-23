@@ -36,7 +36,7 @@ class WTBodyBasic extends WTBody {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    ...components!,
+                    ...components!.map((c) => c.build()!),
                   ],
                 ),
               ),

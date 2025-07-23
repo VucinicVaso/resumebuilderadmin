@@ -67,6 +67,7 @@ class ComponentWidgetState extends State<ComponentWidget> {
 
   @override
   void initState() {
+    setScrollingController();
     setFormInputFieldsList();
 
     super.initState();
@@ -79,6 +80,12 @@ class ComponentWidgetState extends State<ComponentWidget> {
     }
 
     super.dispose();
+  }
+
+  void setScrollingController() {
+    if(widget.scrollController == null) {
+      widget.scrollController = ScrollController();
+    }
   }
 
   List<WTFormInputFieldBuilder>? formInputFields = List<WTFormInputFieldBuilder>.empty(growable: true);

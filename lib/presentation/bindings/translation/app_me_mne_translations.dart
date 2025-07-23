@@ -38,7 +38,7 @@ class AppMeMneTranslations extends WTTranslations {
       "edit": "Izmijeni",
       "details": "Detalji",
       "allow": "Dozvoli",
-      "apply": "Primeniti",
+      "apply": "Primjeniti",
       "submit1": "Prihvati",
       "submit2": "Slanje...",
       "next": "Sledeći",
@@ -82,6 +82,13 @@ class AppMeMneTranslations extends WTTranslations {
       "nonAlphanumericValidator": "''@value'' sadrži nealfanumeričke znakove.",
       "invalidValidator": "''@value'' nije validan.",
       "negativeValidator": "''@value'' ne smije biti negativna.",
+      //
+      "username": "Korisnicko ime",
+      "pasword": "Lozinka",
+      "signIn": "Sign In",
+      "signUp": "Sign, Up",
+      "settings": "Podesavanja",
+      "account": "Nalog"
     },
   };
 

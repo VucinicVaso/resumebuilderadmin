@@ -31,12 +31,9 @@ class WTHeaderImpl extends WTHeader {
       backActionIcon:               backActionIcon,
       backActionIconSize:           backActionIconSize,
       backActionIconColor:          backActionIconColor,
+      backActionLabel:              backActionLabel,
       backActionLabelSize:          backActionLabelSize,
       backActionLabelColor:         backActionLabelColor,
-      backActionLabel:              backActionLabel,
-      backActionLinkLabelSize:      backActionLinkLabelSize,
-      backActionLinkLabelColor:     backActionLinkLabelColor,
-      backActionLinkLabel:          backActionLinkLabel,
       label:                        label,
       labelSize:                    labelSize,
       labelColor:                   labelColor,
@@ -45,8 +42,6 @@ class WTHeaderImpl extends WTHeader {
       actionIconBackgroundColor:    actionIconBackgroundColor,
       actionLabelSize:              actionLabelSize,
       actionLabelColor:             actionLabelColor,
-      actionLinkLabelSize:          actionLinkLabelSize,
-      actionLinkLabelColor:         actionLinkLabelColor,
       actions:                      actions,
       menuIcon:                     menuIcon,
       menuIconSize:                 menuIconSize,
@@ -77,9 +72,9 @@ class ComponentWidget extends StatefulWidget implements PreferredSizeWidget {
 
   VoidCallback? backAction;
   IconData? backActionIcon;
-  String? backActionLabel, backActionLinkLabel;
-  double? backActionIconSize, backActionLabelSize, backActionLinkLabelSize;
-  Color? backActionIconColor, backActionLabelColor, backActionLinkLabelColor;
+  String? backActionLabel;
+  double? backActionIconSize, backActionLabelSize;
+  Color? backActionIconColor, backActionLabelColor;
 
   String? backActionNetworkImage, backActionAssetImage;
   Uint8List? backActionMemoryImage;
@@ -93,8 +88,8 @@ class ComponentWidget extends StatefulWidget implements PreferredSizeWidget {
   Color? labelColor;
 
   List<Map>? actions;
-  double? actionIconSize, actionLabelSize, actionLinkLabelSize;
-  Color? actionIconColor, actionIconBackgroundColor, actionLabelColor, actionLinkLabelColor;
+  double? actionIconSize, actionLabelSize;
+  Color? actionIconColor, actionIconBackgroundColor, actionLabelColor;
 
   IconData? menuIcon;
   List<Map>? menuItems;
@@ -125,12 +120,9 @@ class ComponentWidget extends StatefulWidget implements PreferredSizeWidget {
     this.backActionIcon,
     this.backActionIconSize,
     this.backActionIconColor,
+    this.backActionLabel,
     this.backActionLabelSize,
     this.backActionLabelColor,
-    this.backActionLabel,
-    this.backActionLinkLabelSize,
-    this.backActionLinkLabelColor,
-    this.backActionLinkLabel,
     this.label,
     this.labelSize,
     this.labelColor,
@@ -139,8 +131,6 @@ class ComponentWidget extends StatefulWidget implements PreferredSizeWidget {
     this.actionIconBackgroundColor,
     this.actionLabelSize,
     this.actionLabelColor,
-    this.actionLinkLabelSize,
-    this.actionLinkLabelColor,
     this.actions,
     this.menuIcon,
     this.menuIconSize,
@@ -176,9 +166,9 @@ class _ComponentState extends State<ComponentWidget> {
 
   VoidCallback? backAction;
   IconData? backActionIcon;
-  String? backActionLabel, backActionLinkLabel;
-  double? backActionIconSize, backActionLabelSize, backActionLinkLabelSize;
-  Color? backActionIconColor, backActionLabelColor, backActionLinkLabelColor;
+  String? backActionLabel;
+  double? backActionIconSize, backActionLabelSize;
+  Color? backActionIconColor, backActionLabelColor;
 
   String? backActionNetworkImage, backActionAssetImage;
   Uint8List? backActionMemoryImage;
@@ -192,8 +182,8 @@ class _ComponentState extends State<ComponentWidget> {
   Color? labelColor;
 
   List<Map>? actions;
-  double? actionIconSize, actionLabelSize, actionLinkLabelSize;
-  Color? actionIconColor, actionIconBackgroundColor, actionLabelColor, actionLinkLabelColor;
+  double? actionIconSize, actionLabelSize;
+  Color? actionIconColor, actionIconBackgroundColor, actionLabelColor;
 
   IconData? menuIcon;
   List<Map>? menuItems;
@@ -207,11 +197,9 @@ class _ComponentState extends State<ComponentWidget> {
       height                       = 50.0;
       backActionIconSize           = height! * 0.5;
       backActionLabelSize          = height! * 0.3;
-      backActionLinkLabelSize      = height! * 0.3;
       labelSize                    = height! * 0.3;
       actionIconSize               = height! * 0.5;
       actionLabelSize              = height! * 0.3;
-      actionLinkLabelSize          = height! * 0.3;
       menuIconSize                 = height! * 0.5;
       menuLabelSize                = height! * 0.3;
       backgroundColor              = widget.backgroundColor;
@@ -234,14 +222,11 @@ class _ComponentState extends State<ComponentWidget> {
       backActionIconColor          = widget.backActionIconColor;
       backActionLabelColor         = widget.backActionLabelColor;
       backActionLabel              = widget.backActionLabel;
-      backActionLinkLabelColor     = widget.backActionLinkLabelColor;
-      backActionLinkLabel          = widget.backActionLinkLabel;
       label                        = widget.label;
       labelColor                   = widget.labelColor;
       actionIconColor              = widget.actionIconColor;
       actionIconBackgroundColor    = widget.actionIconBackgroundColor;
       actionLabelColor             = widget.actionLabelColor;
-      actionLinkLabelColor         = widget.actionLinkLabelColor;
       actions                      = widget.actions;
       menuIcon                     = widget.menuIcon;
       menuIconColor                = widget.menuIconColor;
@@ -256,7 +241,7 @@ class _ComponentState extends State<ComponentWidget> {
 
   Widget emptyWidget = SizedBox.shrink();
 
-  Widget? createSidebarButton() {
+  Widget? sidebarWidget() {
     if(sidebar == false) { return emptyWidget; }
 
     return GestureDetector(
@@ -275,7 +260,7 @@ class _ComponentState extends State<ComponentWidget> {
     );
   }
   
-  Widget? widgetsLeft() {
+  Widget? backActionsWidgets() {
     /// backActionIcon
     Widget? backActionIconWidget = emptyWidget;
     if(backActionIcon != null) {
@@ -292,34 +277,32 @@ class _ComponentState extends State<ComponentWidget> {
       );
     }
 
-    /// backActionNetworkImage
-    Widget? backActionNetworkImageWidget = emptyWidget;
-    if(backActionNetworkImage != null) {
-      backActionNetworkImageWidget = WTHeaderBuilder.createNetworkImage(
-        margin: const EdgeInsets.fromLTRB(0.0, 0.0, 5.0, 0.0),
-        size: backActionIconSize,
-        image: backActionNetworkImage
-      );
-    }
+    /// backActionNetworkImage, backActionAssetImage, backActionMemoryImage
+    Widget? backActionImageWidget = emptyWidget;
+    if(backActionNetworkImage != null || backActionAssetImage != null || backActionMemoryImage != null) {
+      if(backActionNetworkImage != null) {
+        backActionImageWidget = WTHeaderBuilder.createNetworkImage(
+          margin: const EdgeInsets.fromLTRB(0.0, 0.0, 5.0, 0.0),
+          size: backActionIconSize,
+          image: backActionNetworkImage
+        );
+      }
 
-    /// backActionAssetImage
-    Widget? backActionAssetImageWidget = emptyWidget;
-    if(backActionAssetImage != null) {
-      backActionAssetImageWidget = WTHeaderBuilder.createAssetsImage(
-        margin: const EdgeInsets.fromLTRB(0.0, 0.0, 5.0, 0.0),
-        size: backActionIconSize,
-        image: backActionAssetImage
-      )!;
-    }
+      if(backActionAssetImage != null) {
+        backActionImageWidget = WTHeaderBuilder.createAssetsImage(
+          margin: const EdgeInsets.fromLTRB(0.0, 0.0, 5.0, 0.0),
+          size: backActionIconSize,
+          image: backActionAssetImage
+        )!;
+      }
 
-    /// backActionMemoryImage
-    Widget? backActionMemoryImageWidget = emptyWidget;
-    if(backActionMemoryImage != null) {
-      backActionMemoryImageWidget = WTHeaderBuilder.createMemoryImage(
-        margin: const EdgeInsets.fromLTRB(0.0, 0.0, 5.0, 0.0),
-        size: backActionIconSize,
-        image: backActionMemoryImage
-      )!;
+      if(backActionMemoryImage != null) {
+        backActionImageWidget = WTHeaderBuilder.createMemoryImage(
+          margin: const EdgeInsets.fromLTRB(0.0, 0.0, 5.0, 0.0),
+          size: backActionIconSize,
+          image: backActionMemoryImage
+        )!;
+      }
     }
 
     /// backActionSvgMemory, backActionSvgString, backActionSvgNetwork, backActionSvgAsset
@@ -401,25 +384,6 @@ class _ComponentState extends State<ComponentWidget> {
       );
     }
 
-    /// backActionLinkLabel
-    Widget? backActionLinkLabelWidget = emptyWidget;
-    if(backActionLinkLabel != null) {
-      backActionLinkLabel = backActionLinkLabel!.length > 20 ? '${backActionLinkLabel!.substring(0, 20)}...' : backActionLinkLabel;
-
-      backActionLinkLabelWidget = Container(
-        margin: const EdgeInsets.fromLTRB(0.0, 0.0, 5.0, 0.0),
-        child: Text(
-          backActionLinkLabel!,
-          textAlign: TextAlign.left,
-          style: TextStyle(
-            color: backActionLinkLabelColor,
-            fontSize: backActionLinkLabelSize,
-            fontWeight: FontWeight.normal,
-          ),
-        ),
-      );
-    }
-
     return GestureDetector(
       onTap: backAction ?? () {},
       child: Container(
@@ -433,18 +397,15 @@ class _ComponentState extends State<ComponentWidget> {
           children: <Widget>[
             backActionIconWidget,
             svgImageWidget,
-            backActionAssetImageWidget,
-            backActionMemoryImageWidget,
-            backActionNetworkImageWidget!,
+            backActionImageWidget!,
             backActionLabelWidget,
-            backActionLinkLabelWidget,
           ],
         ),
       ),
     );
   }
 
-  Widget? widgetsCenter() {
+  Widget? titleWidget() {
     if(label == null) { return const Expanded(child: SizedBox.shrink()); }
 
     label = label!.length > 20 ? '${label!.substring(0, 20)}...' : label;
@@ -472,11 +433,11 @@ class _ComponentState extends State<ComponentWidget> {
 
     List<Widget>? actionList = List<Widget>.empty(growable: true);
     for(int i = 0; i < actions!.length; i++) {
-      var a = actions![i];
+      var a             = actions![i];
       var actionPadding = const EdgeInsets.all(0.0);
       var actionMargin  = i == actions!.length -1 && menuItems!.isNotEmpty ? const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 0.0) : const EdgeInsets.fromLTRB(0.0, 0.0, 15.0, 0.0);
 
-      Widget? iconWidget, labelWidget, linkLabelWidget;
+      Widget? iconWidget, labelWidget;
 
       if(a['icon'] != null) {
         iconWidget = Icon(
@@ -498,19 +459,7 @@ class _ComponentState extends State<ComponentWidget> {
         );
       }
 
-      if(a['linkLabel'] != null) {
-        linkLabelWidget = Text(
-          a['linkLabel']!,
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            color: actionLinkLabelColor,
-            fontSize: actionLinkLabelSize,
-            fontWeight: FontWeight.normal,
-          ),
-        );
-      }
-
-      if(labelWidget == null && linkLabelWidget == null) {
+      if(labelWidget == null) {
         actionList.add(
           GestureDetector(
             onTap: a['action'],
@@ -523,7 +472,7 @@ class _ComponentState extends State<ComponentWidget> {
         );
       }
 
-      if(labelWidget != null || linkLabelWidget != null) {
+      if(labelWidget != null) {
         actionList.add(
           Container(
             padding: actionPadding,
@@ -534,7 +483,7 @@ class _ComponentState extends State<ComponentWidget> {
                 padding: const EdgeInsets.all(0.0),
               ),
               icon: iconWidget ?? emptyWidget,
-              label: labelWidget ?? linkLabelWidget ?? emptyWidget,
+              label: labelWidget,
             ),
           ),
         );
@@ -617,7 +566,7 @@ class _ComponentState extends State<ComponentWidget> {
     );
   }
 
-  Widget? widgetsRight() {
+  Widget? actionsAndMenuWidgets() {
     if(actions!.isEmpty && menuItems!.isEmpty) { return SizedBox(height: 50.0, width: menuIconSize! + 10); }
 
     return Container(
@@ -657,10 +606,10 @@ class _ComponentState extends State<ComponentWidget> {
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
-                createSidebarButton()!, /// show sidebar action
-                widgetsLeft()!,         /// back actions
-                widgetsCenter()!,       /// header label
-                widgetsRight()!,        /// actions and menu list
+                sidebarWidget()!,         /// show sidebar action
+                backActionsWidgets()!,    /// back actions
+                titleWidget()!,           /// label
+                actionsAndMenuWidgets()!, /// actions and menu list
               ],
             ),
           ),

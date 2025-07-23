@@ -3,9 +3,6 @@ import 'package:resumebuilderadmin/core/component_factory/component/wt_component
 
 abstract  class WTSidebar extends WTComponent {
 
-  double? sidebarWidth;
-  void setSidebarWidth(double? v) { sidebarWidth = v; }
-
   Color? iconColor, labelColor;
   double? iconSize, labelSize;
   void setIconColor(Color? v) { iconColor = v; }

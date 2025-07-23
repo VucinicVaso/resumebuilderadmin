@@ -82,6 +82,13 @@ class AppEnUsTranslations extends WTTranslations {
       "nonAlphanumericValidator": "''@value'' contains non-alphanumeric characters.",
       "invalidValidator": "''@value'' is invalid.",
       "negativeValidator": "''@value'' must not be negative.",
+      //
+      "username": "Username",
+      "password": "Password",
+      "signIn": "Sign In",
+      "signUp": "Sign, Up",
+      "settings": "Settings",
+      "account": "Account"
     },
   };
 

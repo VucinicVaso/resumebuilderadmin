@@ -16,7 +16,7 @@ class WTScaffoldImpl extends WTScaffold {
       backgroundColor: backgroundColor,
       appBar: header?.build(),
       drawer: sidebar?.build(),
-      body: body,
+      body: body?.build(),
       floatingActionButton: floatingMenu?.build(),
       bottomNavigationBar: footer?.build(),
     );

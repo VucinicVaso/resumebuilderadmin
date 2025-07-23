@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../wt_component.dart';
 import '../header/wt_header.dart';
 import '../sidebar/wt_sidebar.dart';
+import '../body/wt_body.dart';
 import '../footer/wt_footer.dart';
 import '../floating_menu/w_floating_menu.dart';
 
@@ -16,8 +17,8 @@ abstract class WTScaffold extends WTComponent {
   WTSidebar? sidebar;
   void setSidebar(WTSidebar? v) { sidebar = v; }
 
-  Widget? body;
-  void setBody(Widget? v) { body = v; }
+  WTBody? body;
+  void setBody(WTBody? v) { body = v; }
 
   WTFloatingMenu? floatingMenu;
   void setFloatingMenu(WTFloatingMenu? v) { floatingMenu = v; }

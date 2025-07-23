@@ -55,12 +55,6 @@ abstract class WTHeader {
   void setBackActionLabelSize(double? v) { backActionLabelSize = v; }
   void setBackActionLabelColor(Color? v) { backActionLabelColor = v; }
 
-  String? backActionLinkLabel;
-  double? backActionLinkLabelSize;
-  Color? backActionLinkLabelColor;
-  void setBackActionLinkLabelSize(double? v) { backActionLinkLabelSize = v!; }
-  void setBackActionLinkLabelColor(Color? v) { backActionLinkLabelColor = v; }
-
   void setBackAction({
     VoidCallback? action,
     IconData? icon,
@@ -73,7 +67,6 @@ abstract class WTHeader {
     String? svgNetwork, 
     String? svgAsset,
     String? label,
-    String? linkLabel,
   }) { 
     backAction             = action; 
     backActionIcon         = icon;
@@ -86,7 +79,6 @@ abstract class WTHeader {
     backActionSvgNetwork   = svgNetwork;
     backActionSvgAsset     = svgAsset;
     backActionLabel        = label;
-    backActionLinkLabel    = linkLabel;
   }
 
   String? label;
@@ -96,21 +88,18 @@ abstract class WTHeader {
   void setLabelSize(double? v) { labelSize = v; }
   void setLabelColor(Color? v) { labelColor = v; }
 
-  double? actionIconSize, actionLabelSize, actionLinkLabelSize;
-  Color? actionIconColor, actionIconBackgroundColor, actionLabelColor, actionLinkLabelColor;
+  double? actionIconSize, actionLabelSize;
+  Color? actionIconColor, actionIconBackgroundColor, actionLabelColor;
   void setActionIconSize(double? v) { actionIconSize = v; }
   void setActionIconColor(Color? v) { actionIconColor = v; }
   void setActionIconBackgroundColor(Color? v) { actionIconBackgroundColor = v; }
   void setActionLabelSize(double? v) { actionLabelSize = v; }
   void setActionLabelColor(Color? v) { actionLabelColor = v; }
-  void setActionLinkLabelSize(double? v) { actionLinkLabelSize = v; }
-  void setActionLinkLabelColor(Color? v) { actionLinkLabelColor = v; }
   List<Map>? actions = List<Map>.empty(growable: true);
   void addAction({
     VoidCallback? action,
     IconData? icon,
     String? label,
-    String? linkLabel,
     String? networkImage,
     String? assetImage,
     Uint8List? memoryImage
@@ -119,7 +108,6 @@ abstract class WTHeader {
       'action':       action,
       'icon':         icon,
       'label':        label,
-      'linkLabel':    linkLabel,
       'networkImage': networkImage,
       'assetImage':   assetImage,
       'memoryImage':  memoryImage

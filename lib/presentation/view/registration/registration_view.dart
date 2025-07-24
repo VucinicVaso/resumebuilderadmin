@@ -76,7 +76,6 @@ class RegistrationView extends WTView<RegistrationController> {
   @override
   Widget build(BuildContext context) {
     return createScaffold(controller)!.build()!;
-    //return Obx(() => createScaffold(controller)!);
   }
 
 }

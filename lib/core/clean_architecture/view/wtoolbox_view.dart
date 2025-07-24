@@ -14,12 +14,7 @@ abstract class WTView<T> extends StatelessWidget {
 
   WTComponentFactory? componentFactory;
   void setComponentFactory() {
-    componentFactory = Get.find<WTComponentFactory>()..initialize();
-    if(componentFactory!.isInitialized!) {
-      componentFactory!
-        ..setDeviceWidth(Get.width)
-        ..setDeviceHeight(Get.height);
-    }
+    componentFactory = Get.find<WTComponentFactory>();
   }
 
 }

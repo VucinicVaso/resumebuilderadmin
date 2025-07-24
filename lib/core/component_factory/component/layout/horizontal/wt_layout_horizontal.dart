@@ -14,7 +14,7 @@ class WTLayoutHorizontal extends WTLayout {
         print('height: ${constraints.maxHeight}');
         print('-------------------------------------');
 
-        width = constraints.maxWidth;
+        width  = constraints.maxWidth;
         height = constraints.maxHeight;
 
         return Container(

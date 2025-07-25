@@ -13,7 +13,6 @@ class WTHeaderImpl extends WTHeader {
       width:                        width,
       backgroundColor:              backgroundColor,
       shadow:                       shadow,
-      fontFamily:                   googleFonts,
       sidebar:                      sidebar,
       sidebarIcon:                  sidebarIcon,
       sidebarIconColor:             sidebarIconColor,
@@ -59,10 +58,10 @@ class WTHeaderImpl extends WTHeader {
 // ignore: must_be_immutable
 class ComponentWidget extends StatefulWidget implements PreferredSizeWidget {
 
-  double? width;
+  double? width, height;
   bool? shadow;
+  Function? textStyle;
   Color? backgroundColor, borderColor;
-  String? fontFamily;
 
   bool? sidebar;
   IconData? sidebarIcon;
@@ -72,16 +71,10 @@ class ComponentWidget extends StatefulWidget implements PreferredSizeWidget {
 
   VoidCallback? backAction;
   IconData? backActionIcon;
-  String? backActionLabel;
   double? backActionIconSize, backActionLabelSize;
-  Color? backActionIconColor, backActionLabelColor;
-
-  String? backActionNetworkImage, backActionAssetImage;
-  Uint8List? backActionMemoryImage;
-
-  Uint8List? backActionSvgMemory;
-  String? backActionSvgString, backActionSvgNetwork, backActionSvgAsset;
-  Color? backActionSvgBackgroundColor;
+  Color? backActionIconColor, backActionLabelColor, backActionSvgBackgroundColor;
+  String? backActionLabel, backActionNetworkImage, backActionAssetImage, backActionSvgString, backActionSvgNetwork, backActionSvgAsset;
+  Uint8List? backActionMemoryImage, backActionSvgMemory;
 
   String? label;
   double? labelSize;
@@ -101,7 +94,6 @@ class ComponentWidget extends StatefulWidget implements PreferredSizeWidget {
     this.width,
     this.backgroundColor,
     this.borderColor,
-    this.fontFamily,
     this.shadow,
     this.sidebar,
     this.sidebarIcon,
@@ -155,8 +147,7 @@ class _ComponentState extends State<ComponentWidget> {
   double? width, height;
   bool? shadow;
   Function? textStyle;
-  Color? backgroundColor;
-  String? fontFamily;
+  Color? backgroundColor, borderColor;
 
   bool? sidebar;
   IconData? sidebarIcon;
@@ -166,16 +157,10 @@ class _ComponentState extends State<ComponentWidget> {
 
   VoidCallback? backAction;
   IconData? backActionIcon;
-  String? backActionLabel;
   double? backActionIconSize, backActionLabelSize;
-  Color? backActionIconColor, backActionLabelColor;
-
-  String? backActionNetworkImage, backActionAssetImage;
-  Uint8List? backActionMemoryImage;
-
-  Uint8List? backActionSvgMemory;
-  String? backActionSvgString, backActionSvgNetwork, backActionSvgAsset;
-  Color? backActionSvgBackgroundColor;
+  Color? backActionIconColor, backActionLabelColor, backActionSvgBackgroundColor;
+  String? backActionLabel, backActionNetworkImage, backActionAssetImage, backActionSvgString, backActionSvgNetwork, backActionSvgAsset;
+  Uint8List? backActionMemoryImage, backActionSvgMemory;
 
   String? label;
   double? labelSize;
@@ -195,14 +180,8 @@ class _ComponentState extends State<ComponentWidget> {
     setState(() {
       width                        = widget.width;
       height                       = 50.0;
-      backActionIconSize           = height! * 0.5;
-      backActionLabelSize          = height! * 0.3;
-      labelSize                    = height! * 0.3;
-      actionIconSize               = height! * 0.5;
-      actionLabelSize              = height! * 0.3;
-      menuIconSize                 = height! * 0.5;
-      menuLabelSize                = height! * 0.3;
       backgroundColor              = widget.backgroundColor;
+      borderColor                  = widget.borderColor;
       shadow                       = widget.shadow;
       sidebar                      = widget.sidebar;
       sidebarIcon                  = widget.sidebarIcon;
@@ -210,6 +189,8 @@ class _ComponentState extends State<ComponentWidget> {
       sidebarIconSize              = height! * 0.5;
       sidebarAction                = widget.sidebarAction;
       backAction                   = widget.backAction;
+      backActionIconSize           = height! * 0.5;
+      backActionLabelSize          = height! * 0.3;
       backActionNetworkImage       = widget.backActionNetworkImage;
       backActionAssetImage         = widget.backActionAssetImage;
       backActionMemoryImage        = widget.backActionMemoryImage;
@@ -223,11 +204,16 @@ class _ComponentState extends State<ComponentWidget> {
       backActionLabelColor         = widget.backActionLabelColor;
       backActionLabel              = widget.backActionLabel;
       label                        = widget.label;
+      labelSize                    = height! * 0.3;
       labelColor                   = widget.labelColor;
+      actionIconSize               = height! * 0.5;
+      actionLabelSize              = height! * 0.3;
       actionIconColor              = widget.actionIconColor;
       actionIconBackgroundColor    = widget.actionIconBackgroundColor;
       actionLabelColor             = widget.actionLabelColor;
       actions                      = widget.actions;
+      menuIconSize                 = height! * 0.5;
+      menuLabelSize                = height! * 0.3;
       menuIcon                     = widget.menuIcon;
       menuIconColor                = widget.menuIconColor;
       menuBackgroundColor          = widget.menuBackgroundColor;

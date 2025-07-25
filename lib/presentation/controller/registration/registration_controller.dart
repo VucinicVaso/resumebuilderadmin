@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:resumebuilderadmin/core/external/lib_getx.dart';
+import 'package:resumebuilderadmin/core/input_validation/wtoolbox_input_validation.dart';
 import 'package:resumebuilderadmin/core/logger/wtoolbox_logger.dart';
 import 'package:resumebuilderadmin/core/clean_architecture/controller/wtoolbox_controller.dart';
 import 'package:resumebuilderadmin/domain/usecase/account_signin_usecase.dart';
@@ -55,10 +56,15 @@ class RegistrationController extends WTController<RegistrationController> {
   TextEditingController? usernameController = TextEditingController();
   void usernameListener() { username = usernameController!.text; }
   usernameValidator(String v) {
-    if(v.isEmpty) { return 'usernameController_form1'.tr; }
-    if(v.length < 12) { return 'usernameController_form2'.tr; }
-    if(v.contains(' ')) { return 'usernameController_form3'.tr; }
-    if(!v.contains('.')) { return 'usernameController_form4'.tr; }
+    String? error;
+    error = WTInputValidation.isEmpty(key: 'username'.tr, value: v);
+    if(error!.isNotEmpty) { return error; }
+    error = WTInputValidation.containsEmptySpace(key: 'username'.tr, value: v);
+    if(error!.isNotEmpty) { return error; }
+    error = WTInputValidation.missingSign(key: 'username'.tr, value: v, sign: '.');
+    if(error!.isNotEmpty) { return error; }
+    error = WTInputValidation.minimumLength(key: 'username'.tr, value: v, length: 6);
+    if(error!.isNotEmpty) { return error; }
     return null;
   }
 
@@ -66,9 +72,13 @@ class RegistrationController extends WTController<RegistrationController> {
   TextEditingController? passwordController = TextEditingController();
   void passwordListener() { password = passwordController!.text; }
   passwordValidator(String v) {
-    if(v.isEmpty) { return 'passwordController_form1'.tr; }
-    if(v.length < 12) { return 'passwordController_form2'.tr; }
-    if(v.contains(' ')) { return 'passwordController_form3'.tr; }
+    String? error = '';
+    error = WTInputValidation.isEmpty(key: 'password'.tr, value: v);
+    if(error!.isNotEmpty) { return error; }
+    error = WTInputValidation.containsEmptySpace(key: 'password'.tr, value: v);
+    if(error!.isNotEmpty) { return error; }
+    error = WTInputValidation.minimumLength(key: 'password'.tr, value: v, length: 12);
+    if(error!.isNotEmpty) { return error; }
     return null;
   }
 

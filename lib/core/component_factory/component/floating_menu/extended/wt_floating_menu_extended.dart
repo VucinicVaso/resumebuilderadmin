@@ -3,7 +3,6 @@ import '../wt_floating_menu.dart';
 
 class WtFloatingMenuExdended extends WTFloatingMenu {
   
-
   Widget? createIconWidget() {
     if(icon == null) { return SizedBox.shrink(); }
 

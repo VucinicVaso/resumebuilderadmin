@@ -1,6 +1,6 @@
 import 'package:resumebuilderadmin/core/external/lib_getx.dart';
 
-class WTInputValidation {
+class WTValidator {
 
   static String? isEmpty({ required String key, required String value }) {
     if(value.isEmpty) { return 'emptyValidator'.trParams({ 'value': key.toLowerCase() }); }

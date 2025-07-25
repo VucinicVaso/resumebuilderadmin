@@ -22,8 +22,8 @@ class DashboardView extends WTView<DashboardController> {
       );
 
     var sidebar = componentFactory!.createSidebar(WTSidebarType.basic1)!
-      ..addAction(action: () { print('sidebar action Settings.'); }, icon: Symbols.settings, label: 'settings'.tr)
-      ..addAction(action: () { print('sidebar action Account.'); }, icon: Symbols.account_circle_rounded, label: 'account'.tr);
+      ..addAction(action: () { print('sidebar action Account.'); }, icon: Symbols.account_circle_rounded, label: 'account'.tr)
+      ..addAction(action: () { print('sidebar action Settings.'); }, icon: Symbols.settings, label: 'settings'.tr);
 
     var body = componentFactory!.createBody(WTBodyType.basic1);
 

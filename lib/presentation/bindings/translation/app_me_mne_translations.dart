@@ -1,4 +1,4 @@
-import 'package:resumebuilderadmin/core/translation/wtoolbox_translations.dart';
+import 'package:resumebuilderadmin/wtoolbox/translation/wt_translations.dart';
 
 class AppMeMneTranslations extends WTTranslations {
   

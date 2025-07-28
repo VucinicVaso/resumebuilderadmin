@@ -1,4 +1,4 @@
-import 'package:resumebuilderadmin/core/notifier/wtoolbox_notifier.dart';
+import 'package:resumebuilderadmin/wtoolbox/notifier/wt_notifier.dart';
 
 class AppNotifier extends WTNotifier {
 

@@ -1,4 +1,4 @@
-import 'package:resumebuilderadmin/core/clean_architecture/entity/wtoolbox_entity.dart';
+import 'package:resumebuilderadmin/wtoolbox/clean_architecture/entity/wt_entity.dart';
 
 class Account extends WTEntity<Account> {
 

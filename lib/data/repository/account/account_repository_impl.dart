@@ -1,4 +1,4 @@
-import 'package:resumebuilderadmin/core/logger/wtoolbox_logger.dart';
+import 'package:resumebuilderadmin/wtoolbox/logger/wt_logger.dart';
 import '../../../domain/entity/account/account.dart';
 import '../../../domain/repository/account/account_repository.dart';
 

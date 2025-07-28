@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:resumebuilderadmin/core/external/lib_getx.dart';
-import 'package:resumebuilderadmin/core/external/lib_material_symbols.dart';
-import 'package:resumebuilderadmin/core/clean_architecture/view/wtoolbox_view.dart';
-import 'package:resumebuilderadmin/core/component_factory/component/wt_component.dart';
-import 'package:resumebuilderadmin/core/component_factory/type/impl1/wtoolbox_component_type.dart';
+import 'package:resumebuilderadmin/wtoolbox/external/lib_getx.dart';
+import 'package:resumebuilderadmin/wtoolbox/external/lib_material_symbols.dart';
+import 'package:resumebuilderadmin/wtoolbox/clean_architecture/view/wt_view.dart';
+import 'package:resumebuilderadmin/wtoolbox/component_factory/component/wt_component.dart';
+import 'package:resumebuilderadmin/wtoolbox/component_factory/type/impl1/wt_component_type.dart';
 import '../../controller/registration/registration_controller.dart';
 
 // ignore: must_be_immutable

@@ -1,4 +1,4 @@
-import 'package:resumebuilderadmin/core/clean_architecture/usecase/wtoolbox_usecase_with_params.dart';
+import 'package:resumebuilderadmin/wtoolbox/clean_architecture/usecase/wt_usecase_with_params.dart';
 
 class AccountSignUpUseCase extends WTUseCaseWithParams<bool, AccountSignUpUseCaseParams> {
 

@@ -1,5 +1,5 @@
-import 'package:resumebuilderadmin/core/external/lib_getx.dart';
-import 'package:resumebuilderadmin/core/clean_architecture/controller/wtoolbox_controller.dart';
+import 'package:resumebuilderadmin/wtoolbox/external/lib_getx.dart';
+import 'package:resumebuilderadmin/wtoolbox/clean_architecture/controller/wt_controller.dart';
 
 class DashboardController extends WTController<DashboardController> {
 

@@ -1,4 +1,4 @@
-import 'package:resumebuilderadmin/core/router/wtoolbox_routes.dart';
+import 'package:resumebuilderadmin/wtoolbox/router/wt_routes.dart';
 import '../../view/registration/registration_view.dart';
 import '../../view/dashboard/dashboard_view.dart';
 

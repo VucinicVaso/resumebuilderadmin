@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'core/external/lib_getx.dart';
-import 'core/dependency_container/impl/wtoolbox_dependency_container_impl.dart';
-import 'core/router/wtoolbox_router.dart';
-import 'core/application_starter/wtoolbox_application_starter_service.dart';
-import 'core/theme/wtoolbox_theme_service.dart';
-import 'core/translation/wtoolbox_translation.dart';
+import 'wtoolbox/external/lib_getx.dart';
+import 'wtoolbox/dependency_container/impl/wt_dependency_container_impl.dart';
+import 'wtoolbox/router/wt_router.dart';
+import 'wtoolbox/application_starter/wt_application_starter_service.dart';
+import 'wtoolbox/theme/wt_theme_service.dart';
+import 'wtoolbox/translation/wt_translation.dart';
 import 'presentation/bindings/application_starter/app_starter.dart';
 
 void main() async {

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:resumebuilderadmin/core/external/lib_getx.dart';
-import 'package:resumebuilderadmin/core/validator/wtoolbox_validator.dart';
-import 'package:resumebuilderadmin/core/logger/wtoolbox_logger.dart';
-import 'package:resumebuilderadmin/core/clean_architecture/controller/wtoolbox_controller.dart';
+import 'package:resumebuilderadmin/wtoolbox/external/lib_getx.dart';
+import 'package:resumebuilderadmin/wtoolbox/validator/wt_validator.dart';
+import 'package:resumebuilderadmin/wtoolbox/logger/wt_logger.dart';
+import 'package:resumebuilderadmin/wtoolbox/clean_architecture/controller/wt_controller.dart';
 import 'package:resumebuilderadmin/domain/usecase/account_signin_usecase.dart';
 import 'package:resumebuilderadmin/domain/usecase/account_signup_usecase.dart';
 

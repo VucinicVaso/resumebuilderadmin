@@ -1,5 +1,5 @@
-import 'package:resumebuilderadmin/core/external/lib_getx.dart';
-import 'package:resumebuilderadmin/core/application_starter/wtoolbox_application_starter.dart';
+import 'package:resumebuilderadmin/wtoolbox/external/lib_getx.dart';
+import 'package:resumebuilderadmin/wtoolbox/application_starter/wt_application_starter.dart';
 import '../notifier/app_notifier.dart';
 import '../translation/app_translations.dart';
 import '../routes/app_routes.dart';

@@ -3,6 +3,7 @@ import 'package:resumebuilderadmin/wtoolbox/external/lib_getx.dart';
 import 'package:resumebuilderadmin/wtoolbox/validator/wt_validator.dart';
 import 'package:resumebuilderadmin/wtoolbox/logger/wt_logger.dart';
 import 'package:resumebuilderadmin/wtoolbox/clean_architecture/controller/wt_controller.dart';
+import 'package:resumebuilderadmin/wtoolbox/application_starter/wt_application_starter_service.dart';
 import 'package:resumebuilderadmin/domain/usecase/account_signin_usecase.dart';
 import 'package:resumebuilderadmin/domain/usecase/account_signup_usecase.dart';
 
@@ -30,27 +31,23 @@ class RegistrationController extends WTController<RegistrationController> {
     setFormSubmitting(false);
 
     username = '';
-    usernameController!.clear();
-    usernameController!.removeListener(usernameListener);
+    usernameController!..clear()..removeListener(usernameListener);
 
     password = '';
-    passwordController!.clear();
-    passwordController!.removeListener(passwordListener);
+    passwordController!..clear()..removeListener(passwordListener);
   }
-
-  var view = 0.obs;
-  void setView(int? v) { view.value = v!; }
 
   @override
   Future<void> listener(Map<String, dynamic>? message) async {}
 
-  GlobalKey<FormState>? formKey;
-  void setFormKey() {
-    formKey = GlobalKey<FormState>();
-  }
+  var view = 0.obs;
+  void setView(int? v) { view.value = v!; }
 
   var formSubmitting = false.obs;
   void setFormSubmitting(bool? b) { formSubmitting.value = b!; }
+
+  GlobalKey<FormState>? formKey;
+  void setFormKey() { formKey = GlobalKey<FormState>(); }
 
   String? username;
   TextEditingController? usernameController = TextEditingController();
@@ -97,7 +94,7 @@ class RegistrationController extends WTController<RegistrationController> {
       setFormSubmitting(false);
       bool? result = await AccountSignInUseCase().call(AccountSignInUseCaseParams(username: username!, password: password!));
       formKey!.currentState!.reset();
-      await navigateOff(route: '/dashboard', arguments: {});
+      await start();
     }
   }
 
@@ -116,8 +113,13 @@ class RegistrationController extends WTController<RegistrationController> {
       setFormSubmitting(false);
       bool? result = await AccountSignUpUseCase().call(AccountSignUpUseCaseParams(username: username!, password: password!));
       formKey!.currentState!.reset();
-      await navigateOff(route: '/dashboard', arguments: {});
+      await start();
     }
+  }
+
+  Future<void> start() async {
+    await Get.find<WTApplicationStarterService>().registerApplicationStarters();
+    await navigateOff(route: '/dashboard', arguments: {});
   }
 
 }

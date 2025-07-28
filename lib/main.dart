@@ -5,7 +5,8 @@ import 'wtoolbox/router/wt_router.dart';
 import 'wtoolbox/application_starter/wt_application_starter_service.dart';
 import 'wtoolbox/theme/wt_theme_service.dart';
 import 'wtoolbox/translation/wt_translation.dart';
-import 'presentation/bindings/application_starter/app_starter.dart';
+import 'package:resumebuilderadmin/presentation/intro/bindings/application_starter/intro_starter.dart';
+import 'package:resumebuilderadmin/presentation/dashboard/bindings/application_starter/dashboard_starter.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,7 +18,7 @@ void main() async {
   runApp(
     GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title:          'ResumeBuilderAdmin',
+      title:          'Resume Builder Admin',
       locale:         Get.find<WTTranslation>().locale!,
       fallbackLocale: Get.find<WTTranslation>().fallbackLocale!,
       translations:   Get.find<WTTranslation>(),
@@ -41,5 +42,7 @@ Future<void> initRoutes() async {
 Future<void> initApplications() async {
   var applicationService = Get.find<WTApplicationStarterService>();
   
-  applicationService.registerInitialApplicationStarter(AppStarter());
+  applicationService
+    ..registerInitialApplicationStarter(IntroStarter())
+    ..addApplicationStarter(DashboardStarter());
 }

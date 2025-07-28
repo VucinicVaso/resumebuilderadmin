@@ -1,20 +1,20 @@
 import 'package:resumebuilderadmin/wtoolbox/external/lib_getx.dart';
 import 'package:resumebuilderadmin/wtoolbox/application_starter/wt_application_starter.dart';
-import '../notifier/app_notifier.dart';
-import '../translation/app_translations.dart';
-import '../routes/app_routes.dart';
+import '../notifier/dashboard_notifier.dart';
+import '../translation/dashboard_translations.dart';
+import '../routes/dashboard_routes.dart';
 import '../account/account_service.dart';
 import '../account/impl/account_service_impl.dart';
 
-class AppStarter extends WTApplicationStarter {
+class DashboardStarter extends WTApplicationStarter {
 
   @override
   Future<void> register() async {
     setTitle('ResumeBuilderAdmin');
     setSettings({});
-    subscribeNotifier(AppNotifier());
-    registerTranslations(AppTranslations());
-    registerRoutes(AppRoutes());
+    subscribeNotifier(DashboardNotifier());
+    registerTranslations(DashboardTranslations());
+    registerRoutes(DashboardRoutes());
 
     Get.put<AccountService>(AccountServiceImpl(), permanent: true);
   }

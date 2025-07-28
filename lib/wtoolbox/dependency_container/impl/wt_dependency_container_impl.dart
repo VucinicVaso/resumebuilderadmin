@@ -5,7 +5,7 @@ import 'package:resumebuilderadmin/wtoolbox/encryption/impl/wt_encryption_impl.d
 import 'package:resumebuilderadmin/wtoolbox/notifier/wt_notifier_service.dart';
 import 'package:resumebuilderadmin/wtoolbox/notifier/impl/wt_notifier_service_impl.dart';
 import 'package:resumebuilderadmin/wtoolbox/application_starter/wt_application_starter_service.dart';
-import 'package:resumebuilderadmin/wtoolbox/application_starter/impl/wtoolbox_application_starter_service_impl.dart';
+import 'package:resumebuilderadmin/wtoolbox/application_starter/impl/wt_application_starter_service_impl.dart';
 import 'package:resumebuilderadmin/wtoolbox/router/wt_router.dart';
 import 'package:resumebuilderadmin/wtoolbox/router/impl/wt_router_impl.dart';
 import 'package:resumebuilderadmin/wtoolbox/translation/wt_translation.dart';

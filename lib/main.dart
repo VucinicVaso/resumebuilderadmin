@@ -34,7 +34,7 @@ Future<void> initRoutes() async {
 
   router
     ..setInitialRoute('/')
-    ..setRedirectRoute('/')
+    ..setRedirectRoute('/dashboard')
     ..setLogoutRoute('/');
 }
 

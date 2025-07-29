@@ -6,10 +6,6 @@ class AccountSignOutUseCase extends WTUseCase<bool> {
 
   @override
   Future<bool> call() async {
-    print('---------------------------');
-    print('AccountSignOutUseCase');
-    print('---------------------------');
-
     bool? response = await Get.find<AccountRepository>().signOut();
     return response!;
   }

@@ -1,8 +1,7 @@
-import 'package:resumebuilderadmin/wtoolbox/logger/wt_logger.dart';
 import 'package:resumebuilderadmin/domain/entity/message/message.dart';
-import 'package:resumebuilderadmin/domain/repository/message/message_in/message_in_repository.dart';
+import 'package:resumebuilderadmin/domain/repository/message/message_repository.dart';
 
-class MessageOutRepositoryImpl extends MessageInRepository {
+class MessageRepositoryImpl extends MessageRepository {
 
   @override
   Future<bool?> init(int? accountKey) {

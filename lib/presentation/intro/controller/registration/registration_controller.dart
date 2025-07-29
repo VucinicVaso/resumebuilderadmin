@@ -32,7 +32,6 @@ class RegistrationController extends WTController<RegistrationController> {
 
     username = '';
     usernameController!..clear()..removeListener(usernameListener);
-
     password = '';
     passwordController!..clear()..removeListener(passwordListener);
   }
@@ -92,9 +91,9 @@ class RegistrationController extends WTController<RegistrationController> {
     
     if(formValidated) {
       setFormSubmitting(false);
-      bool? result = await AccountSignInUseCase().call(AccountSignInUseCaseParams(username: username!, password: password!));
+      bool? response = await AccountSignInUseCase().call(AccountSignInUseCaseParams(username: username!, password: password!));
       formKey!.currentState!.reset();
-      await start();
+      if(response) { await start(); }
     }
   }
 
@@ -111,9 +110,9 @@ class RegistrationController extends WTController<RegistrationController> {
     
     if(formValidated) {
       setFormSubmitting(false);
-      bool? result = await AccountSignUpUseCase().call(AccountSignUpUseCaseParams(username: username!, password: password!));
+      bool? response = await AccountSignUpUseCase().call(AccountSignUpUseCaseParams(username: username!, password: password!));
       formKey!.currentState!.reset();
-      await start();
+      if(response) { await start(); }
     }
   }
 

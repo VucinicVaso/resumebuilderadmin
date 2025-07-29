@@ -12,8 +12,8 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await dependecyContainer!.register(dotenvFile: 'assets/.env');
-  await initRoutes();
   await initApplications();
+  await initRoutes();
 
   runApp(
     GetMaterialApp(
@@ -30,6 +30,14 @@ void main() async {
   );
 }
 
+Future<void> initApplications() async {
+  var applicationService = Get.find<WTApplicationStarterService>();
+
+  applicationService
+    ..registerInitialApplicationStarter(IntroStarter())
+    ..addApplicationStarter(DashboardStarter());
+}
+
 Future<void> initRoutes() async {
   var router = Get.find<WTRouter>();
 
@@ -37,12 +45,4 @@ Future<void> initRoutes() async {
     ..setInitialRoute('/')
     ..setRedirectRoute('/dashboard')
     ..setLogoutRoute('/');
-}
-
-Future<void> initApplications() async {
-  var applicationService = Get.find<WTApplicationStarterService>();
-
-  applicationService
-    ..registerInitialApplicationStarter(IntroStarter())
-    ..addApplicationStarter(DashboardStarter());
 }

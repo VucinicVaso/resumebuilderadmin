@@ -1,3 +1,5 @@
+import 'package:resumebuilderadmin/wtoolbox/external/lib_getx.dart';
+import 'package:resumebuilderadmin/domain/repository/account/account_repository.dart';
 import 'package:resumebuilderadmin/wtoolbox/clean_architecture/usecase/wt_usecase_with_params.dart';
 
 class AccountSignInUseCase extends WTUseCaseWithParams<bool, AccountSignInUseCaseParams> {
@@ -10,7 +12,8 @@ class AccountSignInUseCase extends WTUseCaseWithParams<bool, AccountSignInUseCas
     print('password: ${params.password}');
     print('---------------------------');
 
-    return true;
+    bool? response = await Get.find<AccountRepository>().singIn(username: params.username, password: params.password);
+    return response!;
   }
 
 }

@@ -13,11 +13,10 @@ class Account extends WTEntity<Account> {
     this.firstname,
     this.lastname,
     this.email,
-    this.avatar,
+    this.image,
     this.dateOfBirth,
     this.city,
     this.country,
-    this.gender,
   });
 
   String? language; // label for selected language
@@ -44,8 +43,8 @@ class Account extends WTEntity<Account> {
   String? email;
   void setEmail(String? v) { email = v; }
 
-  String? avatar;
-  void setAvatar(String? v) { avatar = v; }
+  String? image;
+  void setImage(String? v) { image = v; }
 
   String? dateOfBirth;
   void setDateOfBirth(String? v) { dateOfBirth = v; }
@@ -55,9 +54,6 @@ class Account extends WTEntity<Account> {
 
   String? country;
   void setCountry(String? v) { country = v; }
-
-  String? gender;
-  void setGender(String? v) { gender = v; }
   
   @override
   Map<String, dynamic>? toJson() {
@@ -72,11 +68,10 @@ class Account extends WTEntity<Account> {
       'firstname':   firstname,
       'lastname':    lastname,
       'email':       email,
-      'avatar':      avatar,
+      'image':       image,
       'dateOfBirth': dateOfBirth,
       'city':        city,
       'country':     country,
-      'gender':      gender,
     };
   }
 
@@ -93,11 +88,10 @@ class Account extends WTEntity<Account> {
       firstname:   json['firstname'],
       lastname:    json['lastname'],
       email:       json['email'],
-      avatar:      json['avatar'],
+      image:       json['image'],
       dateOfBirth: json['dateOfBirth'],
       city:        json['city'],
       country:     json['country'],
-      gender:      json['gender'],
     );
   }
 
@@ -114,11 +108,10 @@ class Account extends WTEntity<Account> {
       firstname:   '',
       lastname:    '',
       email:       '',
-      avatar:      '',
+      image:       '',
       dateOfBirth: '',
       city:        '',
       country:     '',
-      gender:      '',
     );
   }
   

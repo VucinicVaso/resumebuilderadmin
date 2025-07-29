@@ -58,4 +58,17 @@ class AccountRepositoryImpl extends AccountRepository {
     throw UnimplementedError();
   }
 
+
+  Future<bool>? singIn({ String? username, String? password }) async {
+    return true;
+  }
+
+  Future<bool>? signUp({ String? username, String? password }) async {
+    return true;
+  }
+
+  Future<bool>? signOut() async {
+    return true;
+  }
+
 }

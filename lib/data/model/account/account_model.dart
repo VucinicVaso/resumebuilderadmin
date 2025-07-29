@@ -15,11 +15,10 @@ class AccountMapper {
       firstname:   model.firstname,
       lastname:    model.lastname,
       email:       model.email,
-      avatar:      model.avatar,
+      image:       model.image,
       dateOfBirth: model.dateOfBirth,
       city:        model.city,
       country:     model.country,
-      gender:      model.gender,
     );
   }
 
@@ -35,11 +34,10 @@ class AccountMapper {
       firstname:   entity.firstname,
       lastname:    entity.lastname,
       email:       entity.email,
-      avatar:      entity.avatar,
+      image:       entity.image,
       dateOfBirth: entity.dateOfBirth,
       city:        entity.city,
       country:     entity.country,
-      gender:      entity.gender,
     );
   }
 
@@ -58,11 +56,10 @@ class AccountModel extends WTEntity<AccountModel> {
     this.firstname,
     this.lastname,
     this.email,
-    this.avatar,
+    this.image,
     this.dateOfBirth,
     this.city,
     this.country,
-    this.gender,
   });
   
   String? language; // label for selected language
@@ -89,8 +86,8 @@ class AccountModel extends WTEntity<AccountModel> {
   String? email;
   void setEmail(String? v) { email = v; }
 
-  String? avatar;
-  void setAvatar(String? v) { avatar = v; }
+  String? image;
+  void setImage(String? v) { image = v; }
 
   String? dateOfBirth;
   void setDateOfBirth(String? v) { dateOfBirth = v; }
@@ -100,9 +97,6 @@ class AccountModel extends WTEntity<AccountModel> {
 
   String? country;
   void setCountry(String? v) { country = v; }
-
-  String? gender;
-  void setGender(String? v) { gender = v; }
 
   @override
   Map<String, dynamic>? toJson() {
@@ -117,11 +111,10 @@ class AccountModel extends WTEntity<AccountModel> {
       'firstname':   firstname,
       'lastname':    lastname,
       'email':       email,
-      'avatar':      avatar,
+      'image':       image,
       'dateOfBirth': dateOfBirth,
       'city':        city,
       'country':     country,
-      'gender':      gender,
     };
   }
 
@@ -138,11 +131,10 @@ class AccountModel extends WTEntity<AccountModel> {
       firstname:   json['firstname'],
       lastname:    json['lastname'],
       email:       json['email'],
-      avatar:      json['avatar'],
+      image:       json['image'],
       dateOfBirth: json['dateOfBirth'],
       city:        json['city'],
       country:     json['country'],
-      gender:      json['gender'],
     );
   }
 
@@ -159,11 +151,10 @@ class AccountModel extends WTEntity<AccountModel> {
       firstname:   '',
       lastname:    '',
       email:       '',
-      avatar:      '',
+      image:       '',
       dateOfBirth: '',
       city:        '',
       country:     '',
-      gender:      '',
     );
   }
  

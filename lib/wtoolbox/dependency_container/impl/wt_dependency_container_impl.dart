@@ -2,8 +2,8 @@ import 'package:resumebuilderadmin/wtoolbox/external/lib_getx.dart';
 import 'package:resumebuilderadmin/wtoolbox/external/lib_dotenv.dart';
 import 'package:resumebuilderadmin/wtoolbox/encryption/wt_encryption.dart';
 import 'package:resumebuilderadmin/wtoolbox/encryption/impl/wt_encryption_impl.dart';
-import 'package:resumebuilderadmin/wtoolbox/notifier/wt_notifier_service.dart';
-import 'package:resumebuilderadmin/wtoolbox/notifier/impl/wt_notifier_service_impl.dart';
+import 'package:resumebuilderadmin/wtoolbox/message_broker/wt_message_broker_service.dart';
+import 'package:resumebuilderadmin/wtoolbox/message_broker/impl/wt_message_broker_service_impl.dart';
 import 'package:resumebuilderadmin/wtoolbox/application_starter/wt_application_starter_service.dart';
 import 'package:resumebuilderadmin/wtoolbox/application_starter/impl/wt_application_starter_service_impl.dart';
 import 'package:resumebuilderadmin/wtoolbox/router/wt_router.dart';
@@ -30,7 +30,7 @@ class WTDependencyContainerImpl extends WTDependencyContainer {
     Get.put<WTThemeService>(WTThemeServiceImpl());
     Get.put<WTApplicationStarterService>(WTApplicationStarterServiceImpl());
     Get.put<WTRouter>(WTRouterImpl());
-    Get.put<WTNotifierService>(WTNotifierServiceImpl());
+    Get.put<WTMessageBrokerService>(WTMessageBrokerServiceImpl());
     Get.put<WTEncryption>(WTEncryptionImpl(key: dotenv.get('ENCRYPTION_KEY')));
     Get.put<WTHttpAdapter>(WTHttpAdapterImpl());
     Get.put<WTFileManager>(WTFileManagerImpl());
@@ -43,7 +43,7 @@ class WTDependencyContainerImpl extends WTDependencyContainer {
   @override
   Future<void> unregister() async {
     await Get.delete<WTEncryption>(force: true);
-    await Get.delete<WTNotifierService>(force: true);
+    await Get.delete<WTMessageBrokerService>(force: true);
     await Get.delete<WTTranslation>(force: true);
     await Get.delete<WTThemeService>(force: true);
     await Get.delete<WTRouter>(force: true);

@@ -1,6 +1,6 @@
 import 'package:resumebuilderadmin/wtoolbox/external/lib_getx.dart';
 import 'package:resumebuilderadmin/wtoolbox/application_starter/wt_application_starter.dart';
-import '../notifier/dashboard_notifier.dart';
+import '../message_broker/dashboard_message_broker.dart';
 import '../translation/dashboard_translations.dart';
 import '../routes/dashboard_routes.dart';
 import '../account/account_service.dart';
@@ -12,7 +12,7 @@ class DashboardStarter extends WTApplicationStarter {
   Future<void> register() async {
     setTitle('ResumeBuilderAdmin');
     setSettings({});
-    subscribeNotifier(DashboardNotifier());
+    subscribeMessageBroker(DashboardMessageBroker());
     registerTranslations(DashboardTranslations());
     registerRoutes(DashboardRoutes());
 
@@ -23,7 +23,7 @@ class DashboardStarter extends WTApplicationStarter {
   Future<void> unregister() async {
     unregisterTranslations();
     unregisterRoutes();
-    unsubscribeNotifier();
+    unsubscribeMessageBroker();
 
     Get.delete<AccountService>(force: true);
   }

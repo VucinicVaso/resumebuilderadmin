@@ -1,5 +1,5 @@
 import 'package:resumebuilderadmin/wtoolbox/application_starter/wt_application_starter.dart';
-import '../notifier/intro_notifier.dart';
+import '../message_broker/intro_message_broker.dart';
 import '../translation/intro_translations.dart';
 import '../routes/intro_routes.dart';
 
@@ -9,7 +9,7 @@ class IntroStarter extends WTApplicationStarter {
   Future<void> register() async {
     setTitle('ResumeBuilderAdminIntro');
     setSettings({});
-    subscribeNotifier(IntroNotifier());
+    subscribeMessageBroker(IntroMessageBroker());
     registerTranslations(IntroTranslations());
     registerRoutes(IntroRoutes());
   }
@@ -18,7 +18,7 @@ class IntroStarter extends WTApplicationStarter {
   Future<void> unregister() async {
     unregisterTranslations();
     unregisterRoutes();
-    unsubscribeNotifier();
+    unsubscribeMessageBroker();
   }
   
 }

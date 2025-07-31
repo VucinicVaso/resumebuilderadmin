@@ -2,7 +2,7 @@ import 'package:resumebuilderadmin/wtoolbox/external/lib_dotenv.dart';
 import 'package:resumebuilderadmin/wtoolbox/external/lib_getx.dart';
 import 'package:resumebuilderadmin/wtoolbox/external/lib_stomp.dart';
 import 'package:resumebuilderadmin/wtoolbox/logger/wt_logger.dart';
-import 'package:resumebuilderadmin/wtoolbox/notifier/wt_notifier_service.dart';
+import 'package:resumebuilderadmin/wtoolbox/message_broker/wt_message_broker_service.dart';
 import '../wt_socket.dart';
 
 class WTSocketImpl extends WTSocket {
@@ -105,7 +105,7 @@ class WTSocketImpl extends WTSocket {
     Map<String, String> headers = sF.headers;
     String? body                = String.fromCharCodes(sF.binaryBody!);
 
-    await Get.find<WTNotifierService>().receive(headers: headers, body: body);
+    await Get.find<WTMessageBrokerService>().receive(headers: headers, body: body);
   }
 
   @override

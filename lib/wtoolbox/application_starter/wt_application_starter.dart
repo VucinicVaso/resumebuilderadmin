@@ -1,6 +1,6 @@
 import 'package:resumebuilderadmin/wtoolbox/external/lib_getx.dart';
-import 'package:resumebuilderadmin/wtoolbox/notifier/wt_notifier.dart';
-import 'package:resumebuilderadmin/wtoolbox/notifier/wt_notifier_service.dart';
+import 'package:resumebuilderadmin/wtoolbox/message_broker/wt_message_broker.dart';
+import 'package:resumebuilderadmin/wtoolbox/message_broker/wt_message_broker_service.dart';
 import 'package:resumebuilderadmin/wtoolbox/router/wt_routes.dart';
 import 'package:resumebuilderadmin/wtoolbox/router/wt_router.dart';
 import 'package:resumebuilderadmin/wtoolbox/translation/wt_translations.dart';
@@ -26,14 +26,14 @@ abstract class WTApplicationStarter {
   }
   void unregisterTranslations() {}
 
-  // subscribe/unsubscribe application notifer
-  WTNotifier? _notifier;
-  void subscribeNotifier(WTNotifier? notifier) {
-    _notifier = notifier;
-    Get.find<WTNotifierService>().subscribe(_notifier);
+  // subscribe/unsubscribe application message broker
+  WTMessageBroker? _broker;
+  void subscribeMessageBroker(WTMessageBroker? broker) {
+    _broker = broker;
+    Get.find<WTMessageBrokerService>().subscribe(_broker);
   }
-  void unsubscribeNotifier() {
-    Get.find<WTNotifierService>().unsubscribe(_notifier!.getTitle());
+  void unsubscribeMessageBroker() {
+    Get.find<WTMessageBrokerService>().unsubscribe(_broker!.getTitle());
   }
 
   // register/unregister application routes

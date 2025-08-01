@@ -78,7 +78,7 @@ class WTSidebarBasic extends WTSidebar {
     print('WTSidebarBasic(width: $width, height: $height)');
     print('--------------------------------------------');
     setSizes();
-      
+
     return Drawer(
       key: getUniqueKey(),
       backgroundColor: backgroundColor,

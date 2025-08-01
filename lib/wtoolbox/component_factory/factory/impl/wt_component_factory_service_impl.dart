@@ -59,7 +59,6 @@ class WTComponentFactoryImpl extends WTComponentFactory {
       case WTHeaderType.basic1:
         var component = WTHeaderImpl()
           ..setBuildContext(getCurrentContext())
-          ..setGoogleFonts(fonts)
           ..withShadow(false)
           ..setBackgroundColor(theme!.background1)
           ..setSidebarIcon(Symbols.menu)
@@ -80,7 +79,6 @@ class WTComponentFactoryImpl extends WTComponentFactory {
       case WTHeaderType.basic1WithShadow:
         var component = WTHeaderImpl()
           ..setBuildContext(getCurrentContext())
-          ..setGoogleFonts(fonts)
           ..withShadow(true)
           ..setBackgroundColor(theme!.background1)
           ..setSidebarIcon(Symbols.menu)
@@ -100,7 +98,6 @@ class WTComponentFactoryImpl extends WTComponentFactory {
         return component;
       case WTHeaderType.basic2:
         var component = WTHeaderImpl()
-          ..setGoogleFonts(fonts)
           ..withShadow(false)
           ..setBackgroundColor(theme!.background2)
           ..setSidebarIcon(Symbols.menu)
@@ -120,7 +117,6 @@ class WTComponentFactoryImpl extends WTComponentFactory {
         return component;
       case WTHeaderType.basic2WithShadow:
         var component = WTHeaderImpl()
-          ..setGoogleFonts(fonts)
           ..withShadow(true)
           ..setBackgroundColor(theme!.background2)
           ..setSidebarIcon(Symbols.menu)

@@ -13,8 +13,6 @@ abstract class WTView<T> extends StatelessWidget {
   void setController(T? wtController) { controller = wtController; }
 
   WTComponentFactory? componentFactory;
-  void setComponentFactory() {
-    componentFactory = Get.find<WTComponentFactory>();
-  }
+  void setComponentFactory() { componentFactory = Get.find<WTComponentFactory>(); }
 
 }

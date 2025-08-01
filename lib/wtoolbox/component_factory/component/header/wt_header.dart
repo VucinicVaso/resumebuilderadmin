@@ -12,9 +12,6 @@ abstract class WTHeader {
   BuildContext? buildContext;
   void setBuildContext(BuildContext? v) { buildContext = v; }
 
-  String? googleFonts = '';
-  void setGoogleFonts(String? v) { if(v != null || v != '') { googleFonts = v; } }
-
   Color? backgroundColor;
   void setBackgroundColor(Color? v) { backgroundColor = v; }
 

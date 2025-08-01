@@ -60,16 +60,19 @@ class AccountRepositoryImpl extends AccountRepository {
 
   @override
   Future<bool>? singIn({ String? username, String? password }) async {
+    // send http request and receive account and token
     return true;
   }
 
   @override
   Future<bool>? signUp({ String? username, String? password }) async {
+    // send http request and receive account and token
     return true;
   }
 
   @override
   Future<bool>? signOut() async {
+    // send http request to remove token
     account = Account().empty();
     return true;
   }

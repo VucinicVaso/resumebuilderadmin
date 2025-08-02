@@ -1,4 +1,4 @@
-import 'package:resumebuilderadmin/wtoolbox/translation/wt_translations.dart';
+import 'package:resumebuilderadmin/core/wtoolbox/translation/wt_translations.dart';
 import 'intro_en_us_translations.dart';
 import 'intro_me_mne_translations.dart';
 

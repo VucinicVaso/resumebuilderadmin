@@ -1,4 +1,4 @@
-import 'package:resumebuilderadmin/wtoolbox/clean_architecture/entity/wt_entity.dart';
+import 'package:resumebuilderadmin/core/wtoolbox/clean_architecture/entity/wt_entity.dart';
 import 'package:resumebuilderadmin/domain/entity/account/account.dart';
 
 class AccountMapper {

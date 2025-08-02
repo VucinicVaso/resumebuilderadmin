@@ -1,4 +1,4 @@
-import 'package:resumebuilderadmin/wtoolbox/router/wt_routes.dart';
+import 'package:resumebuilderadmin/core/wtoolbox/router/wt_routes.dart';
 import '../../view/registration/registration_view.dart';
 
 class IntroRoutes extends WTRoutes{

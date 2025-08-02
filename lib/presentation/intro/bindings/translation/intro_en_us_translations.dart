@@ -1,4 +1,4 @@
-import 'package:resumebuilderadmin/wtoolbox/translation/wt_translations.dart';
+import 'package:resumebuilderadmin/core/wtoolbox/translation/wt_translations.dart';
 
 class IntroEnUsTranslations extends WTTranslations {
   

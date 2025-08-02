@@ -1,4 +1,4 @@
-import 'package:resumebuilderadmin/wtoolbox/application_starter/wt_application_starter.dart';
+import 'package:resumebuilderadmin/core/wtoolbox/application_starter/wt_application_starter.dart';
 import '../message_broker/intro_message_broker.dart';
 import '../translation/intro_translations.dart';
 import '../routes/intro_routes.dart';

@@ -1,4 +1,4 @@
-import 'package:resumebuilderadmin/wtoolbox/message_broker/wt_message_broker.dart';
+import 'package:resumebuilderadmin/core/wtoolbox/message_broker/wt_message_broker.dart';
 
 class DashboardMessageBroker extends WTMessageBroker {
 

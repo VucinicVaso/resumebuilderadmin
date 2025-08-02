@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'wtoolbox/external/lib_getx.dart';
-import 'wtoolbox/dependency_container/impl/wt_dependency_container_impl.dart';
-import 'wtoolbox/router/wt_router.dart';
-import 'wtoolbox/application_starter/wt_application_starter_service.dart';
-import 'wtoolbox/theme/wt_theme_service.dart';
-import 'wtoolbox/translation/wt_translation.dart';
+import 'core/wtoolbox/external/lib_getx.dart';
+import 'core/wtoolbox/dependency_container/impl/wt_dependency_container_impl.dart';
+import 'core/wtoolbox/application_starter/wt_application_starter_service.dart';
+import 'core/wtoolbox/router/wt_router.dart';
+import 'core/wtoolbox/theme/wt_theme_service.dart';
+import 'core/wtoolbox/translation/wt_translation.dart';
 import 'package:resumebuilderadmin/presentation/intro/bindings/application_starter/intro_starter.dart';
 import 'package:resumebuilderadmin/presentation/dashboard/bindings/application_starter/dashboard_starter.dart';
 

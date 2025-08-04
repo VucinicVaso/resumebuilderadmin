@@ -15,15 +15,22 @@ class DashboardView extends WTView<DashboardController> {
 
   WTComponent? createScaffold(DashboardController? con) {
     var header = componentFactory!.createHeader(WTHeaderType.basic1)!
-      ..withSidebar()
       ..addAction(
         action: () async { await con!.logout(); }, 
         icon: Symbols.logout
       );
 
     var sidebar = componentFactory!.createSidebar(WTSidebarType.basic1)!
-      ..addAction(action: () { print('sidebar action Account.'); }, icon: Symbols.account_circle_rounded, label: 'account'.tr)
-      ..addAction(action: () { print('sidebar action Settings.'); }, icon: Symbols.settings, label: 'settings'.tr);
+      ..addAction(
+        action: () { print('sidebar action Account.'); }, 
+        icon: Symbols.account_circle_rounded, 
+        label: 'account'.tr
+      )
+      ..addAction(
+        action: () { print('sidebar action Settings.'); }, 
+        icon: Symbols.settings, 
+        label: 'settings'.tr
+      );
 
     var body = componentFactory!.createBody(WTBodyType.basic1);
 

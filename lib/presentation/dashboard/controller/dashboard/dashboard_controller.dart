@@ -20,7 +20,7 @@ class DashboardController extends WTController<DashboardController> {
   Future<void> listener(Map<String, dynamic>? message) async {}
 
   Future<void> logout() async {
-    await Get.find<AccountSignOutUseCase>().call();
+    await AccountSignOutUseCase().call();
     await Get.find<WTApplicationStarterService>().unregisterApplicationStarters();
     await navigateOff(route: '/');
   }

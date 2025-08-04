@@ -5,10 +5,10 @@ class WTScaffoldImpl extends WTScaffold {
 
   @override
   Widget? build() {
-    if(header!.sidebar!) {
-      header!.setSidebarAction(() {
-        globalKey!.currentState!.openDrawer();
-      });
+    if(sidebar != null) {
+      header!
+        ..withSidebar()
+        ..setSidebarAction(() { globalKey!.currentState!.openDrawer(); });
     }
 
     return LayoutBuilder(
@@ -24,7 +24,7 @@ class WTScaffoldImpl extends WTScaffold {
         header?.setWidth(width);
         sidebar?..setWidth(width)..setHeight(height);
         body?..setWidth(width)..setHeight(height);
-        floatingMenu?..setWidth(width)..setHeight(height);       
+        floatingMenu?..setWidth(width)..setHeight(height);
         footer?..setWidth(width)..setHeight(height);
 
         return Scaffold(

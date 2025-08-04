@@ -27,7 +27,6 @@ class WTApplicationStarterServiceImpl extends WTApplicationStarterService {
   Future<void> unregisterApplicationStarter(String? title) async {
     WTApplicationStarter? starter = starters!.firstWhere((p) => p.getTitle() == title);
     await starter.unregister();
-    starters!.removeWhere((p) => p.getTitle() == starter.getTitle());
   }
 
   @override
@@ -41,7 +40,6 @@ class WTApplicationStarterServiceImpl extends WTApplicationStarterService {
     for(var s in starters!) { 
       await s.unregister(); 
     }
-    starters!.clear();
   }
 
 }

@@ -2,59 +2,50 @@ import 'package:resumebuilderadmin/core/wtoolbox/logger/wt_logger.dart';
 import '../../../domain/entity/account/account.dart';
 import '../../../domain/repository/account/account_repository.dart';
 
-class AccountRepositoryImpl extends AccountRepository {
+class AccountRepositoryHive extends AccountRepository {
 
   @override
-  Future<bool?> init(int? accountKey) {
-    // TODO: implement init
+  Future<bool?> init(int? accountKey) async {
     throw UnimplementedError();
   }
 
   @override
-  Future<void> close() {
-    // TODO: implement close
+  Future<void> close() async {
     throw UnimplementedError();
   }
 
   @override
-  Future<bool?> insert(Account? entity) {
-    // TODO: implement insert
+  Future<bool?> insert(Account? entity) async {
     throw UnimplementedError();
   }
   
   @override
-  Future<bool?> update(Account? entity) {
-    // TODO: implement update
+  Future<bool?> update(Account? entity) async {
     throw UnimplementedError();
   }
 
   @override
-  Future<bool?> delete(Account? entity) {
-    // TODO: implement delete
+  Future<bool?> delete(Account? entity) async {
     throw UnimplementedError();
   }
 
   @override
-  Future<bool?> deleteAll() {
-    // TODO: implement deleteAll
+  Future<bool?> deleteAll() async {
     throw UnimplementedError();
   }
 
   @override
-  Future<Account?> getByKey(int? key) {
-    // TODO: implement getByKey
+  Future<Account?> getByKey(int? key) async {
     throw UnimplementedError();
   }
 
   @override
-  Future<List<Account>?> getAll() {
-    // TODO: implement getAll
+  Future<List<Account>?> getAll() async {
     throw UnimplementedError();
   }
 
   @override
-  Future<bool?> isEmpty() {
-    // TODO: implement isEmpty
+  Future<bool?> isEmpty() async {
     throw UnimplementedError();
   }
 

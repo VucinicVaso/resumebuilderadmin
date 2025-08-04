@@ -8,12 +8,6 @@ class WTLayoutHorizontalScrollable extends WTLayout {
     return LayoutBuilder(
       key: getUniqueKey(),
       builder: (context, constraints) {
-        print('-------------------------------------');
-        print('WTLayoutHorizontalScrollable');
-        print('width: ${constraints.maxWidth}');
-        print('height: ${constraints.maxHeight}');
-        print('-------------------------------------');
-
         width  = constraints.maxWidth;
         height = constraints.maxHeight;
 

@@ -22,12 +22,12 @@ class DashboardView extends WTView<DashboardController> {
 
     var sidebar = componentFactory!.createSidebar(WTSidebarType.basic1)!
       ..addAction(
-        action: () { print('sidebar action Account.'); }, 
+        action: () async { await con!.navigateTo(route: '/account', previousRoute: '/dashboard', arguments: {}); },
         icon: Symbols.account_circle_rounded, 
         label: 'account'.tr
       )
       ..addAction(
-        action: () { print('sidebar action Settings.'); }, 
+        action: () async { await con!.navigateTo(route: '/settings', previousRoute: '/dashboard', arguments: {}); },
         icon: Symbols.settings, 
         label: 'settings'.tr
       );

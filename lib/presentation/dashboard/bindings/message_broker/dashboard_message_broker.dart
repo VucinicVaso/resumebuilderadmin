@@ -4,7 +4,7 @@ class DashboardMessageBroker extends WTMessageBroker {
 
   @override
   void notify(Map<String, dynamic>? message) {}
-  
+
   @override
   Future<void> sendPending() async {}
   

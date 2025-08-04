@@ -1,4 +1,7 @@
+import 'package:resumebuilderadmin/core/wtoolbox/external/lib_getx.dart';
 import 'package:resumebuilderadmin/core/wtoolbox/application_starter/wt_application_starter.dart';
+import 'package:resumebuilderadmin/domain/repository/message/message_repository.dart';
+import 'package:resumebuilderadmin/data/repository/message/message_repository_hive.dart';
 import '../message_broker/dashboard_message_broker.dart';
 import '../translation/dashboard_translations.dart';
 import '../routes/dashboard_routes.dart';
@@ -12,6 +15,8 @@ class DashboardStarter extends WTApplicationStarter {
     subscribeMessageBroker(DashboardMessageBroker());
     registerTranslations(DashboardTranslations());
     registerRoutes(DashboardRoutes());
+
+    Get.put<MessageRepository>(MessageRepositoryHive(), permanent: true);
   }
 
   @override
@@ -19,6 +24,8 @@ class DashboardStarter extends WTApplicationStarter {
     unregisterTranslations();
     unregisterRoutes();
     unsubscribeMessageBroker();
+
+    await Get.delete<MessageRepository>(force: true);
   }
   
 }

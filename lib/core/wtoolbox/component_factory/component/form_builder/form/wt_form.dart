@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:resumebuilderadmin/core/wtoolbox/component_factory/component/wt_component.dart';
-import 'package:resumebuilderadmin/core/wtoolbox/component_factory/component/form_builder/form/wt_form_input_field_builder.dart';
-import 'package:resumebuilderadmin/core/wtoolbox/component_factory/component/form_builder/input_field/wt_form_input_filed.dart';
+import '../../../wt_component.dart';
+import 'wt_form_input_field_builder.dart';
+import '../../input_field/wt_form_input_filed.dart';
 
 abstract class WTForm extends WTComponent {
 

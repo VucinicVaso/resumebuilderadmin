@@ -1,9 +1,9 @@
-import 'package:resumebuilderadmin/core/wtoolbox/external/lib_getx.dart';
-import 'package:resumebuilderadmin/core/wtoolbox/clean_architecture/controller/wt_controller.dart';
-import 'package:resumebuilderadmin/core/wtoolbox/application_starter/wt_application_starter_service.dart';
+import 'package:wtoolboxweb/external/lib_getx.dart';
+import 'package:wtoolboxweb/clean_architecture/controller/wtw_controller.dart';
+import 'package:wtoolboxweb/application_starter/wtw_application_starter_service.dart';
 import 'package:resumebuilderadmin/domain/usecase/account_signout_usecase.dart';
 
-class DashboardController extends WTController<DashboardController> {
+class DashboardController extends WTWController<DashboardController> {
 
   DashboardController() {
     init(arguments: Get.arguments);
@@ -21,7 +21,7 @@ class DashboardController extends WTController<DashboardController> {
 
   Future<void> logout() async {
     await AccountSignOutUseCase().call();
-    await Get.find<WTApplicationStarterService>().unregisterApplicationStarters();
+    await Get.find<WTWApplicationStarterService>().unregisterApplicationStarters();
     await navigateOff(route: '/');
   }
 

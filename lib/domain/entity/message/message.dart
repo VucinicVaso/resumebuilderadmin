@@ -1,6 +1,6 @@
-import 'package:resumebuilderadmin/core/wtoolbox/clean_architecture/entity/wt_entity.dart';
+import 'package:wtoolboxweb/clean_architecture/entity/wtw_entity.dart';
 
-class Message extends WTEntity<Message> {
+class Message extends WTWEntity<Message> {
 
   Message({
     super.key,

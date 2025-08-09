@@ -1,4 +1,4 @@
-import 'package:resumebuilderadmin/core/wtoolbox/clean_architecture/entity/wt_entity.dart';
+import 'package:wtoolboxweb/clean_architecture/entity/wtw_entity.dart';
 import 'package:resumebuilderadmin/domain/entity/account/account.dart';
 
 class AccountMapper {
@@ -43,7 +43,7 @@ class AccountMapper {
 
 }
 
-class AccountModel extends WTEntity<AccountModel> {
+class AccountModel extends WTWEntity<AccountModel> {
 
   AccountModel({
     super.key,

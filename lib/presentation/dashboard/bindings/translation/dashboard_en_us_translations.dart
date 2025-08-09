@@ -1,6 +1,6 @@
-import 'package:resumebuilderadmin/core/wtoolbox/translation/wt_translations.dart';
+import 'package:wtoolboxweb/translation/wtw_translations.dart';
 
-class DashboardEnUsTranslations extends WTTranslations {
+class DashboardEnUsTranslations extends WTWTranslations {
   
   @override
   Map<String, Map<String, String>> get keys => {

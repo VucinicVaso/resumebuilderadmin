@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'core/wtoolbox/external/lib_getx.dart';
-import 'core/wtoolbox/dependency_container/impl/wt_dependency_container_impl.dart';
-import 'core/wtoolbox/application_starter/wt_application_starter_service.dart';
-import 'core/wtoolbox/router/wt_router.dart';
-import 'core/wtoolbox/theme/wt_theme_service.dart';
-import 'core/wtoolbox/translation/wt_translation.dart';
+import 'package:wtoolboxweb/external/lib_getx.dart';
+import 'package:wtoolboxweb/wtoolboxweb.dart';
+import 'package:wtoolboxweb/application_starter/wtw_application_starter_service.dart';
+import 'package:wtoolboxweb/router/wtw_router.dart';
+import 'package:wtoolboxweb/theme/wtw_theme_service.dart';
+import 'package:wtoolboxweb/translation/wtw_translation.dart';
 import 'package:resumebuilderadmin/presentation/intro/bindings/application_starter/intro_starter.dart';
 import 'package:resumebuilderadmin/presentation/dashboard/bindings/application_starter/dashboard_starter.dart';
 
@@ -19,19 +19,19 @@ void main() async {
     GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title:          'Resume Builder Admin',
-      locale:         Get.find<WTTranslation>().locale!,
-      fallbackLocale: Get.find<WTTranslation>().fallbackLocale!,
-      translations:   Get.find<WTTranslation>(),
-      initialRoute:   Get.find<WTRouter>().getInitialRoute(),
-      getPages:       Get.find<WTRouter>().getRoutes(),
-      theme:          Get.find<WTThemeService>().themeData,
-      darkTheme:      Get.find<WTThemeService>().themeData,
+      locale:         Get.find<WTWTranslation>().locale!,
+      fallbackLocale: Get.find<WTWTranslation>().fallbackLocale!,
+      translations:   Get.find<WTWTranslation>(),
+      initialRoute:   Get.find<WTWRouter>().getInitialRoute(),
+      getPages:       Get.find<WTWRouter>().getRoutes(),
+      theme:          Get.find<WTWThemeService>().themeData,
+      darkTheme:      Get.find<WTWThemeService>().themeData,
     )
   );
 }
 
 Future<void> initApplications() async {
-  var applicationService = Get.find<WTApplicationStarterService>();
+  var applicationService = Get.find<WTWApplicationStarterService>();
 
   applicationService
     ..registerInitialApplicationStarter(IntroStarter())
@@ -39,7 +39,7 @@ Future<void> initApplications() async {
 }
 
 Future<void> initRoutes() async {
-  var router = Get.find<WTRouter>();
+  var router = Get.find<WTWRouter>();
 
   router
     ..setInitialRoute('/')

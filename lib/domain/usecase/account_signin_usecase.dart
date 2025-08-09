@@ -1,8 +1,8 @@
-import 'package:resumebuilderadmin/core/wtoolbox/external/lib_getx.dart';
+import 'package:wtoolboxweb/external/lib_getx.dart';
+import 'package:wtoolboxweb/clean_architecture/usecase/wtw_usecase_with_params.dart';
 import 'package:resumebuilderadmin/domain/repository/account/account_repository.dart';
-import 'package:resumebuilderadmin/core/wtoolbox/clean_architecture/usecase/wt_usecase_with_params.dart';
 
-class AccountSignInUseCase extends WTUseCaseWithParams<bool, AccountSignInUseCaseParams> {
+class AccountSignInUseCase extends WTWUseCaseWithParams<bool, AccountSignInUseCaseParams> {
 
   @override
   Future<bool> call(AccountSignInUseCaseParams? params) async {

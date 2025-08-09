@@ -1,4 +1,4 @@
-import 'package:resumebuilderadmin/core/wtoolbox/clean_architecture/entity/wt_entity.dart';
+import 'package:wtoolboxweb/clean_architecture/entity/wtw_entity.dart';
 import 'package:resumebuilderadmin/domain/entity/message/message.dart';
 
 class MessageMapper {
@@ -27,7 +27,7 @@ class MessageMapper {
 
 }
 
-class MessageModel extends WTEntity<MessageModel> {
+class MessageModel extends WTWEntity<MessageModel> {
 
   MessageModel({
     super.key,

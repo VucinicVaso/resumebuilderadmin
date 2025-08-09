@@ -1,6 +1,6 @@
-import 'package:resumebuilderadmin/core/wtoolbox/message_broker/wt_message_broker.dart';
+import 'package:wtoolboxweb/message_broker/wtw_message_broker.dart';
 
-class DashboardMessageBroker extends WTMessageBroker {
+class DashboardMessageBroker extends WTWMessageBroker {
 
   @override
   void notify(Map<String, dynamic>? message) {}

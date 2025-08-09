@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:resumebuilderadmin/core/wtoolbox/external/lib_getx.dart';
-import 'package:resumebuilderadmin/core/wtoolbox/validator/wt_validator.dart';
-import 'package:resumebuilderadmin/core/wtoolbox/logger/wt_logger.dart';
-import 'package:resumebuilderadmin/core/wtoolbox/clean_architecture/controller/wt_controller.dart';
-import 'package:resumebuilderadmin/core/wtoolbox/application_starter/wt_application_starter_service.dart';
+import 'package:wtoolboxweb/external/lib_getx.dart';
+import 'package:wtoolboxweb/validator/wtw_validator.dart';
+import 'package:wtoolboxweb/logger/wtw_logger.dart';
+import 'package:wtoolboxweb/clean_architecture/controller/wtw_controller.dart';
+import 'package:wtoolboxweb/application_starter/wtw_application_starter_service.dart';
 import 'package:resumebuilderadmin/domain/usecase/account_signin_usecase.dart';
 import 'package:resumebuilderadmin/domain/usecase/account_signup_usecase.dart';
 
-class RegistrationController extends WTController<RegistrationController> {
+class RegistrationController extends WTWController<RegistrationController> {
 
   RegistrationController() {
     init(arguments: Get.arguments);
@@ -53,13 +53,13 @@ class RegistrationController extends WTController<RegistrationController> {
   void usernameListener() { username = usernameController!.text; }
   usernameValidator(String v) {
     String? error;
-    error = WTValidator.isEmpty(key: 'username'.tr, value: v);
+    error = WTWValidator.isEmpty(key: 'username'.tr, value: v);
     if(error!.isNotEmpty) { return error; }
-    error = WTValidator.containsEmptySpace(key: 'username'.tr, value: v);
+    error = WTWValidator.containsEmptySpace(key: 'username'.tr, value: v);
     if(error!.isNotEmpty) { return error; }
-    error = WTValidator.missingSign(key: 'username'.tr, value: v, sign: '.');
+    error = WTWValidator.missingSign(key: 'username'.tr, value: v, sign: '.');
     if(error!.isNotEmpty) { return error; }
-    error = WTValidator.minimumLength(key: 'username'.tr, value: v, length: 6);
+    error = WTWValidator.minimumLength(key: 'username'.tr, value: v, length: 6);
     if(error!.isNotEmpty) { return error; }
     return null;
   }
@@ -69,11 +69,11 @@ class RegistrationController extends WTController<RegistrationController> {
   void passwordListener() { password = passwordController!.text; }
   passwordValidator(String v) {
     String? error = '';
-    error = WTValidator.isEmpty(key: 'password'.tr, value: v);
+    error = WTWValidator.isEmpty(key: 'password'.tr, value: v);
     if(error!.isNotEmpty) { return error; }
-    error = WTValidator.containsEmptySpace(key: 'password'.tr, value: v);
+    error = WTWValidator.containsEmptySpace(key: 'password'.tr, value: v);
     if(error!.isNotEmpty) { return error; }
-    error = WTValidator.minimumLength(key: 'password'.tr, value: v, length: 12);
+    error = WTWValidator.minimumLength(key: 'password'.tr, value: v, length: 12);
     if(error!.isNotEmpty) { return error; }
     return null;
   }
@@ -85,7 +85,7 @@ class RegistrationController extends WTController<RegistrationController> {
 
     if(!formValidated) {
       setFormSubmitting(false);
-      WTLogger.write('errorMessage'.tr);
+      WTWLogger.write('errorMessage'.tr);
       formKey!.currentState!.reset();
     }
     
@@ -105,7 +105,7 @@ class RegistrationController extends WTController<RegistrationController> {
 
     if(!formValidated) {
       setFormSubmitting(false);
-      WTLogger.write('errorMessage'.tr);
+      WTWLogger.write('errorMessage'.tr);
       formKey!.currentState!.reset();
     }
     
@@ -119,7 +119,7 @@ class RegistrationController extends WTController<RegistrationController> {
   }
 
   Future<void> start() async {
-    await Get.find<WTApplicationStarterService>().registerApplicationStarters();
+    await Get.find<WTWApplicationStarterService>().registerApplicationStarters();
     await navigateOff(route: '/dashboard', arguments: {});
   }
 

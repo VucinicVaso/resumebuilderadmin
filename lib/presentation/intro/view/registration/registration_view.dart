@@ -1,73 +1,73 @@
 import 'package:flutter/material.dart';
-import 'package:resumebuilderadmin/core/wtoolbox/external/lib_getx.dart';
-import 'package:resumebuilderadmin/core/wtoolbox/external/lib_material_symbols.dart';
-import 'package:resumebuilderadmin/core/wtoolbox/clean_architecture/view/wt_view.dart';
-import 'package:resumebuilderadmin/core/wtoolbox/component_factory/component/wt_component.dart';
-import 'package:resumebuilderadmin/core/wtoolbox/component_factory/type/impl1/wt_component_type.dart';
+import 'package:wtoolboxweb/external/lib_getx.dart';
+import 'package:wtoolboxweb/external/lib_material_symbols.dart';
+import 'package:wtoolboxweb/clean_architecture/view/wtw_view.dart';
+import 'package:wtoolboxweb/ui_factory/component/wtw_ui_component.dart';
+import 'package:wtoolboxweb/ui_factory/type/impl/wtw_ui_component_type.dart';
 import '../../controller/registration/registration_controller.dart';
 
 // ignore: must_be_immutable
-class RegistrationView extends WTView<RegistrationController> {
+class RegistrationView extends WTWView<RegistrationController> {
 
   RegistrationView({ super.key }) {
     setController(RegistrationController());
   }
 
-  WTComponent? createFormView(RegistrationController? con) {
-    var usernameField = componentFactory!.createFormInputFiled(WTFormInputFieldType.text)!
+  WTWUIComponent? createFormView(RegistrationController? con) {
+    var usernameField = uiFactory!.createFormInputFiled(WTWUIFormInputFieldType.text)!
       ..setController(con!.usernameController)
       ..validationOnUserInteraction()
       ..setValidator(con.usernameValidator)
       ..setLabel('username'.tr)
       ..setPrefix(iconData: Symbols.account_circle);
 
-    var passwordField = componentFactory!.createFormInputFiled(WTFormInputFieldType.text)!
+    var passwordField = uiFactory!.createFormInputFiled(WTWUIFormInputFieldType.text)!
       ..setController(con.passwordController)
       ..validationOnUserInteraction()
       ..setValidator(con.passwordValidator)
       ..setLabel('password'.tr)
       ..setPrefix(iconData: Symbols.password);
 
-    var form = componentFactory!.createForm(WTFormType.basic)!
+    var form = uiFactory!.createForm(WTWUIFormType.basic)!
       ..setFormKey(con.formKey)
       //..validationOnUserInteraction()
       ..addField(key: 'username'.tr, order: 0, inputField: usernameField)
       ..addField(key: 'password'.tr, order: 1, inputField: passwordField);
 
-    var signInButton = componentFactory!.createButton(WTButtonType.text1)!
+    var signInButton = uiFactory!.createButton(WTWUIButtonType.text1)!
       ..setAction(() async => con.signIn())
       ..setLabel('signIn'.tr);
-    var signUpButton = componentFactory!.createButton(WTButtonType.underlineText1)!
+    var signUpButton = uiFactory!.createButton(WTWUIButtonType.underlineText1)!
       ..setAction(() async => con.signUp())
       ..setLabel('signUp'.tr);
-    var buttonLayout = componentFactory!.createLayout(WTLayoutType.horizontal)!
+    var buttonLayout = uiFactory!.createLayout(WTWUILayoutType.horizontal)!
       ..setCrossAxisAlignment(CrossAxisAlignment.center)
       ..setMainAxisAlignment(MainAxisAlignment.spaceAround)
       ..addComponent(signInButton)
       ..addComponent(signUpButton);
 
-    var formLayout = componentFactory!.createLayout(WTLayoutType.vertical)!
+    var formLayout = uiFactory!.createLayout(WTWUILayoutType.vertical)!
       ..setMainAxisAlignment(MainAxisAlignment.center)
       ..setCrossAxisAlignment(CrossAxisAlignment.center)
       ..md()
       ..addComponent(form)
-      ..addComponent(componentFactory!.createSpace(WTSpaceType.horizontal10))
+      ..addComponent(uiFactory!.createSpace(WTWUISpaceType.horizontal10))
       ..addComponent(buttonLayout);
 
-    var layout = componentFactory!.createLayout(WTLayoutType.verticalExpanded)!
+    var layout = uiFactory!.createLayout(WTWUILayoutType.verticalExpanded)!
       ..setMainAxisAlignment(MainAxisAlignment.center)
       ..setCrossAxisAlignment(CrossAxisAlignment.center)
       ..addComponent(formLayout);
     return layout;
   }
 
-  WTComponent? createScaffold(RegistrationController? con) {
-    var header = componentFactory!.createHeader(WTHeaderType.basic1)!;
+  WTWUIComponent? createScaffold(RegistrationController? con) {
+    var header = uiFactory!.createHeader(WTWUIHeaderType.basic1)!;
 
-    var body = componentFactory!.createBody(WTBodyType.basic1)!
+    var body = uiFactory!.createBody(WTWUIBodyType.basic1)!
       ..addComponent(createFormView(con));
 
-    var scaffold = componentFactory!.createScaffold(WTScaffoldType.basic1)!
+    var scaffold = uiFactory!.createScaffold(WTWUIScaffoldType.basic1)!
       ..setHeader(header)
       ..setBody(body);
     return scaffold;

@@ -1,6 +1,6 @@
-import 'package:resumebuilderadmin/core/wtoolbox/clean_architecture/entity/wt_entity.dart';
+import 'package:wtoolboxweb/clean_architecture/entity/wtw_entity.dart';
 
-class Account extends WTEntity<Account> {
+class Account extends WTWEntity<Account> {
 
   Account({
     super.key,

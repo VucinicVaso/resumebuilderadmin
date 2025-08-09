@@ -1,7 +1,7 @@
-import 'package:resumebuilderadmin/core/wtoolbox/clean_architecture/repository/wt_repository.dart';
+import 'package:wtoolboxweb/clean_architecture/repository/wtw_repository.dart';
 import '../../entity/account/account.dart';
 
-abstract class AccountRepository extends WTRepository<Account> {
+abstract class AccountRepository extends WTWRepository<Account> {
 
   Account? account;
 

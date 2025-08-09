@@ -1,7 +1,7 @@
-import 'package:resumebuilderadmin/core/wtoolbox/external/lib_getx.dart';
-import 'package:resumebuilderadmin/core/wtoolbox/clean_architecture/controller/wt_controller.dart';
+import 'package:wtoolboxweb/external/lib_getx.dart';
+import 'package:wtoolboxweb/clean_architecture/controller/wtw_controller.dart';
 
-class AccountController extends WTController<AccountController> {
+class AccountController extends WTWController<AccountController> {
 
   AccountController() {
     init(arguments: Get.arguments);

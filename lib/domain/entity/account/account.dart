@@ -54,7 +54,7 @@ class Account extends WTWEntity<Account> {
 
   String? country;
   void setCountry(String? v) { country = v; }
-  
+
   @override
   Map<String, dynamic>? toJson() {
     return {

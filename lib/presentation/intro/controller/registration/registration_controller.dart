@@ -4,8 +4,8 @@ import 'package:wtoolboxweb/validator/wtw_validator.dart';
 import 'package:wtoolboxweb/logger/wtw_logger.dart';
 import 'package:wtoolboxweb/clean_architecture/controller/wtw_controller.dart';
 import 'package:wtoolboxweb/application_starter/wtw_application_starter_service.dart';
-import 'package:resumebuilderadmin/domain/usecase/account_signin_usecase.dart';
-import 'package:resumebuilderadmin/domain/usecase/account_signup_usecase.dart';
+import '../../../../domain/usecase/account_signin_usecase.dart';
+import '../../../../domain/usecase/account_signup_usecase.dart';
 
 class RegistrationController extends WTWController<RegistrationController> {
 

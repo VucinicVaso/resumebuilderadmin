@@ -1,9 +1,11 @@
 import 'package:wtoolboxweb/clean_architecture/entity/wtw_entity.dart';
-import 'package:resumebuilderadmin/domain/entity/message/message.dart';
+import 'package:wtoolboxweb/clean_architecture/entity/wtw_object_mapper.dart';
+import '../../../domain/entity/message/message.dart';
 
-class MessageMapper {
+class MessageMapper extends WTWObjectMapper<Message, MessageModel> {
 
-  static Message toEntity(MessageModel model) {
+  @override
+  Message toEntity(MessageModel model) {
     return Message(
       key:     model.key,
       date:    model.date,
@@ -14,7 +16,8 @@ class MessageMapper {
     );
   }
 
-  static MessageModel toModel(Message entity) {
+  @override
+  MessageModel toModel(Message entity) {
     return MessageModel(
       key:     entity.key,
       date:    entity.date,

@@ -1,9 +1,11 @@
 import 'package:wtoolboxweb/clean_architecture/entity/wtw_entity.dart';
-import 'package:resumebuilderadmin/domain/entity/account/account.dart';
+import 'package:wtoolboxweb/clean_architecture/entity/wtw_object_mapper.dart';
+import '../../../domain/entity/account/account.dart';
 
-class AccountMapper {
+class AccountMapper extends WTWObjectMapper<Account, AccountModel> {
 
-  static Account toEntity(AccountModel model) {
+  @override
+  Account toEntity(AccountModel model) {
     return Account(
       key:         model.key,
       date:        model.date,
@@ -22,7 +24,8 @@ class AccountMapper {
     );
   }
 
-  static AccountModel toModel(Account entity) {
+  @override
+  AccountModel toModel(Account entity) {
     return AccountModel(
       key:         entity.key,
       date:        entity.date,
@@ -62,10 +65,10 @@ class AccountModel extends WTWEntity<AccountModel> {
     this.country,
   });
   
-  String? language; // label for selected language
+  String? language; // selected language label (me_MNE)
   void setLanguage(String? v) { language = v; }
 
-  String? theme; // name of selected theme
+  String? theme; // selected theme name (Light / Dark)
   void setTheme(String? v) { theme = v; }
 
   bool? isLoggedIn; // check if account is logged in

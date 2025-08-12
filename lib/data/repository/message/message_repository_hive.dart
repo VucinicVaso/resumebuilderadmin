@@ -1,5 +1,5 @@
-import 'package:resumebuilderadmin/domain/entity/message/message.dart';
-import 'package:resumebuilderadmin/domain/repository/message/message_repository.dart';
+import '../../../domain/entity/message/message.dart';
+import '../../../domain/repository/message/message_repository.dart';
 
 class MessageRepositoryHive extends MessageRepository {
 

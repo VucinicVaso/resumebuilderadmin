@@ -18,19 +18,21 @@ class RegistrationView extends WTWView<RegistrationController> {
       ..setController(con!.usernameController)
       ..validationOnUserInteraction()
       ..setValidator(con.usernameValidator)
+      ..required()
       ..setLabel('username'.tr)
       ..setPrefix(iconData: Symbols.account_circle);
 
-    var passwordField = uiFactory!.createFormInputFiled(WTWUIFormInputFieldType.text)!
+    var passwordField = uiFactory!.createFormInputFiled(WTWUIFormInputFieldType.protected)!
       ..setController(con.passwordController)
       ..validationOnUserInteraction()
       ..setValidator(con.passwordValidator)
+      ..required()
       ..setLabel('password'.tr)
       ..setPrefix(iconData: Symbols.password);
 
     var form = uiFactory!.createForm(WTWUIFormType.basic)!
       ..setFormKey(con.formKey)
-      //..validationOnUserInteraction()
+      ..validationOnUserInteraction()
       ..addField(key: 'username'.tr, order: 0, inputField: usernameField)
       ..addField(key: 'password'.tr, order: 1, inputField: passwordField);
 

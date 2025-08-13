@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:wtoolboxweb/wtoolboxweb.dart';
 import 'package:wtoolboxweb/external/lib_getx.dart';
+import 'package:wtoolboxweb/wtoolboxweb_impl.dart';
 import 'package:wtoolboxweb/application_starter/wtw_application_starter_service.dart';
 import 'package:wtoolboxweb/router/wtw_router.dart';
 import 'package:wtoolboxweb/theme/wtw_theme_service.dart';
@@ -11,7 +11,7 @@ import 'package:resumebuilderadmin/presentation/dashboard/bindings/application_s
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  await dependecyContainer!.register(dotenvFile: 'assets/.env');
+  await wtoolboxweb.open(envFile: 'assets/.env');
   await initApplications();
   await initRoutes();
 

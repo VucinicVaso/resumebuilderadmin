@@ -1,8 +1,44 @@
 import 'package:wtoolboxweb/clean_architecture/entity/wtw_entity.dart';
+import 'package:wtoolboxweb/clean_architecture/entity/wtw_object_mapper.dart';
+import '../../../domain/entity/experience/experience.dart';
 
-class Experience extends WTWEntity<Experience> {
+class ExperienceMapper extends WTWObjectMapper<Experience, ExperienceModel> {
 
-  Experience({
+  @override
+  Experience toEntity(ExperienceModel model) {
+    return Experience(
+      key:         model.key,
+      date:        model.date,
+      title:       model.title,
+      link:        model.link,
+      position:    model.position,
+      description: model.description,
+      dateFrom:    model.dateFrom,
+      dateTo:      model.dateTo,
+      totalTime:   model.totalTime,
+    );
+  }
+
+  @override
+  ExperienceModel toModel(Experience entity) {
+    return ExperienceModel(
+      key:         entity.key,
+      date:        entity.date,
+      title:       entity.title,
+      link:        entity.link,
+      position:    entity.position,
+      description: entity.description,
+      dateFrom:    entity.dateFrom,
+      dateTo:      entity.dateTo,
+      totalTime:   entity.totalTime,
+    );
+  }
+
+}
+
+class ExperienceModel extends WTWEntity<ExperienceModel> {
+
+  ExperienceModel({
     super.key,
     super.date,
     this.title,
@@ -51,8 +87,8 @@ class Experience extends WTWEntity<Experience> {
   }  
 
   @override
-  Experience? fromJson(Map? json) {
-    return Experience(
+  ExperienceModel? fromJson(Map? json) {
+    return ExperienceModel(
       key:         json!['key'],
       date:        json['date'],
       title:       json['title'],
@@ -66,8 +102,8 @@ class Experience extends WTWEntity<Experience> {
   }
 
   @override
-  Experience? empty() {
-    return Experience(
+  ExperienceModel? empty() {
+    return ExperienceModel(
       key:         0,
       date:        '',
       title:       '',

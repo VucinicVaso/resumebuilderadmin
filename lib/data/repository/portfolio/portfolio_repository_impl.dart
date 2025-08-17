@@ -1,7 +1,7 @@
-import '../../../domain/entity/message/message.dart';
-import '../../../domain/repository/message/message_repository.dart';
+import '../../../domain/entity/portfolio/portfolio.dart';
+import '../../../domain/repository/portfolio/portfolio_repository.dart';
 
-class MessageRepositoryHive extends MessageRepository {
+class PortfolioRepositoryImpl extends PortfolioRepository {
 
   @override
   Future<bool?> init(int? accountKey) async {
@@ -14,17 +14,17 @@ class MessageRepositoryHive extends MessageRepository {
   }
 
   @override
-  Future<bool?> insert(Message? entity) async {
+  Future<bool?> insert(Portfolio? entity) async {
     throw UnimplementedError();
   }
   
   @override
-  Future<bool?> update(Message? entity) async {
+  Future<bool?> update(Portfolio? entity) async {
     throw UnimplementedError();
   }
 
   @override
-  Future<bool?> delete(Message? entity) async {
+  Future<bool?> delete(Portfolio? entity) async {
     throw UnimplementedError();
   }
 
@@ -34,12 +34,12 @@ class MessageRepositoryHive extends MessageRepository {
   }
 
   @override
-  Future<Message?> getByKey(int? key) async {
+  Future<Portfolio?> getByKey(int? key) async {
     throw UnimplementedError();
   }
 
   @override
-  Future<List<Message>?> getAll() async {
+  Future<List<Portfolio>?> getAll() async {
     throw UnimplementedError();
   }
 

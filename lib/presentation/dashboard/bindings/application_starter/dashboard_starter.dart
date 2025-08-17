@@ -1,7 +1,7 @@
 import 'package:wtoolboxweb/external/lib_getx.dart';
 import 'package:wtoolboxweb/application_starter/wtw_application_starter.dart';
 import '../../../../domain/repository/message/message_repository.dart';
-import '../../../../data/repository/message/message_repository_hive.dart';
+import '../../../../data/repository/message/message_repository_impl.dart';
 import '../message_broker/dashboard_message_broker.dart';
 import '../translation/dashboard_translations.dart';
 import '../routes/dashboard_routes.dart';
@@ -16,7 +16,7 @@ class DashboardStarter extends WTWApplicationStarter {
     registerTranslations(DashboardTranslations());
     registerRoutes(DashboardRoutes());
 
-    Get.put<MessageRepository>(MessageRepositoryHive(), permanent: true);
+    Get.put<MessageRepository>(MessageRepositoryImpl(), permanent: true);
   }
 
   @override

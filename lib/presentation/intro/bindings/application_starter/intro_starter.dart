@@ -1,7 +1,7 @@
 import 'package:wtoolboxweb/external/lib_getx.dart';
 import 'package:wtoolboxweb/application_starter/wtw_application_starter.dart';
 import '../../../../domain/repository/account/account_repository.dart';
-import '../../../../data/repository/account/account_repository_hive.dart';
+import '../../../../data/repository/account/account_repository_impl.dart';
 import '../message_broker/intro_message_broker.dart';
 import '../translation/intro_translations.dart';
 import '../routes/intro_routes.dart';
@@ -16,7 +16,7 @@ class IntroStarter extends WTWApplicationStarter {
     registerTranslations(IntroTranslations());
     registerRoutes(IntroRoutes());
 
-    Get.put<AccountRepository>(AccountRepositoryHive(), permanent: true);
+    Get.put<AccountRepository>(AccountRepositoryImpl(), permanent: true);
   }
 
   @override

@@ -1,7 +1,7 @@
 import '../../../domain/entity/account/account.dart';
 import '../../../domain/repository/account/account_repository.dart';
 
-class AccountRepositoryHive extends AccountRepository {
+class AccountRepositoryImpl extends AccountRepository {
 
   @override
   Future<bool?> init(int? accountKey) async {

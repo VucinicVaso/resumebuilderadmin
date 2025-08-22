@@ -6,8 +6,13 @@ class DashboardMeMneTranslations extends WTWTranslations {
   Map<String, Map<String, String>> get keys => {
     'me_MNE': {
       "key": "${1}",
+      "dashboard": "Komandna tabla",
+      "account": "Nalog",
       "settings": "Podesavanja",
-      "account": "Nalog"
+      "education": "Obrazovanje",
+      "experience": "Iskustvo",
+      "portfolio": "Portfolio",
+      "skill": "Vjestine"  
     },
   };
 

@@ -6,8 +6,13 @@ class DashboardEnUsTranslations extends WTWTranslations {
   Map<String, Map<String, String>> get keys => {
     'en_US': {
       "key": "${2}",
+      "dashboard": "Dashboard",
+      "account": "Account",
       "settings": "Settings",
-      "account": "Account"
+      "education": "Education",
+      "experience": "Experience",
+      "portfolio": "Portfolio",
+      "skill": "Skill"
     },
   };
 

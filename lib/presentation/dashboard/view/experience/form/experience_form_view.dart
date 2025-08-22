@@ -4,21 +4,21 @@ import 'package:wtoolboxweb/external/lib_material_symbols.dart';
 import 'package:wtoolboxweb/clean_architecture/view/wtw_view.dart';
 import 'package:wtoolboxweb/ui_factory/component/wtw_ui_component.dart';
 import 'package:wtoolboxweb/ui_factory/type/impl/wtw_ui_component_type.dart';
-import '../../../controller/experience/edit/experience_edit_controller.dart';
+import '../../../controller/experience/form/experience_form_controller.dart';
 
 // ignore: must_be_immutable
-class ExperienceEditView extends WTWView<ExperienceEditController> {
+class ExperienceFormView extends WTWView<ExperienceFormController> {
 
-  ExperienceEditView({ super.key }) {
-    setController(ExperienceEditController());
+  ExperienceFormView({ super.key }) {
+    setController(ExperienceFormController());
   }
 
-  WTWUIComponent? createScaffold(ExperienceEditController? con) {
+  WTWUIComponent? createScaffold(ExperienceFormController? con) {
     var header = uiFactory!.createHeader(WTWUIHeaderType.basic1)!
       ..setBackAction(
         action: () async { await con!.navigateBack(); }, 
         icon: Symbols.arrow_back,
-        label: 'experience_edit'.tr
+        label: 'experience'.tr
       );
 
     var body = uiFactory!.createBody(WTWUIBodyType.basic1);

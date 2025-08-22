@@ -4,21 +4,21 @@ import 'package:wtoolboxweb/external/lib_material_symbols.dart';
 import 'package:wtoolboxweb/clean_architecture/view/wtw_view.dart';
 import 'package:wtoolboxweb/ui_factory/component/wtw_ui_component.dart';
 import 'package:wtoolboxweb/ui_factory/type/impl/wtw_ui_component_type.dart';
-import '../../../controller/education/edit/education_edit_controller.dart';
+import '../../../controller/portfolio/form/portfolio_form_controller.dart';
 
 // ignore: must_be_immutable
-class EducationEditView extends WTWView<EducationEditController> {
+class PortfolioFormView extends WTWView<PortfolioFormController> {
 
-  EducationEditView({ super.key }) {
-    setController(EducationEditController());
+  PortfolioFormView({ super.key }) {
+    setController(PortfolioFormController());
   }
 
-  WTWUIComponent? createScaffold(EducationEditController? con) {
+  WTWUIComponent? createScaffold(PortfolioFormController? con) {
     var header = uiFactory!.createHeader(WTWUIHeaderType.basic1)!
       ..setBackAction(
         action: () async { await con!.navigateBack(); }, 
         icon: Symbols.arrow_back,
-        label: 'education_edit'.tr
+        label: 'portfolio'.tr
       );
 
     var body = uiFactory!.createBody(WTWUIBodyType.basic1);

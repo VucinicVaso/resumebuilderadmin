@@ -1,9 +1,9 @@
 import 'package:wtoolboxweb/external/lib_getx.dart';
 import 'package:wtoolboxweb/clean_architecture/controller/wtw_controller.dart';
 
-class SkillEditController extends WTWController<SkillEditController> {
+class SkillFormController extends WTWController<SkillFormController> {
 
-  SkillEditController() {
+  SkillFormController() {
     init(arguments: Get.arguments);
     initState();
   }

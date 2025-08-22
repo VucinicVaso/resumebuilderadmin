@@ -4,21 +4,21 @@ import 'package:wtoolboxweb/external/lib_material_symbols.dart';
 import 'package:wtoolboxweb/clean_architecture/view/wtw_view.dart';
 import 'package:wtoolboxweb/ui_factory/component/wtw_ui_component.dart';
 import 'package:wtoolboxweb/ui_factory/type/impl/wtw_ui_component_type.dart';
-import '../../../controller/experience/create/experience_create_controller.dart';
+import '../../../controller/education/form/education_form_controller.dart';
 
 // ignore: must_be_immutable
-class ExperienceCreateView extends WTWView<ExperienceCreateController> {
+class EducationFormView extends WTWView<EducationFormController> {
 
-  ExperienceCreateView({ super.key }) {
-    setController(ExperienceCreateController());
+  EducationFormView({ super.key }) {
+    setController(EducationFormController());
   }
 
-  WTWUIComponent? createScaffold(ExperienceCreateController? con) {
+  WTWUIComponent? createScaffold(EducationFormController? con) {
     var header = uiFactory!.createHeader(WTWUIHeaderType.basic1)!
       ..setBackAction(
         action: () async { await con!.navigateBack(); }, 
         icon: Symbols.arrow_back,
-        label: 'experience_create'.tr
+        label: 'education'.tr
       );
 
     var body = uiFactory!.createBody(WTWUIBodyType.basic1);

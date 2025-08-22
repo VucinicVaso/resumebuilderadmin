@@ -1,9 +1,9 @@
 import 'package:wtoolboxweb/external/lib_getx.dart';
 import 'package:wtoolboxweb/clean_architecture/controller/wtw_controller.dart';
 
-class ExperienceCreateController extends WTWController<ExperienceCreateController> {
+class PortfolioFormController extends WTWController<PortfolioFormController> {
 
-  ExperienceCreateController() {
+  PortfolioFormController() {
     init(arguments: Get.arguments);
     initState();
   }

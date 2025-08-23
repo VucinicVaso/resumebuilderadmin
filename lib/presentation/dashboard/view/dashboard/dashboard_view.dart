@@ -23,13 +23,45 @@ class DashboardView extends WTWView<DashboardController> {
     var sidebar = uiFactory!.createSidebar(WTWUISidebarType.basic1)!
       ..addAction(
         action: () async { await con!.navigateTo(route: '/account', previousRoute: '/dashboard', arguments: {}); },
-        icon: Symbols.account_circle_rounded, 
+        icon:   Symbols.account_circle_rounded, 
         label: 'account'.tr
       )
       ..addAction(
         action: () async { await con!.navigateTo(route: '/settings', previousRoute: '/dashboard', arguments: {}); },
-        icon: Symbols.settings, 
+        icon:   Symbols.settings, 
         label: 'settings'.tr
+      )
+      ..addMenuAction(
+        icon: Symbols.article,
+        label: 'education'.tr,
+        items: [
+          { 'icon': Symbols.info, 'label': 'Create', 'action': () { print('create education'); } },
+          { 'icon': Symbols.info, 'label': 'View',   'action': () {print('view education'); } },
+        ]
+      )
+      ..addMenuAction(
+        icon: Symbols.article,
+        label: 'experience'.tr,
+        items: [
+          { 'icon': Symbols.info, 'label': 'Create', 'action': () { print('create experience'); } },
+          { 'icon': Symbols.info, 'label': 'View',   'action': () { print('view experience'); } },
+        ]
+      )
+      ..addMenuAction(
+        icon: Symbols.article,
+        label: 'skill'.tr,
+        items: [
+          { 'icon': Symbols.info, 'label': 'Create', 'action': () { print('create skill'); } },
+          { 'icon': Symbols.info, 'label': 'View',   'action': () { print('create skill'); } },
+        ]
+      )
+      ..addMenuAction(
+        icon: Symbols.article,
+        label: 'portfolio'.tr,
+        items: [
+          { 'icon': Symbols.info, 'label': 'Create', 'action': () { print('create portfolio'); } },
+          { 'icon': Symbols.info, 'label': 'View',   'action': () { print('create portfolio'); } },
+        ]
       );
 
     var body = uiFactory!.createBody(WTWUIBodyType.basic1);

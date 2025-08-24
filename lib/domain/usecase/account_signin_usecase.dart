@@ -6,8 +6,12 @@ class AccountSignInUseCase extends WTWUseCaseWithParams<bool, AccountSignInUseCa
 
   @override
   Future<bool> call(AccountSignInUseCaseParams? params) async {
-    bool? response = await Get.find<AccountRepository>().singIn(username: params!.username, password: params.password);
-    return response!;
+    try {
+      bool? response = await Get.find<AccountRepository>().singIn(username: params!.username, password: params.password);
+      return response!;
+    }catch(e) {
+      throw Exception(e);
+    }
   }
 
 }

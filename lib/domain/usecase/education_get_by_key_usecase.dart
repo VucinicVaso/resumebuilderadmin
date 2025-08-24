@@ -7,8 +7,12 @@ class EducationGetByKeyUseCase extends WTWUseCaseWithParams<Education, Education
 
   @override
   Future<Education> call(EducationGetByKeyUseCaseParams? params) async {
-    Education? response = await Get.find<EducationRepository>().getByKey(params!.key!);
-    return response!;
+    try {
+      Education? response = await Get.find<EducationRepository>().getByKey(params!.key!);
+      return response!;
+    }catch(e) {
+      throw Exception(e);
+    }
   }
 
 }

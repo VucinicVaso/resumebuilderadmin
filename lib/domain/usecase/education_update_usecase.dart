@@ -7,8 +7,12 @@ class EducationUpdateUseCase extends WTWUseCaseWithParams<bool, EducationUpdateU
 
   @override
   Future<bool> call(EducationUpdateUseCaseParams? params) async {
-    bool? response = await Get.find<EducationRepository>().update(params!.entity!);
-    return response!;
+    try {
+      bool? response = await Get.find<EducationRepository>().update(params!.entity!);
+      return response!;
+    }catch(e) {
+      throw Exception(e);
+    }
   }
 
 }

@@ -7,8 +7,12 @@ class EducationInsertUseCase extends WTWUseCaseWithParams<bool, EducationInsertU
 
   @override
   Future<bool> call(EducationInsertUseCaseParams? params) async {
-    bool? response = await Get.find<EducationRepository>().insert(params!.entity!);
-    return response!;
+    try {
+      bool? response = await Get.find<EducationRepository>().insert(params!.entity!);
+      return response!;
+    }catch(e) {
+      throw Exception(e);
+    }
   }
 
 }

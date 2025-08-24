@@ -12,7 +12,9 @@ class DashboardMeMneTranslations extends WTWTranslations {
       "education": "Obrazovanje",
       "experience": "Iskustvo",
       "portfolio": "Portfolio",
-      "skill": "Vjestine"  
+      "skill": "Vjestine",
+      "new": "Novo",
+      "show": "Prikazi"
     },
   };
 

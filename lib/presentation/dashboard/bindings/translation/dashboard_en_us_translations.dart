@@ -12,7 +12,9 @@ class DashboardEnUsTranslations extends WTWTranslations {
       "education": "Education",
       "experience": "Experience",
       "portfolio": "Portfolio",
-      "skill": "Skill"
+      "skill": "Skill",
+      "new": "New",
+      "show": "Show"
     },
   };
 

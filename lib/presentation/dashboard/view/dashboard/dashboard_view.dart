@@ -35,32 +35,32 @@ class DashboardView extends WTWView<DashboardController> {
         icon: Symbols.article,
         label: 'education'.tr,
         items: [
-          { 'icon': Symbols.info, 'label': 'Create', 'action': () { print('create education'); } },
-          { 'icon': Symbols.info, 'label': 'View',   'action': () {print('view education'); } },
+          { 'icon': Symbols.info, 'label': 'new'.tr, 'action': () async { await con!.navigateTo(route: '/education/form', previousRoute: '/dashboard', arguments: {}); } },
+          { 'icon': Symbols.info, 'label': 'show'.tr, 'action': () async { await con!.navigateTo(route: '/education', previousRoute: '/dashboard', arguments: {}); } },
         ]
       )
       ..addMenuAction(
         icon: Symbols.article,
         label: 'experience'.tr,
         items: [
-          { 'icon': Symbols.info, 'label': 'Create', 'action': () { print('create experience'); } },
-          { 'icon': Symbols.info, 'label': 'View',   'action': () { print('view experience'); } },
+          { 'icon': Symbols.info, 'label': 'new'.tr, 'action': () async { await con!.navigateTo(route: '/experience/form', previousRoute: '/dashboard', arguments: {}); } },
+          { 'icon': Symbols.info, 'label': 'show'.tr, 'action': () async { await con!.navigateTo(route: '/experience', previousRoute: '/dashboard', arguments: {});  } },
         ]
       )
       ..addMenuAction(
         icon: Symbols.article,
         label: 'skill'.tr,
         items: [
-          { 'icon': Symbols.info, 'label': 'Create', 'action': () { print('create skill'); } },
-          { 'icon': Symbols.info, 'label': 'View',   'action': () { print('create skill'); } },
+          { 'icon': Symbols.info, 'label': 'new'.tr, 'action': () async { await con!.navigateTo(route: '/skill/form', previousRoute: '/dashboard', arguments: {}); } },
+          { 'icon': Symbols.info, 'label': 'show'.tr, 'action': () async { await con!.navigateTo(route: '/skill', previousRoute: '/dashboard', arguments: {}); } },
         ]
       )
       ..addMenuAction(
         icon: Symbols.article,
         label: 'portfolio'.tr,
         items: [
-          { 'icon': Symbols.info, 'label': 'Create', 'action': () { print('create portfolio'); } },
-          { 'icon': Symbols.info, 'label': 'View',   'action': () { print('create portfolio'); } },
+          { 'icon': Symbols.info, 'label': 'new'.tr, 'action': () async { await con!.navigateTo(route: '/portfolio/form', previousRoute: '/dashboard', arguments: {}); } },
+          { 'icon': Symbols.info, 'label': 'show'.tr, 'action': () async { await con!.navigateTo(route: '/portfolio', previousRoute: '/dashboard', arguments: {}); } },
         ]
       );
 

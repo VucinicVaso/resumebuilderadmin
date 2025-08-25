@@ -18,7 +18,7 @@ class PortfolioShowView extends WTWView<PortfolioShowController> {
       ..setBackAction(
         action: () async { await con!.navigateBack(); }, 
         icon: Symbols.arrow_back,
-        label: 'portfolio_show'.tr
+        label: 'portfolio'.tr
       );
 
     var body = uiFactory!.createBody(WTWUIBodyType.basic1);

@@ -4,7 +4,7 @@ import 'package:wtoolboxweb/clean_architecture/controller/wtw_controller.dart';
 class PortfolioFormController extends WTWController<PortfolioFormController> {
 
   PortfolioFormController() {
-    init(arguments: Get.arguments);
+    init();
     initState();
   }
 

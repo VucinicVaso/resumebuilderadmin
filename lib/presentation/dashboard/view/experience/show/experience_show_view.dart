@@ -18,7 +18,7 @@ class ExperienceShowView extends WTWView<ExperienceShowController> {
       ..setBackAction(
         action: () async { await con!.navigateBack(); }, 
         icon: Symbols.arrow_back,
-        label: 'experience_show'.tr
+        label: 'experience'.tr
       );
 
     var body = uiFactory!.createBody(WTWUIBodyType.basic1);

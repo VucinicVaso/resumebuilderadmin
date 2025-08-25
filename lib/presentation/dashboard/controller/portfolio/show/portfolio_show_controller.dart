@@ -4,7 +4,7 @@ import 'package:wtoolboxweb/clean_architecture/controller/wtw_controller.dart';
 class PortfolioShowController extends WTWController<PortfolioShowController> {
 
   PortfolioShowController() {
-    init(arguments: Get.arguments);
+    init();
     initState();
   }
 

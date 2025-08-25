@@ -10,7 +10,7 @@ class EducationGetByKeyUseCase extends WTWUseCaseWithParams<Education, Education
     try {
       Education? response = await Get.find<EducationRepository>().getByKey(params!.key!);
       return response!;
-    }catch(e) {
+    } catch(e) {
       throw Exception(e);
     }
   }

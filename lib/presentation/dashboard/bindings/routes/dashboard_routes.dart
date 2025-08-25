@@ -17,13 +17,21 @@ class DashboardRoutes extends WTWRoutes {
     registerRoute(name: '/dashboard',            view: () => DashboardView());
     registerRoute(name: '/account',              view: () => AccountView());
     registerRoute(name: '/settings',             view: () => SettingsView());
+    registerRoute(name: '/education/form',       view: () => EducationFormView());
     registerRoute(name: '/education/form/:key',  view: () => EducationFormView());
+    registerRoute(name: '/education',            view: () => EducationShowView());
     registerRoute(name: '/education/:key',       view: () => EducationShowView());
+    registerRoute(name: '/experience/form/',     view: () => ExperienceFormView());
     registerRoute(name: '/experience/form/:key', view: () => ExperienceFormView());
+    registerRoute(name: '/experience',           view: () => ExperienceShowView());
     registerRoute(name: '/experience/:key',      view: () => ExperienceShowView());
+    registerRoute(name: '/portfolio/form',       view: () => PortfolioFormView());
     registerRoute(name: '/portfolio/form/:key',  view: () => PortfolioFormView());
+    registerRoute(name: '/portfolio',            view: () => PortfolioShowView());
     registerRoute(name: '/portfolio/:key',       view: () => PortfolioShowView());
+    registerRoute(name: '/skill/form',           view: () => SkillFormView());
     registerRoute(name: '/skill/form/:key',      view: () => SkillFormView());
+    registerRoute(name: '/skill',                view: () => SkillShowView());
     registerRoute(name: '/skill/:key',           view: () => SkillShowView());
   }
 

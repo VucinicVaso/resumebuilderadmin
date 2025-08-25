@@ -10,7 +10,7 @@ class EducationUpdateUseCase extends WTWUseCaseWithParams<bool, EducationUpdateU
     try {
       bool? response = await Get.find<EducationRepository>().update(params!.entity!);
       return response!;
-    }catch(e) {
+    } catch(e) {
       throw Exception(e);
     }
   }

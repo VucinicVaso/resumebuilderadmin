@@ -9,7 +9,7 @@ class AccountSignOutUseCase extends WTWUseCase<bool> {
     try {
       bool? response = await Get.find<AccountRepository>().signOut();
       return response!;
-    }catch(e) {
+    } catch(e) {
       throw Exception(e);
     }
   }

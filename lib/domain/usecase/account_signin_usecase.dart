@@ -9,7 +9,7 @@ class AccountSignInUseCase extends WTWUseCaseWithParams<bool, AccountSignInUseCa
     try {
       bool? response = await Get.find<AccountRepository>().singIn(username: params!.username, password: params.password);
       return response!;
-    }catch(e) {
+    } catch(e) {
       throw Exception(e);
     }
   }

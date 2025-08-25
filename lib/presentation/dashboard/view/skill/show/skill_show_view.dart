@@ -18,7 +18,7 @@ class SkillShowView extends WTWView<SkillShowController> {
       ..setBackAction(
         action: () async { await con!.navigateBack(); }, 
         icon: Symbols.arrow_back,
-        label: 'skill_show'.tr
+        label: 'skill'.tr
       );
 
     var body = uiFactory!.createBody(WTWUIBodyType.basic1);

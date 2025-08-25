@@ -10,7 +10,7 @@ import '../../../../domain/usecase/account_signup_usecase.dart';
 class RegistrationController extends WTWController<RegistrationController> {
 
   RegistrationController() {
-    init(arguments: Get.arguments);
+    init();
     initState();
   }
 
@@ -78,7 +78,7 @@ class RegistrationController extends WTWController<RegistrationController> {
     return null;
   }
 
-  Future<void> signIn() async {
+  Future<void> submit(String? formType) async {
     setFormSubmitting(true);
     final FormState? form    = formKey!.currentState;
     final bool formValidated = form!.validate();
@@ -88,33 +88,32 @@ class RegistrationController extends WTWController<RegistrationController> {
       WTWLogger.write('errorMessage'.tr);
       formKey!.currentState!.reset();
     }
-    
+
     if(formValidated) {
-      setFormSubmitting(false);
-      var params = AccountSignInUseCaseParams(username: username, password: password);
-      bool? response = await AccountSignInUseCase().call(params);
-      if(response) { await start(); }
+      bool? response = formType == 'signIn'.tr ? await signIn() : await signUp();
       formKey!.currentState!.reset();
+      setFormSubmitting(false);
+      if(response) { await start(); }
     }
   }
 
-  Future<void> signUp() async {
-    setFormSubmitting(true);
-    final FormState? form    = formKey!.currentState;
-    final bool formValidated = form!.validate();
-
-    if(!formValidated) {
-      setFormSubmitting(false);
-      WTWLogger.write('errorMessage'.tr);
-      formKey!.currentState!.reset();
+  Future<bool> signIn() async {
+    try {
+      bool? response = await AccountSignInUseCase().call(AccountSignInUseCaseParams(username: username, password: password));
+      return response;
+    } catch(e) {
+      WTWLogger.write('RegistrationController.signIn() error: $e');
+      return false;
     }
-    
-    if(formValidated) {
-      setFormSubmitting(false);
-      var params = AccountSignUpUseCaseParams(username: username, password: password);
-      bool? response = await AccountSignUpUseCase().call(params);
-      if(response) { await start(); }
-      formKey!.currentState!.reset();
+  }
+
+  Future<bool> signUp() async {
+    try {
+      bool? response = await AccountSignUpUseCase().call(AccountSignUpUseCaseParams(username: username, password: password));
+      return response;
+    } catch(e) {
+      WTWLogger.write('RegistrationController.signUp() error: $e');
+      return false;
     }
   }
 

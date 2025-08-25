@@ -18,7 +18,7 @@ class EducationFormView extends WTWView<EducationFormController> {
       ..setBackAction(
         action: () async { await con!.navigateBack(); }, 
         icon: Symbols.arrow_back,
-        label: 'education'.tr
+        label: '${'new'.tr} ${'education'.tr}'
       );
 
     var body = uiFactory!.createBody(WTWUIBodyType.basic1);

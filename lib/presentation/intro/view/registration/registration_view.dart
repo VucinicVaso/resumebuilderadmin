@@ -37,10 +37,10 @@ class RegistrationView extends WTWView<RegistrationController> {
       ..addField(key: 'password'.tr, order: 1, inputField: passwordField);
 
     var signInButton = uiFactory!.createButton(WTWUIButtonType.text1)!
-      ..setAction(() async => con.signIn())
+      ..setAction(() async => con.submit('signIn'.tr))
       ..setLabel('signIn'.tr);
     var signUpButton = uiFactory!.createButton(WTWUIButtonType.underlineText1)!
-      ..setAction(() async => con.signUp())
+      ..setAction(() async => con.submit('signUp'.tr))
       ..setLabel('signUp'.tr);
     var buttonLayout = uiFactory!.createLayout(WTWUILayoutType.horizontal)!
       ..setCrossAxisAlignment(CrossAxisAlignment.center)

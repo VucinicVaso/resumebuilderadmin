@@ -4,7 +4,7 @@ import 'package:wtoolboxweb/clean_architecture/controller/wtw_controller.dart';
 class ExperienceFormController extends WTWController<ExperienceFormController> {
 
   ExperienceFormController() {
-    init(arguments: Get.arguments);
+    init();
     initState();
   }
 

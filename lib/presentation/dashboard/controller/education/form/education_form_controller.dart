@@ -11,7 +11,7 @@ import '../../../../../domain/usecase/education_update_usecase.dart';
 class EducationFormController extends WTWController<EducationFormController> {
 
   EducationFormController() {
-    init(arguments: Get.arguments);
+    init();
     initState();
   }
 
@@ -28,27 +28,19 @@ class EducationFormController extends WTWController<EducationFormController> {
   @override
   Future<void> listener(Map<String, dynamic>? message) async {}
 
-  GlobalKey<FormState>? formKey;
-  void setFormKey() { formKey = GlobalKey<FormState>(); }
-
-  Education? education;
-
   Future<void> initForm() async {
     setFormKey();
+    await setEntity();
 
-    education = params!.containsKey('key')
-      ? await EducationGetByKeyUseCase().call(EducationGetByKeyUseCaseParams(key: params!['key']))
-      : Education().empty();
-
-    titleController       = TextEditingController(text: education!.title)..addListener(titleListener);
-    linkController        = TextEditingController(text: education!.link)..addListener(linkListener);
-    descriptionController = TextEditingController(text: education!.description)..addListener(descriptionListener);
-    dateTimeController    = TextEditingController(text: education!.dateTime)..addListener(dateTimeListener);
+    titleController       = TextEditingController(text: entity!.title ?? '')..addListener(titleListener);
+    linkController        = TextEditingController(text: entity!.link ?? '')..addListener(linkListener);
+    descriptionController = TextEditingController(text: entity!.description ?? '')..addListener(descriptionListener);
+    dateTimeController    = TextEditingController(text: entity!.dateTime ?? '')..addListener(dateTimeListener);
   }
+
   Future<void> closeForm() async {
     setFormKey();
-
-    education = Education().empty();
+    entity = Education().empty();
 
     titleController!..clear()..removeListener(titleListener);
     linkController!..clear()..removeListener(linkListener);
@@ -56,8 +48,21 @@ class EducationFormController extends WTWController<EducationFormController> {
     dateTimeController!..clear()..removeListener(dateTimeListener);
   }
 
-  TextEditingController? titleController = TextEditingController();
-  void titleListener() { education!.title = titleController!.text; }
+  GlobalKey<FormState>? formKey;
+  void setFormKey() { formKey = GlobalKey<FormState>(); }
+
+  Education? entity;
+  Future<void> setEntity() async {
+    try {
+      entity = params!.containsKey('key')
+        ? await EducationGetByKeyUseCase().call(EducationGetByKeyUseCaseParams(key: int.parse(params!['key'])))
+        : Education().empty();
+    } catch (e) {
+      WTWLogger.write('EducationFormController.setEntity() faild: $e');
+    }
+  }
+    TextEditingController? titleController = TextEditingController();
+  void titleListener() { entity!.title = titleController!.text; }
   titleValidator(String v) {
     String? error;
     error = WTWValidator.isEmpty(key: 'title'.tr, value: v);
@@ -66,7 +71,7 @@ class EducationFormController extends WTWController<EducationFormController> {
   }
 
   TextEditingController? linkController = TextEditingController();
-  void linkListener() { education!.link = titleController!.text; }
+  void linkListener() { entity!.link = titleController!.text; }
   linkValidator(String v) {
     String? error;
     error = WTWValidator.isEmpty(key: 'link'.tr, value: v);
@@ -77,7 +82,7 @@ class EducationFormController extends WTWController<EducationFormController> {
   }
 
   TextEditingController? descriptionController = TextEditingController();
-  void descriptionListener() { education!.description = titleController!.text; }
+  void descriptionListener() { entity!.description = titleController!.text; }
   descriptionValidator(String v) {
     String? error;
     error = WTWValidator.isEmpty(key: 'description'.tr, value: v);
@@ -86,7 +91,7 @@ class EducationFormController extends WTWController<EducationFormController> {
   }
 
   TextEditingController? dateTimeController = TextEditingController();
-  void dateTimeListener() { education!.dateTime = titleController!.text; }
+  void dateTimeListener() { entity!.dateTime = titleController!.text; }
   dateTimeValidator(String v) {
     String? error;
     error = WTWValidator.isEmpty(key: 'dateTime'.tr, value: v);
@@ -111,9 +116,9 @@ class EducationFormController extends WTWController<EducationFormController> {
 
   Future<bool> insert() async {
     try {
-      bool? response = await EducationInsertUseCase().call(EducationInsertUseCaseParams(entity: education!));
+      bool? response = await EducationInsertUseCase().call(EducationInsertUseCaseParams(entity: entity!));
       return response;
-    }catch(e) {
+    } catch(e) {
       WTWLogger.write('EducationFormController.insert() faild: $e');
       return false;
     }
@@ -121,9 +126,9 @@ class EducationFormController extends WTWController<EducationFormController> {
 
   Future<bool> edit() async {
     try {
-      bool? response = await EducationUpdateUseCase().call(EducationUpdateUseCaseParams(entity: education!));
+      bool? response = await EducationUpdateUseCase().call(EducationUpdateUseCaseParams(entity: entity!));
       return response;
-    }catch(e) {
+    } catch(e) {
       WTWLogger.write('EducationFormController.update() faild: $e');
       return false;
     }

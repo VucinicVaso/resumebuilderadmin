@@ -6,7 +6,7 @@ import '../../../../domain/usecase/account_signout_usecase.dart';
 class DashboardController extends WTWController<DashboardController> {
 
   DashboardController() {
-    init(arguments: Get.arguments);
+    init();
     initState();
   }
 

@@ -10,7 +10,7 @@ class EducationInsertUseCase extends WTWUseCaseWithParams<bool, EducationInsertU
     try {
       bool? response = await Get.find<EducationRepository>().insert(params!.entity!);
       return response!;
-    }catch(e) {
+    } catch(e) {
       throw Exception(e);
     }
   }

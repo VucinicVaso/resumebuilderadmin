@@ -4,7 +4,7 @@ import 'package:wtoolboxweb/clean_architecture/controller/wtw_controller.dart';
 class SettingsController extends WTWController<SettingsController> {
 
   SettingsController() {
-    init(arguments: Get.arguments);
+    init();
     initState();
   }
 

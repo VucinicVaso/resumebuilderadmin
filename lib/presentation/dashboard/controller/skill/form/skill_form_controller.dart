@@ -4,7 +4,7 @@ import 'package:wtoolboxweb/clean_architecture/controller/wtw_controller.dart';
 class SkillFormController extends WTWController<SkillFormController> {
 
   SkillFormController() {
-    init(arguments: Get.arguments);
+    init();
     initState();
   }
 

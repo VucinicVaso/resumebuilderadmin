@@ -4,7 +4,7 @@ import 'package:wtoolboxweb/clean_architecture/controller/wtw_controller.dart';
 class AccountController extends WTWController<AccountController> {
 
   AccountController() {
-    init(arguments: Get.arguments);
+    init();
     initState();
   }
 

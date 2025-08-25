@@ -35,32 +35,32 @@ class DashboardView extends WTWView<DashboardController> {
         icon: Symbols.article,
         label: 'education'.tr,
         items: [
-          { 'icon': Symbols.info, 'label': 'new'.tr, 'action': () async { await con!.navigateTo(route: '/education/form', previousRoute: '/dashboard', arguments: {}); } },
-          { 'icon': Symbols.info, 'label': 'show'.tr, 'action': () async { await con!.navigateTo(route: '/education', previousRoute: '/dashboard', arguments: {}); } },
+          { 'icon': Symbols.create_new_folder, 'label': 'new'.tr,  'action': () async { await con!.navigateTo(route: '/education/form', previousRoute: '/dashboard', arguments: {}); } },
+          { 'icon': Symbols.folder_eye,        'label': 'show'.tr, 'action': () async { await con!.navigateTo(route: '/education', previousRoute: '/dashboard', arguments: {}); } },
         ]
       )
       ..addMenuAction(
         icon: Symbols.article,
         label: 'experience'.tr,
         items: [
-          { 'icon': Symbols.info, 'label': 'new'.tr, 'action': () async { await con!.navigateTo(route: '/experience/form', previousRoute: '/dashboard', arguments: {}); } },
-          { 'icon': Symbols.info, 'label': 'show'.tr, 'action': () async { await con!.navigateTo(route: '/experience', previousRoute: '/dashboard', arguments: {});  } },
+          { 'icon': Symbols.create_new_folder, 'label': 'new'.tr,  'action': () async { await con!.navigateTo(route: '/experience/form', previousRoute: '/dashboard', arguments: {}); } },
+          { 'icon': Symbols.folder_eye,        'label': 'show'.tr, 'action': () async { await con!.navigateTo(route: '/experience', previousRoute: '/dashboard', arguments: {});  } },
         ]
       )
       ..addMenuAction(
         icon: Symbols.article,
         label: 'skill'.tr,
         items: [
-          { 'icon': Symbols.info, 'label': 'new'.tr, 'action': () async { await con!.navigateTo(route: '/skill/form', previousRoute: '/dashboard', arguments: {}); } },
-          { 'icon': Symbols.info, 'label': 'show'.tr, 'action': () async { await con!.navigateTo(route: '/skill', previousRoute: '/dashboard', arguments: {}); } },
+          { 'icon': Symbols.create_new_folder, 'label': 'new'.tr,  'action': () async { await con!.navigateTo(route: '/skill/form', previousRoute: '/dashboard', arguments: {}); } },
+          { 'icon': Symbols.folder_eye,        'label': 'show'.tr, 'action': () async { await con!.navigateTo(route: '/skill', previousRoute: '/dashboard', arguments: {}); } },
         ]
       )
       ..addMenuAction(
         icon: Symbols.article,
         label: 'portfolio'.tr,
         items: [
-          { 'icon': Symbols.info, 'label': 'new'.tr, 'action': () async { await con!.navigateTo(route: '/portfolio/form', previousRoute: '/dashboard', arguments: {}); } },
-          { 'icon': Symbols.info, 'label': 'show'.tr, 'action': () async { await con!.navigateTo(route: '/portfolio', previousRoute: '/dashboard', arguments: {}); } },
+          { 'icon': Symbols.create_new_folder, 'label': 'new'.tr,  'action': () async { await con!.navigateTo(route: '/portfolio/form', previousRoute: '/dashboard', arguments: {}); } },
+          { 'icon': Symbols.folder_eye,        'label': 'show'.tr, 'action': () async { await con!.navigateTo(route: '/portfolio', previousRoute: '/dashboard', arguments: {}); } },
         ]
       );
 

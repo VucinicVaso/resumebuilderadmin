@@ -65,10 +65,10 @@ class DashboardView extends WTWView<DashboardController> {
       )
       ..addMenuAction(
         icon: Symbols.article,
-        label: 'skill'.tr,
+        label: 'cv'.tr,
         items: [
-          { 'icon': Symbols.create_new_folder, 'label': 'new'.tr,  'action': () async { await con!.navigateTo(route: '/skill/form', previousRoute: '/dashboard', arguments: {}); } },
-          { 'icon': Symbols.folder_eye,        'label': 'show'.tr, 'action': () async { await con!.navigateTo(route: '/skill', previousRoute: '/dashboard', arguments: {}); } },
+          { 'icon': Symbols.create_new_folder, 'label': 'new'.tr,  'action': () async { await con!.navigateTo(route: '/cv/form', previousRoute: '/dashboard', arguments: {}); } },
+          { 'icon': Symbols.folder_eye,        'label': 'show'.tr, 'action': () async { await con!.navigateTo(route: '/cv', previousRoute: '/dashboard', arguments: {}); } },
         ]
       );
 

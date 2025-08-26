@@ -35,9 +35,9 @@ class DashboardRoutes extends WTWRoutes {
     registerRoute(name: '/skill/form/:key',      view: () => SkillFormView());
     registerRoute(name: '/skill',                view: () => SkillShowView());
     registerRoute(name: '/skill/:key',           view: () => SkillShowView());
-    registerRoute(name: '/cv/form',              view: () => SkillCVView());
-    registerRoute(name: '/cv',                   view: () => SkillCVView());
-    registerRoute(name: '/cv/:key',              view: () => SkillCVView());
+    registerRoute(name: '/cv/form',              view: () => CVFormView());
+    registerRoute(name: '/cv',                   view: () => CVShowView());
+    registerRoute(name: '/cv/:key',              view: () => CVShowView());
   }
 
 }

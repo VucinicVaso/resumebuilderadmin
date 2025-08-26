@@ -62,6 +62,14 @@ class DashboardView extends WTWView<DashboardController> {
           { 'icon': Symbols.create_new_folder, 'label': 'new'.tr,  'action': () async { await con!.navigateTo(route: '/portfolio/form', previousRoute: '/dashboard', arguments: {}); } },
           { 'icon': Symbols.folder_eye,        'label': 'show'.tr, 'action': () async { await con!.navigateTo(route: '/portfolio', previousRoute: '/dashboard', arguments: {}); } },
         ]
+      )
+      ..addMenuAction(
+        icon: Symbols.article,
+        label: 'skill'.tr,
+        items: [
+          { 'icon': Symbols.create_new_folder, 'label': 'new'.tr,  'action': () async { await con!.navigateTo(route: '/skill/form', previousRoute: '/dashboard', arguments: {}); } },
+          { 'icon': Symbols.folder_eye,        'label': 'show'.tr, 'action': () async { await con!.navigateTo(route: '/skill', previousRoute: '/dashboard', arguments: {}); } },
+        ]
       );
 
     var body = uiFactory!.createBody(WTWUIBodyType.basic1);

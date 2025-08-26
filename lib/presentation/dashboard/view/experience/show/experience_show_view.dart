@@ -13,6 +13,33 @@ class ExperienceShowView extends WTWView<ExperienceShowController> {
     setController(ExperienceShowController());
   }
 
+  WTWUIComponent? createEntityBody(ExperienceShowController? con) {
+    var layout = uiFactory!.createLayout(WTWUILayoutType.verticalExpanded)!
+      ..setMainAxisAlignment(MainAxisAlignment.center)
+      ..setCrossAxisAlignment(CrossAxisAlignment.center);
+    return layout;
+  }
+
+  WTWUIComponent? createListBody(ExperienceShowController? con) {
+    var layout = uiFactory!.createLayout(WTWUILayoutType.verticalExpanded)!
+      ..setMainAxisAlignment(MainAxisAlignment.center)
+      ..setCrossAxisAlignment(CrossAxisAlignment.center);
+    return layout;
+  }
+
+  WTWUIComponent? createBody(ExperienceShowController? con) {
+    WTWUIComponent? widget = uiFactory!.createEmpty(WTWUIEmptyType.empty);
+    if(con!.entity.value!.key != 0) { return createEntityBody(con); }
+    if(con.list.isNotEmpty) { return createListBody(con); }
+
+    var layout = uiFactory!.createLayout(WTWUILayoutType.verticalExpanded)!
+      ..setMainAxisAlignment(MainAxisAlignment.center)
+      ..setCrossAxisAlignment(CrossAxisAlignment.center)
+      ..addComponent(widget);
+    return layout;
+  }
+
+
   WTWUIComponent? createScaffold(ExperienceShowController? con) {
     var header = uiFactory!.createHeader(WTWUIHeaderType.basic1)!
       ..setBackAction(
@@ -21,7 +48,8 @@ class ExperienceShowView extends WTWView<ExperienceShowController> {
         label: 'experience'.tr
       );
 
-    var body = uiFactory!.createBody(WTWUIBodyType.basic1);
+    var body = uiFactory!.createBody(WTWUIBodyType.basic1)!
+      ..addComponent(createBody(con));
 
     var scaffold = uiFactory!.createScaffold(WTWUIScaffoldType.basic1)!
       ..setHeader(header)
@@ -31,8 +59,7 @@ class ExperienceShowView extends WTWView<ExperienceShowController> {
 
   @override
   Widget build(BuildContext context) {
-    return createScaffold(controller)!.build()!;
-    //return Obx(() => createScaffold(controller)!);
+    return Obx(() => createScaffold(controller)!.build()!);
   }
 
 }

@@ -18,7 +18,7 @@ class ExperienceFormView extends WTWView<ExperienceFormController> {
       ..setBackAction(
         action: () async { await con!.navigateBack(); }, 
         icon: Symbols.arrow_back,
-        label: 'experience'.tr
+        label: '${'new'.tr} ${'experience'.tr}'
       );
 
     var body = uiFactory!.createBody(WTWUIBodyType.basic1);

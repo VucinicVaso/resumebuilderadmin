@@ -61,7 +61,8 @@ class EducationFormController extends WTWController<EducationFormController> {
       WTWLogger.write('EducationFormController.setEntity() faild: $e');
     }
   }
-    TextEditingController? titleController = TextEditingController();
+  
+  TextEditingController? titleController = TextEditingController();
   void titleListener() { entity!.title = titleController!.text; }
   titleValidator(String v) {
     String? error;
@@ -71,7 +72,7 @@ class EducationFormController extends WTWController<EducationFormController> {
   }
 
   TextEditingController? linkController = TextEditingController();
-  void linkListener() { entity!.link = titleController!.text; }
+  void linkListener() { entity!.link = linkController!.text; }
   linkValidator(String v) {
     String? error;
     error = WTWValidator.isEmpty(key: 'link'.tr, value: v);
@@ -82,7 +83,7 @@ class EducationFormController extends WTWController<EducationFormController> {
   }
 
   TextEditingController? descriptionController = TextEditingController();
-  void descriptionListener() { entity!.description = titleController!.text; }
+  void descriptionListener() { entity!.description = descriptionController!.text; }
   descriptionValidator(String v) {
     String? error;
     error = WTWValidator.isEmpty(key: 'description'.tr, value: v);
@@ -91,7 +92,7 @@ class EducationFormController extends WTWController<EducationFormController> {
   }
 
   TextEditingController? dateTimeController = TextEditingController();
-  void dateTimeListener() { entity!.dateTime = titleController!.text; }
+  void dateTimeListener() { entity!.dateTime = dateTimeController!.text; }
   dateTimeValidator(String v) {
     String? error;
     error = WTWValidator.isEmpty(key: 'dateTime'.tr, value: v);

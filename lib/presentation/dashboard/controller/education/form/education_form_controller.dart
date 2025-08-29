@@ -61,7 +61,7 @@ class EducationFormController extends WTWController<EducationFormController> {
       WTWLogger.write('EducationFormController.setEntity() faild: $e');
     }
   }
-  
+
   TextEditingController? titleController = TextEditingController();
   void titleListener() { entity!.title = titleController!.text; }
   titleValidator(String v) {

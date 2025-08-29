@@ -15,7 +15,14 @@ class DashboardEnUsTranslations extends WTWTranslations {
       "skill": "Skill",
       "cv": "CV",
       "new": "New",
-      "show": "Show"
+      "show": "Show",
+      "firstname": "Firstname",
+      "lastname": "Lastname",
+      "email": "Email",
+      "image": "Image",
+      "dateOfBirth": "Date of birth",
+      "city": "City",
+      "country": "Country"
     },
   };
 

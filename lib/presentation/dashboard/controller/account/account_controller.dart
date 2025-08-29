@@ -31,8 +31,6 @@ class AccountController extends WTWController<AccountController> {
     setFormKey();
     await setEntity();
 
-    languageController    = TextEditingController(text: entity.value.language ?? '')..addListener(languageListener);
-    themeController       = TextEditingController(text: entity.value.theme ?? '')..addListener(themeListener);
     firstnameController   = TextEditingController(text: entity.value.firstname ?? '')..addListener(firstnameListener);
     lastnameController    = TextEditingController(text: entity.value.lastname ?? '')..addListener(lastnameListener);
     imageController       = TextEditingController(text: entity.value.image ?? '')..addListener(imageListener);
@@ -45,8 +43,6 @@ class AccountController extends WTWController<AccountController> {
     setFormKey();
     entity.value = Account().empty()!;
 
-    languageController!..clear()..removeListener(languageListener);
-    themeController!..clear()..removeListener(themeListener);
     firstnameController!..clear()..removeListener(firstnameListener);
     lastnameController!..clear()..removeListener(firstnameListener);
     imageController!..clear()..removeListener(imageListener);
@@ -63,26 +59,8 @@ class AccountController extends WTWController<AccountController> {
     entity.value = await AccountGetOneUseCase().call();
   }
 
-  TextEditingController? languageController = TextEditingController();
-  void languageListener() { entity.value.language = languageController!.text; }
-  languageValidator(String v) {
-    String? error;
-    error = WTWValidator.isEmpty(key: 'language'.tr, value: v);
-    if(error!.isNotEmpty) { return error; }
-    return null;
-  }
-
-  TextEditingController? themeController = TextEditingController();
-  void themeListener() { entity.value.theme = themeController!.text; }
-  themeValidator(String v) {
-    String? error;
-    error = WTWValidator.isEmpty(key: 'theme'.tr, value: v);
-    if(error!.isNotEmpty) { return error; }
-    return null;
-  }
-
   TextEditingController? firstnameController = TextEditingController();
-  void firstnameListener() { entity.value.firstname = themeController!.text; }
+  void firstnameListener() { entity.value.firstname = firstnameController!.text; }
   firstnameValidator(String v) {
     String? error;
     error = WTWValidator.isEmpty(key: 'firstname'.tr, value: v);
@@ -91,7 +69,7 @@ class AccountController extends WTWController<AccountController> {
   }
 
   TextEditingController? lastnameController = TextEditingController();
-  void lastnameListener() { entity.value.lastname = themeController!.text; }
+  void lastnameListener() { entity.value.lastname = lastnameController!.text; }
   lastnameValidator(String v) {
     String? error;
     error = WTWValidator.isEmpty(key: 'lastname'.tr, value: v);

@@ -15,7 +15,14 @@ class DashboardMeMneTranslations extends WTWTranslations {
       "skill": "Vjestine",
       "cv": "CV",
       "new": "Novo",
-      "show": "Prikazi"
+      "show": "Prikazi",
+      "firstname": "Ime",
+      "lastname": "Prezime",
+      "email": "Email",
+      "image": "Slika",
+      "dateOfBirth": "Darum rodjenja",
+      "city": "Grad",
+      "country": "Drzava"
     },
   };
 

@@ -28,9 +28,10 @@ class ExperienceShowView extends WTWView<ExperienceShowController> {
   }
 
   WTWUIComponent? createBody(ExperienceShowController? con) {
-    WTWUIComponent? widget = uiFactory!.createEmpty(WTWUIEmptyType.empty);
     if(con!.entity.value!.key != 0) { return createEntityBody(con); }
     if(con.list.isNotEmpty) { return createListBody(con); }
+
+    WTWUIComponent? widget = uiFactory!.createEmpty(WTWUIEmptyType.empty);
 
     var layout = uiFactory!.createLayout(WTWUILayoutType.verticalExpanded)!
       ..setMainAxisAlignment(MainAxisAlignment.center)
@@ -38,7 +39,6 @@ class ExperienceShowView extends WTWView<ExperienceShowController> {
       ..addComponent(widget);
     return layout;
   }
-
 
   WTWUIComponent? createScaffold(ExperienceShowController? con) {
     var header = uiFactory!.createHeader(WTWUIHeaderType.basic1)!

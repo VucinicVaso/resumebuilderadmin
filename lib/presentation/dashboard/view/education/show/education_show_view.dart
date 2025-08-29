@@ -28,9 +28,10 @@ class EducationShowView extends WTWView<EducationShowController> {
   }
 
   WTWUIComponent? createBody(EducationShowController? con) {
-    WTWUIComponent? widget = uiFactory!.createEmpty(WTWUIEmptyType.empty);
     if(con!.entity.value!.key != 0) { return createEntityBody(con); }
     if(con.list.isNotEmpty) { return createListBody(con); }
+
+    WTWUIComponent? widget = uiFactory!.createEmpty(WTWUIEmptyType.empty);
 
     var layout = uiFactory!.createLayout(WTWUILayoutType.verticalExpanded)!
       ..setMainAxisAlignment(MainAxisAlignment.center)

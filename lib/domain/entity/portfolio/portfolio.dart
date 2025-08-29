@@ -7,9 +7,7 @@ class Portfolio extends WTWEntity<Portfolio> {
     super.date,
     this.title,
     this.description,
-    this.type,
     this.links,
-    this.files,
   });
 
   String? title;
@@ -18,14 +16,8 @@ class Portfolio extends WTWEntity<Portfolio> {
   String? description;
   void setDescription(String? v) { description = v; }
 
-  String? type;
-  void setType(String? v) { type = v; }
-
   List<String>? links = List<String>.empty(growable: true); 
   void setDateFrom(List<String>? v) { links = v; }
-
-  List<String>? files = List<String>.empty(growable: true); 
-  void setFiles(List<String>? v) { files = v; }
 
   @override
   Map<String, dynamic>? toJson() {
@@ -34,9 +26,7 @@ class Portfolio extends WTWEntity<Portfolio> {
       'date':        date,
       'title':       title,
       'description': description,
-      'type':        type,
       'links':       links,
-      'files':       files,
     };
   }  
 
@@ -47,9 +37,7 @@ class Portfolio extends WTWEntity<Portfolio> {
       date:        json['date'],
       title:       json['title'],
       description: json['description'],
-      type:        json['type'],
       links:       json['links'],
-      files:       json['files'],
     );
   }
 
@@ -60,9 +48,7 @@ class Portfolio extends WTWEntity<Portfolio> {
       date:        '',
       title:       '',
       description: '',
-      type:        '',
       links:       [],
-      files:       [],
     );
   }
   

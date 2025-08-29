@@ -11,9 +11,7 @@ class PortfolioMapper extends WTWObjectMapper<Portfolio, PortfolioModel> {
       date:        model.date,
       title:       model.title,
       description: model.description,
-      type:        model.type,
       links:       model.links,
-      files:       model.files,
     );
   }
 
@@ -24,9 +22,7 @@ class PortfolioMapper extends WTWObjectMapper<Portfolio, PortfolioModel> {
       date:        entity.date,
       title:       entity.title,
       description: entity.description,
-      type:        entity.type,
       links:       entity.links,
-      files:       entity.files,
     );
   }
 
@@ -39,9 +35,7 @@ class PortfolioModel extends WTWEntity<PortfolioModel> {
     super.date,
     this.title,
     this.description,
-    this.type,
     this.links,
-    this.files,
   });
 
   String? title;
@@ -50,14 +44,8 @@ class PortfolioModel extends WTWEntity<PortfolioModel> {
   String? description;
   void setDescription(String? v) { description = v; }
 
-  String? type;
-  void setType(String? v) { type = v; }
-
   List<String>? links = List<String>.empty(growable: true); 
   void setDateFrom(List<String>? v) { links = v; }
-
-  List<String>? files = List<String>.empty(growable: true); 
-  void setFiles(List<String>? v) { files = v; }
 
   @override
   Map<String, dynamic>? toJson() {
@@ -66,9 +54,7 @@ class PortfolioModel extends WTWEntity<PortfolioModel> {
       'date':        date,
       'title':       title,
       'description': description,
-      'type':        type,
       'links':       links,
-      'files':       files,
     };
   }  
 
@@ -79,9 +65,7 @@ class PortfolioModel extends WTWEntity<PortfolioModel> {
       date:        json['date'],
       title:       json['title'],
       description: json['description'],
-      type:        json['type'],
       links:       json['links'],
-      files:       json['files'],
     );
   }
 
@@ -92,9 +76,7 @@ class PortfolioModel extends WTWEntity<PortfolioModel> {
       date:        '',
       title:       '',
       description: '',
-      type:        '',
       links:       [],
-      files:       [],
     );
   }
   

@@ -72,19 +72,13 @@ class AccountView extends WTWView<AccountController> {
       ..addField(key: 'city'.tr,        order: 4, inputField: cityField)
       ..addField(key: 'country'.tr,     order: 5, inputField: countryField);
 
-    var updateButton = uiFactory!.createButton(WTWUIButtonType.text1)!
-      ..setAction(() async => con.submit())
-      ..setLabel('save'.tr);
-
     var formLayout = uiFactory!.createLayout(WTWUILayoutType.vertical)!
       ..setMainAxisAlignment(MainAxisAlignment.center)
       ..setCrossAxisAlignment(CrossAxisAlignment.center)
       ..md()
-      ..addComponent(form)
-      ..addComponent(uiFactory!.createSpace(WTWUISpaceType.horizontal10))
-      ..addComponent(updateButton);
+      ..addComponent(form);
 
-    var layout = uiFactory!.createLayout(WTWUILayoutType.verticalExpanded)!
+    var layout = uiFactory!.createLayout(WTWUILayoutType.verticalExpandedAndScrollable)!
       ..setMainAxisAlignment(MainAxisAlignment.center)
       ..setCrossAxisAlignment(CrossAxisAlignment.center)
       ..addComponent(formLayout);
@@ -94,12 +88,17 @@ class AccountView extends WTWView<AccountController> {
   WTWUIComponent? createScaffold(AccountController? con) {
     var header = uiFactory!.createHeader(WTWUIHeaderType.basic1)!
       ..setBackAction(
-        action: () async { await con!.navigateBack(); }, 
+        action: () async { await con!.navigateBack(); },
         icon: Symbols.arrow_back,
         label: 'account'.tr
+      )
+      ..addAction(
+        action: () async { await con!.submit(); },
+        label: 'save'.tr
       );
 
-    var body = uiFactory!.createBody(WTWUIBodyType.basic1);
+    var body = uiFactory!.createBody(WTWUIBodyType.basic1)!
+      ..addComponent(createBody(con));
 
     var scaffold = uiFactory!.createScaffold(WTWUIScaffoldType.basic1)!
       ..setHeader(header)

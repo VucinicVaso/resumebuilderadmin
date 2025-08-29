@@ -28,7 +28,7 @@ class Skill extends WTWEntity<Skill> {
       'icon':      icon,
       'subskills': subskills,
     };
-  }  
+  }
 
   @override
   Skill? fromJson(Map? json) {

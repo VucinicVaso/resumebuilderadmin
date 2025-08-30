@@ -4,7 +4,7 @@ import 'package:wtoolboxweb/clean_architecture/controller/wtw_controller.dart';
 import 'package:wtoolboxweb/logger/wtw_logger.dart';
 import 'package:wtoolboxweb/validator/wtw_validator.dart';
 import '../../../../domain/entity/account/account.dart';
-import '../../../../domain/usecase/account_getone_usecase.dart';
+import '../../../../domain/usecase/account_get_usecase.dart';
 import '../../../../domain/usecase/account_update_usecase.dart';
 
 class AccountController extends WTWController<AccountController> {
@@ -56,7 +56,7 @@ class AccountController extends WTWController<AccountController> {
 
   var entity = Account().obs;
   Future<void> setEntity() async {
-    entity.value = await AccountGetOneUseCase().call();
+    entity.value = await AccountGetUseCase().call();
   }
 
   TextEditingController? firstnameController = TextEditingController();

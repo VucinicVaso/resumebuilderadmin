@@ -13,6 +13,59 @@ class DashboardView extends WTWView<DashboardController> {
     setController(DashboardController());
   }
 
+  WTWUIComponent? createBody(DashboardController? con) {
+    var accountActionCard = uiFactory!.createCard(WTWUICardType.action)!
+      ..setAction(() async { await con!.navigateTo(route: '/account', previousRoute: '/dashboard', arguments: {}); })
+      ..setIcon(Symbols.account_circle_rounded)
+      ..setLabel('account'.tr);
+
+    var settingsActionCard = uiFactory!.createCard(WTWUICardType.action)!
+      ..setAction(() async { await con!.navigateTo(route: '/settings', previousRoute: '/dashboard', arguments: {}); })
+      ..setIcon(Symbols.settings)
+      ..setLabel('settings'.tr);
+
+    var educationActionCard = uiFactory!.createCard(WTWUICardType.action)!
+      ..setAction(() async { await con!.navigateTo(route: '/education', previousRoute: '/dashboard', arguments: {}); })
+      ..setIcon(Symbols.folder_eye)
+      ..setLabel('education'.tr);
+
+    var experienceActionCard = uiFactory!.createCard(WTWUICardType.action)!
+      ..setAction(() async { await con!.navigateTo(route: '/experience', previousRoute: '/dashboard', arguments: {}); })
+      ..setIcon(Symbols.folder_eye)
+      ..setLabel('experience'.tr);
+
+    var skillActionCard = uiFactory!.createCard(WTWUICardType.action)!
+      ..setAction(() async { await con!.navigateTo(route: '/skill', previousRoute: '/dashboard', arguments: {}); })
+      ..setIcon(Symbols.folder_eye)
+      ..setLabel('skill'.tr);
+
+    var portfolioActionCard = uiFactory!.createCard(WTWUICardType.action)!
+      ..setAction(() async { await con!.navigateTo(route: '/portfolio', previousRoute: '/dashboard', arguments: {}); })
+      ..setIcon(Symbols.folder_eye)
+      ..setLabel('portfolio'.tr);
+
+    var cvActionCard = uiFactory!.createCard(WTWUICardType.action)!
+      ..setAction(() async { await con!.navigateTo(route: '/cv', previousRoute: '/dashboard', arguments: {}); })
+      ..setIcon(Symbols.folder_eye)
+      ..setLabel('cv'.tr);
+
+    var wrap = uiFactory!.createWrap(WTWUIWrapType.wrap)!
+      ..setHorizontalDirection()
+      ..addComponent(accountActionCard)
+      ..addComponent(settingsActionCard)
+      ..addComponent(educationActionCard)
+      ..addComponent(experienceActionCard)
+      ..addComponent(skillActionCard)
+      ..addComponent(portfolioActionCard)
+      ..addComponent(cvActionCard);
+    
+    var layout = uiFactory!.createLayout(WTWUILayoutType.verticalExpandedAndScrollable)!
+      ..setMainAxisAlignment(MainAxisAlignment.center)
+      ..setCrossAxisAlignment(CrossAxisAlignment.center)
+      ..addComponent(wrap);
+    return layout;
+  }
+
   WTWUIComponent? createScaffold(DashboardController? con) {
     var header = uiFactory!.createHeader(WTWUIHeaderType.basic1)!
       ..addAction(
@@ -72,7 +125,8 @@ class DashboardView extends WTWView<DashboardController> {
         ]
       );
 
-    var body = uiFactory!.createBody(WTWUIBodyType.basic1);
+    var body = uiFactory!.createBody(WTWUIBodyType.basic1)!
+      ..addComponent(createBody(con)!);
 
     var floatingMenu = uiFactory!.createFloatingMenu(WTWUIFloatingMenuType.basic1)!
       ..setAction(() { print('floatingMenu action.'); })

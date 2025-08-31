@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:wtoolboxweb/external/lib_getx.dart';
 import 'package:wtoolboxweb/clean_architecture/controller/wtw_controller.dart';
 import 'package:wtoolboxweb/logger/wtw_logger.dart';
-import 'package:wtoolboxweb/validator/wtw_validator.dart';
 import '../../../../../domain/entity/skill/skill.dart';
 import '../../../../../domain/usecase/skill_get_by_key_usecase.dart';
 import '../../../../../domain/usecase/skill_insert_usecase.dart';
@@ -61,30 +60,12 @@ class SkillFormController extends WTWController<SkillFormController> {
     
   TextEditingController? titleController = TextEditingController();
   void titleListener() { entity!.title = titleController!.text; }
-  titleValidator(String v) {
-    String? error;
-    error = WTWValidator.isEmpty(key: 'title'.tr, value: v);
-    if(error!.isNotEmpty) { return error; }
-    return null;
-  }
 
   TextEditingController? iconController = TextEditingController();
   void iconListener() { entity!.icon = iconController!.text; }
-  iconValidator(String v) {
-    String? error;
-    error = WTWValidator.isEmpty(key: 'icon'.tr, value: v);
-    if(error!.isNotEmpty) { return error; }
-    return null;
-  }
 
   TextEditingController? subskillsController = TextEditingController();
   void subskillsListener() { entity!.subskills!.add(subskillsController!.text); }
-  subskillsValidator(String v) {
-    String? error;
-    error = WTWValidator.isEmpty(key: 'subskills'.tr, value: v);
-    if(error!.isNotEmpty) { return error; }
-    return null;
-  }
 
   Future<void> submit() async {
     final FormState? form    = formKey!.currentState;

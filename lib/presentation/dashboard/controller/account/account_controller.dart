@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:wtoolboxweb/external/lib_getx.dart';
 import 'package:wtoolboxweb/clean_architecture/controller/wtw_controller.dart';
 import 'package:wtoolboxweb/logger/wtw_logger.dart';
-import 'package:wtoolboxweb/validator/wtw_validator.dart';
 import '../../../../domain/entity/account/account.dart';
 import '../../../../domain/usecase/account_get_usecase.dart';
 import '../../../../domain/usecase/account_update_usecase.dart';
@@ -61,66 +60,24 @@ class AccountController extends WTWController<AccountController> {
 
   TextEditingController? firstnameController = TextEditingController();
   void firstnameListener() { entity.value.firstname = firstnameController!.text; }
-  firstnameValidator(String v) {
-    String? error;
-    error = WTWValidator.isEmpty(key: 'firstname'.tr, value: v);
-    if(error!.isNotEmpty) { return error; }
-    return null;
-  }
 
   TextEditingController? lastnameController = TextEditingController();
   void lastnameListener() { entity.value.lastname = lastnameController!.text; }
-  lastnameValidator(String v) {
-    String? error;
-    error = WTWValidator.isEmpty(key: 'lastname'.tr, value: v);
-    if(error!.isNotEmpty) { return error; }
-    return null;
-  }
 
   TextEditingController? emailController = TextEditingController();
   void emailListener() { entity.value.email = emailController!.text; }
-  emailValidator(String v) {
-    String? error;
-    error = WTWValidator.isEmpty(key: 'email'.tr, value: v);
-    if(error!.isNotEmpty) { return error; }
-    return null;
-  }
 
   TextEditingController? imageController = TextEditingController();
   void imageListener() { entity.value.image = emailController!.text; }
-  imageValidator(String v) {
-    String? error;
-    error = WTWValidator.isEmpty(key: 'image'.tr, value: v);
-    if(error!.isNotEmpty) { return error; }
-    return null;
-  }
 
   TextEditingController? dateOfBirthController = TextEditingController();
   void dateOfBirthListener() { entity.value.dateOfBirth = dateOfBirthController!.text; }
-  dateOfBirthValidator(String v) {
-    String? error;
-    error = WTWValidator.isEmpty(key: 'dateOfBirth'.tr, value: v);
-    if(error!.isNotEmpty) { return error; }
-    return null;
-  }
 
   TextEditingController? cityController = TextEditingController();
   void cityListener() { entity.value.city = cityController!.text; }
-  cityValidator(String v) {
-    String? error;
-    error = WTWValidator.isEmpty(key: 'city'.tr, value: v);
-    if(error!.isNotEmpty) { return error; }
-    return null;
-  }
 
   TextEditingController? countryController = TextEditingController();
   void countryListener() { entity.value.country = countryController!.text; }
-  countryValidator(String v) {
-    String? error;
-    error = WTWValidator.isEmpty(key: 'country'.tr, value: v);
-    if(error!.isNotEmpty) { return error; }
-    return null;
-  }
 
   Future<void> submit() async {
     final FormState? form    = formKey!.currentState;

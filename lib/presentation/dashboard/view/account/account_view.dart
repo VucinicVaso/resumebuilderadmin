@@ -5,6 +5,7 @@ import 'package:wtoolboxweb/clean_architecture/view/wtw_view.dart';
 import 'package:wtoolboxweb/ui_factory/component/wtw_ui_component.dart';
 import 'package:wtoolboxweb/ui_factory/type/impl/wtw_ui_component_type.dart';
 import '../../controller/account/account_controller.dart';
+import '../../controller/account/account_validator.dart';
 
 // ignore: must_be_immutable
 class AccountView extends WTWView<AccountController> {
@@ -17,7 +18,7 @@ class AccountView extends WTWView<AccountController> {
     var firstnameField = uiFactory!.createFormInputFiled(WTWUIFormInputFieldType.text)!
       ..setController(con!.firstnameController)
       ..validationOnUserInteraction()
-      ..setValidator(con.firstnameValidator)
+      ..setValidator(AccountValidator.firstnameValidator)
       ..required()
       ..setLabel('firstname'.tr)
       ..setPrefix(iconData: Symbols.account_circle);
@@ -25,7 +26,7 @@ class AccountView extends WTWView<AccountController> {
     var lastnameField = uiFactory!.createFormInputFiled(WTWUIFormInputFieldType.text)!
       ..setController(con.lastnameController)
       ..validationOnUserInteraction()
-      ..setValidator(con.lastnameValidator)
+      ..setValidator(AccountValidator.lastnameValidator)
       ..required()
       ..setLabel('lastname'.tr)
       ..setPrefix(iconData: Symbols.account_circle);
@@ -33,7 +34,7 @@ class AccountView extends WTWView<AccountController> {
     var imageField = uiFactory!.createFormInputFiled(WTWUIFormInputFieldType.text)!
       ..setController(con.imageController)
       ..validationOnUserInteraction()
-      ..setValidator(con.imageValidator)
+      ..setValidator(AccountValidator.imageValidator)
       ..required()
       ..setLabel('image'.tr)
       ..setPrefix(iconData: Symbols.account_circle);
@@ -41,7 +42,7 @@ class AccountView extends WTWView<AccountController> {
     var dateOfBirthField = uiFactory!.createFormInputFiled(WTWUIFormInputFieldType.datetime)!
       ..setController(con.dateOfBirthController)
       ..validationOnUserInteraction()
-      ..setValidator(con.dateOfBirthValidator)
+      ..setValidator(AccountValidator.dateOfBirthValidator)
       ..required()
       ..setLabel('dateOfBirth'.tr)
       ..setPrefix(iconData: Symbols.account_circle);
@@ -49,7 +50,7 @@ class AccountView extends WTWView<AccountController> {
     var cityField = uiFactory!.createFormInputFiled(WTWUIFormInputFieldType.text)!
       ..setController(con.cityController)
       ..validationOnUserInteraction()
-      ..setValidator(con.cityValidator)
+      ..setValidator(AccountValidator.cityValidator)
       ..required()
       ..setLabel('city'.tr)
       ..setPrefix(iconData: Symbols.account_circle);
@@ -57,7 +58,7 @@ class AccountView extends WTWView<AccountController> {
     var countryField = uiFactory!.createFormInputFiled(WTWUIFormInputFieldType.text)!
       ..setController(con.countryController)
       ..validationOnUserInteraction()
-      ..setValidator(con.countryValidator)
+      ..setValidator(AccountValidator.countryValidator)
       ..required()
       ..setLabel('country'.tr)
       ..setPrefix(iconData: Symbols.account_circle);

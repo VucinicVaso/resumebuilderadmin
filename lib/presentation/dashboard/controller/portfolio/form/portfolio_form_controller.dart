@@ -61,30 +61,12 @@ class PortfolioFormController extends WTWController<PortfolioFormController> {
     
   TextEditingController? titleController = TextEditingController();
   void titleListener() { entity!.title = titleController!.text; }
-  titleValidator(String v) {
-    String? error;
-    error = WTWValidator.isEmpty(key: 'title'.tr, value: v);
-    if(error!.isNotEmpty) { return error; }
-    return null;
-  }
 
   TextEditingController? descriptionController = TextEditingController();
   void descriptionListener() { entity!.description = descriptionController!.text; }
-  descriptionValidator(String v) {
-    String? error;
-    error = WTWValidator.isEmpty(key: 'description'.tr, value: v);
-    if(error!.isNotEmpty) { return error; }
-    return null;
-  }
 
   TextEditingController? linksController = TextEditingController();
   void linksListener() { entity!.links!.add(linksController!.text); }
-  linksValidator(String v) {
-    String? error;
-    error = WTWValidator.isEmpty(key: 'link'.tr, value: v);
-    if(error!.isNotEmpty) { return error; }
-    return null;
-  }
 
   Future<void> submit() async {
     final FormState? form    = formKey!.currentState;

@@ -1,0 +1,27 @@
+import 'package:wtoolboxweb/external/lib_getx.dart';
+import 'package:wtoolboxweb/validator/wtw_validator.dart';
+
+class PortfolioFormValidator {
+
+  static String? titleValidator(String v) {
+    String? error;
+    error = WTWValidator.isEmpty(key: 'title'.tr, value: v);
+    if(error!.isNotEmpty) { return error; }
+    return null;
+  }
+
+  static String? descriptionValidator(String v) {
+    String? error;
+    error = WTWValidator.isEmpty(key: 'description'.tr, value: v);
+    if(error!.isNotEmpty) { return error; }
+    return null;
+  }
+
+  static String? linksValidator(String v) {
+    String? error;
+    error = WTWValidator.isEmpty(key: 'link'.tr, value: v);
+    if(error!.isNotEmpty) { return error; }
+    return null;
+  }
+
+}

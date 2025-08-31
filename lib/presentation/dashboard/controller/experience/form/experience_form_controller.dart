@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:wtoolboxweb/external/lib_getx.dart';
 import 'package:wtoolboxweb/clean_architecture/controller/wtw_controller.dart';
 import 'package:wtoolboxweb/logger/wtw_logger.dart';
-import 'package:wtoolboxweb/validator/wtw_validator.dart';
 import '../../../../../domain/entity/experience/experience.dart';
 import '../../../../../domain/usecase/experience_get_by_key_usecase.dart';
 import '../../../../../domain/usecase/experience_insert_usecase.dart';
@@ -70,70 +69,24 @@ class ExperienceFormController extends WTWController<ExperienceFormController> {
     
   TextEditingController? titleController = TextEditingController();
   void titleListener() { entity!.title = titleController!.text; }
-  titleValidator(String v) {
-    String? error;
-    error = WTWValidator.isEmpty(key: 'title'.tr, value: v);
-    if(error!.isNotEmpty) { return error; }
-    return null;
-  }
 
   TextEditingController? linkController = TextEditingController();
   void linkListener() { entity!.link = linkController!.text; }
-  linkValidator(String v) {
-    String? error;
-    error = WTWValidator.isEmpty(key: 'link'.tr, value: v);
-    if(error!.isNotEmpty) { return error; }
-    error = WTWValidator.containsEmptySpace(key: 'link'.tr, value: v);
-    if(error!.isNotEmpty) { return error; }
-    return null;
-  }
 
   TextEditingController? positionController = TextEditingController();
   void positionListener() { entity!.position = positionController!.text; }
-  positionValidator(String v) {
-    String? error;
-    error = WTWValidator.isEmpty(key: 'position'.tr, value: v);
-    if(error!.isNotEmpty) { return error; }
-    error = WTWValidator.containsEmptySpace(key: 'position'.tr, value: v);
-    if(error!.isNotEmpty) { return error; }
-    return null;
-  }
 
   TextEditingController? descriptionController = TextEditingController();
   void descriptionListener() { entity!.description = descriptionController!.text; }
-  descriptionValidator(String v) {
-    String? error;
-    error = WTWValidator.isEmpty(key: 'description'.tr, value: v);
-    if(error!.isNotEmpty) { return error; }
-    return null;
-  }
 
   TextEditingController? dateFromController = TextEditingController();
   void dateFromListener() { entity!.dateFrom = dateFromController!.text; }
-  dateFromValidator(String v) {
-    String? error;
-    error = WTWValidator.isEmpty(key: 'dateFrom'.tr, value: v);
-    if(error!.isNotEmpty) { return error; }
-    return null;
-  }
 
   TextEditingController? dateToController = TextEditingController();
   void dateToListener() { entity!.dateTo = dateToController!.text; }
-  dateToValidator(String v) {
-    String? error;
-    error = WTWValidator.isEmpty(key: 'dateTo'.tr, value: v);
-    if(error!.isNotEmpty) { return error; }
-    return null;
-  }
 
   TextEditingController? totalTimeController = TextEditingController();
   void totalTimeListener() { entity!.totalTime = totalTimeController!.text; }
-  totalTimeValidator(String v) {
-    String? error;
-    error = WTWValidator.isEmpty(key: 'totalTime'.tr, value: v);
-    if(error!.isNotEmpty) { return error; }
-    return null;
-  }
 
   Future<void> submit() async {
     final FormState? form    = formKey!.currentState;

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:wtoolboxweb/external/lib_getx.dart';
 import 'package:wtoolboxweb/clean_architecture/controller/wtw_controller.dart';
 import 'package:wtoolboxweb/logger/wtw_logger.dart';
-import 'package:wtoolboxweb/validator/wtw_validator.dart';
 import '../../../../../domain/entity/education/education.dart';
 import '../../../../../domain/usecase/education_get_by_key_usecase.dart';
 import '../../../../../domain/usecase/education_insert_usecase.dart';

@@ -64,41 +64,15 @@ class EducationFormController extends WTWController<EducationFormController> {
 
   TextEditingController? titleController = TextEditingController();
   void titleListener() { entity!.title = titleController!.text; }
-  titleValidator(String v) {
-    String? error;
-    error = WTWValidator.isEmpty(key: 'title'.tr, value: v);
-    if(error!.isNotEmpty) { return error; }
-    return null;
-  }
 
   TextEditingController? linkController = TextEditingController();
   void linkListener() { entity!.link = linkController!.text; }
-  linkValidator(String v) {
-    String? error;
-    error = WTWValidator.isEmpty(key: 'link'.tr, value: v);
-    if(error!.isNotEmpty) { return error; }
-    error = WTWValidator.containsEmptySpace(key: 'link'.tr, value: v);
-    if(error!.isNotEmpty) { return error; }
-    return null;
-  }
 
   TextEditingController? descriptionController = TextEditingController();
   void descriptionListener() { entity!.description = descriptionController!.text; }
-  descriptionValidator(String v) {
-    String? error;
-    error = WTWValidator.isEmpty(key: 'description'.tr, value: v);
-    if(error!.isNotEmpty) { return error; }
-    return null;
-  }
 
   TextEditingController? dateTimeController = TextEditingController();
   void dateTimeListener() { entity!.dateTime = dateTimeController!.text; }
-  dateTimeValidator(String v) {
-    String? error;
-    error = WTWValidator.isEmpty(key: 'dateTime'.tr, value: v);
-    if(error!.isNotEmpty) { return error; }
-    return null;
-  }
 
   Future<void> submit() async {
     final FormState? form    = formKey!.currentState;

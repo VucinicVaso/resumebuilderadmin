@@ -5,6 +5,7 @@ import 'package:wtoolboxweb/clean_architecture/view/wtw_view.dart';
 import 'package:wtoolboxweb/ui_factory/component/wtw_ui_component.dart';
 import 'package:wtoolboxweb/ui_factory/type/impl/wtw_ui_component_type.dart';
 import '../../../controller/education/form/education_form_controller.dart';
+import '../../../controller/education/form/education_form_validator.dart';
 
 // ignore: must_be_immutable
 class EducationFormView extends WTWView<EducationFormController> {

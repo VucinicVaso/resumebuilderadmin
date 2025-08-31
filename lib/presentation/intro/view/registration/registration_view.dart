@@ -5,6 +5,7 @@ import 'package:wtoolboxweb/clean_architecture/view/wtw_view.dart';
 import 'package:wtoolboxweb/ui_factory/component/wtw_ui_component.dart';
 import 'package:wtoolboxweb/ui_factory/type/impl/wtw_ui_component_type.dart';
 import '../../controller/registration/registration_controller.dart';
+import '../../controller/registration/registration_validator.dart';
 
 // ignore: must_be_immutable
 class RegistrationView extends WTWView<RegistrationController> {
@@ -17,7 +18,7 @@ class RegistrationView extends WTWView<RegistrationController> {
     var usernameField = uiFactory!.createFormInputFiled(WTWUIFormInputFieldType.text)!
       ..setController(con!.usernameController)
       ..validationOnUserInteraction()
-      ..setValidator(con.usernameValidator)
+      ..setValidator(RegistrationValidator.usernameValidator)
       ..required()
       ..setLabel('username'.tr)
       ..setPrefix(iconData: Symbols.account_circle);
@@ -25,7 +26,7 @@ class RegistrationView extends WTWView<RegistrationController> {
     var passwordField = uiFactory!.createFormInputFiled(WTWUIFormInputFieldType.protected)!
       ..setController(con.passwordController)
       ..validationOnUserInteraction()
-      ..setValidator(con.passwordValidator)
+      ..setValidator(RegistrationValidator.passwordValidator)
       ..required()
       ..setLabel('password'.tr)
       ..setPrefix(iconData: Symbols.password);

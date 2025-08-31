@@ -1,3 +1,6 @@
+import 'package:wtoolboxweb/external/lib_getx.dart';
+import 'package:wtoolboxweb/validator/wtw_validator.dart';
+
 class EducationFormValidator {
 
   static String? titleValidator(String v) {

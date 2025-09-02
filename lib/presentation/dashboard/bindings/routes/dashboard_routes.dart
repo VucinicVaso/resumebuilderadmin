@@ -10,6 +10,8 @@ import '../../view/portfolio/form/portfolio_form_view.dart';
 import '../../view/portfolio/show/portfolio_show_view.dart';
 import '../../view/skill/form/skill_form_view.dart';
 import '../../view/skill/show/skill_show_view.dart';
+import '../../view/language/form/language_form_view.dart';
+import '../../view/language/show/language_show_view.dart';
 import '../../view/cv/form/cv_form_view.dart';
 import '../../view/cv/show/cv_show_view.dart';
 
@@ -35,6 +37,10 @@ class DashboardRoutes extends WTWRoutes {
     registerRoute(name: '/skill/form/:key',      view: () => SkillFormView());
     registerRoute(name: '/skill',                view: () => SkillShowView());
     registerRoute(name: '/skill/:key',           view: () => SkillShowView());
+    registerRoute(name: '/language/form',        view: () => LanguageFormView());
+    registerRoute(name: '/language/form/:key',   view: () => LanguageFormView());
+    registerRoute(name: '/language',             view: () => LanguageShowView());
+    registerRoute(name: '/language/:key',        view: () => LanguageShowView());
     registerRoute(name: '/cv/form',              view: () => CVFormView());
     registerRoute(name: '/cv',                   view: () => CVShowView());
     registerRoute(name: '/cv/:key',              view: () => CVShowView());

@@ -49,7 +49,7 @@ class LanguageModel extends WTWEntity<LanguageModel> {
       'title': title,
       'level': level,
     };
-  }  
+  }
 
   @override
   LanguageModel? fromJson(Map? json) {

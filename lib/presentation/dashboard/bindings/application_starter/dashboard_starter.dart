@@ -10,6 +10,8 @@ import '../../../../domain/repository/portfolio/portfolio_repository.dart';
 import '../../../../data/repository/portfolio/portfolio_repository_impl.dart';
 import '../../../../domain/repository/skill/skill_repository.dart';
 import '../../../../data/repository/skill/skill_repository_impl.dart';
+import '../../../../domain/repository/language/language_repository.dart';
+import '../../../../data/repository/language/language_repository_impl.dart';
 import '../../../../domain/repository/cv/cv_repository.dart';
 import '../../../../data/repository/cv/cv_repository_impl.dart';
 import '../message_broker/dashboard_message_broker.dart';
@@ -31,6 +33,7 @@ class DashboardStarter extends WTWApplicationStarter {
     Get.put<ExperienceRepository>(ExperienceRepositoryImpl(), permanent: true);
     Get.put<PortfolioRepository>(PortfolioRepositoryImpl(), permanent: true);
     Get.put<SkillRepository>(SkillRepositoryImpl(), permanent: true);
+    Get.put<LanguageRepository>(LanguageRepositoryImpl(), permanent: true);
     Get.put<CVRepository>(CVRepositoryImpl(), permanent: true);
   }
 
@@ -45,6 +48,7 @@ class DashboardStarter extends WTWApplicationStarter {
     await Get.delete<ExperienceRepository>(force: true);
     await Get.delete<PortfolioRepository>(force: true);
     await Get.delete<SkillRepository>(force: true);
+    await Get.delete<LanguageRepository>(force: true);
     await Get.delete<CVRepository>(force: true);
   }
   

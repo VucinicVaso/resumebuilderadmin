@@ -44,6 +44,11 @@ class DashboardView extends WTWView<DashboardController> {
       ..setIcon(Symbols.folder_eye)
       ..setLabel('portfolio'.tr);
 
+    var languageActionCard = uiFactory!.createCard(WTWUICardType.action)!
+      ..setAction(() async { await con!.navigateTo(route: '/language', previousRoute: '/dashboard', arguments: {}); })
+      ..setIcon(Symbols.folder_eye)
+      ..setLabel('language'.tr);
+
     var cvActionCard = uiFactory!.createCard(WTWUICardType.action)!
       ..setAction(() async { await con!.navigateTo(route: '/cv', previousRoute: '/dashboard', arguments: {}); })
       ..setIcon(Symbols.folder_eye)
@@ -57,6 +62,7 @@ class DashboardView extends WTWView<DashboardController> {
       ..addComponent(experienceActionCard)
       ..addComponent(skillActionCard)
       ..addComponent(portfolioActionCard)
+      ..addComponent(languageActionCard)
       ..addComponent(cvActionCard);
     
     var layout = uiFactory!.createLayout(WTWUILayoutType.verticalExpandedAndScrollable)!
@@ -114,6 +120,14 @@ class DashboardView extends WTWView<DashboardController> {
         items: [
           { 'icon': Symbols.create_new_folder, 'label': 'new'.tr,  'action': () async { await con!.navigateTo(route: '/portfolio/form', previousRoute: '/dashboard', arguments: {}); } },
           { 'icon': Symbols.folder_eye,        'label': 'show'.tr, 'action': () async { await con!.navigateTo(route: '/portfolio', previousRoute: '/dashboard', arguments: {}); } },
+        ]
+      )
+      ..addMenuAction(
+        icon: Symbols.article,
+        label: 'language'.tr,
+        items: [
+          { 'icon': Symbols.create_new_folder, 'label': 'new'.tr,  'action': () async { await con!.navigateTo(route: '/language/form', previousRoute: '/dashboard', arguments: {}); } },
+          { 'icon': Symbols.folder_eye,        'label': 'show'.tr, 'action': () async { await con!.navigateTo(route: '/language', previousRoute: '/dashboard', arguments: {}); } },
         ]
       )
       ..addMenuAction(

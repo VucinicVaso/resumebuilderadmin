@@ -3,9 +3,9 @@ import 'package:wtoolboxweb/external/lib_getx.dart';
 import 'package:wtoolboxweb/clean_architecture/controller/wtw_controller.dart';
 import 'package:wtoolboxweb/logger/wtw_logger.dart';
 import '../../../../../domain/entity/experience/experience.dart';
-import '../../../../../domain/usecase/experience_get_by_key_usecase.dart';
-import '../../../../../domain/usecase/experience_insert_usecase.dart';
-import '../../../../../domain/usecase/experience_update_usecase.dart';
+import '../../../../../domain/usecase/experience/experience_get_by_key_usecase.dart';
+import '../../../../../domain/usecase/experience/experience_insert_usecase.dart';
+import '../../../../../domain/usecase/experience/experience_update_usecase.dart';
 
 class ExperienceFormController extends WTWController<ExperienceFormController> {
 

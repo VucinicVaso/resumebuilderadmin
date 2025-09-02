@@ -3,9 +3,9 @@ import 'package:wtoolboxweb/external/lib_getx.dart';
 import 'package:wtoolboxweb/clean_architecture/controller/wtw_controller.dart';
 import 'package:wtoolboxweb/logger/wtw_logger.dart';
 import '../../../../../domain/entity/Language/Language.dart';
-import '../../../../../domain/usecase/language_get_by_key_usecase.dart';
-import '../../../../../domain/usecase/language_insert_usecase.dart';
-import '../../../../../domain/usecase/language_update_usecase.dart';
+import '../../../../../domain/usecase/language/language_get_by_key_usecase.dart';
+import '../../../../../domain/usecase/language/language_insert_usecase.dart';
+import '../../../../../domain/usecase/language/language_update_usecase.dart';
 
 class LanguageFormController extends WTWController<LanguageFormController> {
 
@@ -56,7 +56,7 @@ class LanguageFormController extends WTWController<LanguageFormController> {
       WTWLogger.write('LanguageFormController.setEntity() faild: $e');
     }
   }
-    
+
   TextEditingController? titleController = TextEditingController();
   void titleListener() { entity!.title = titleController!.text; }
 

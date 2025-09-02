@@ -3,9 +3,9 @@ import 'package:wtoolboxweb/external/lib_getx.dart';
 import 'package:wtoolboxweb/clean_architecture/controller/wtw_controller.dart';
 import 'package:wtoolboxweb/logger/wtw_logger.dart';
 import '../../../../../domain/entity/skill/skill.dart';
-import '../../../../../domain/usecase/skill_get_by_key_usecase.dart';
-import '../../../../../domain/usecase/skill_insert_usecase.dart';
-import '../../../../../domain/usecase/skill_update_usecase.dart';
+import '../../../../../domain/usecase/skill/skill_get_by_key_usecase.dart';
+import '../../../../../domain/usecase/skill/skill_insert_usecase.dart';
+import '../../../../../domain/usecase/skill/skill_update_usecase.dart';
 
 class SkillFormController extends WTWController<SkillFormController> {
 

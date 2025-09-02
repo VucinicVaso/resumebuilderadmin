@@ -3,8 +3,8 @@ import 'package:wtoolboxweb/external/lib_getx.dart';
 import 'package:wtoolboxweb/clean_architecture/controller/wtw_controller.dart';
 import 'package:wtoolboxweb/logger/wtw_logger.dart';
 import '../../../../domain/entity/account/account.dart';
-import '../../../../domain/usecase/account_get_usecase.dart';
-import '../../../../domain/usecase/account_update_usecase.dart';
+import '../../../../domain/usecase/account/account_get_usecase.dart';
+import '../../../../domain/usecase/account/account_update_usecase.dart';
 
 class AccountController extends WTWController<AccountController> {
 

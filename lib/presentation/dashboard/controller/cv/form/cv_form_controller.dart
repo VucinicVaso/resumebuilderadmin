@@ -3,7 +3,7 @@ import 'package:wtoolboxweb/external/lib_getx.dart';
 import 'package:wtoolboxweb/clean_architecture/controller/wtw_controller.dart';
 import 'package:wtoolboxweb/logger/wtw_logger.dart';
 import '../../../../../domain/entity/cv/cv.dart';
-import '../../../../../domain/usecase/cv_insert_usecase.dart';
+import '../../../../../domain/usecase/cv/cv_insert_usecase.dart';
 
 class CVFormController extends WTWController<CVFormController> {
 

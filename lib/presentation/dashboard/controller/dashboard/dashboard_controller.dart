@@ -1,7 +1,7 @@
 import 'package:wtoolboxweb/external/lib_getx.dart';
 import 'package:wtoolboxweb/clean_architecture/controller/wtw_controller.dart';
 import 'package:wtoolboxweb/application_starter/wtw_application_starter_service.dart';
-import '../../../../domain/usecase/account_signout_usecase.dart';
+import '../../../../domain/usecase/account/account_signout_usecase.dart';
 
 class DashboardController extends WTWController<DashboardController> {
 

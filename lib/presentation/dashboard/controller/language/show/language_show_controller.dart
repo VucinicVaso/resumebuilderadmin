@@ -2,8 +2,8 @@ import 'package:wtoolboxweb/external/lib_getx.dart';
 import 'package:wtoolboxweb/clean_architecture/controller/wtw_controller.dart';
 import 'package:wtoolboxweb/logger/wtw_logger.dart';
 import '../../../../../domain/entity/language/language.dart';
-import '../../../../../domain/usecase/language_get_by_key_usecase.dart';
-import '../../../../../domain/usecase/language_get_all_usecase.dart';
+import '../../../../../domain/usecase/language/language_get_by_key_usecase.dart';
+import '../../../../../domain/usecase/language/language_get_all_usecase.dart';
 
 class LanguageShowController extends WTWController<LanguageShowController> {
 

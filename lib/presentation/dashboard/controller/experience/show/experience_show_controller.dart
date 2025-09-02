@@ -2,8 +2,8 @@ import 'package:wtoolboxweb/external/lib_getx.dart';
 import 'package:wtoolboxweb/clean_architecture/controller/wtw_controller.dart';
 import 'package:wtoolboxweb/logger/wtw_logger.dart';
 import '../../../../../domain/entity/experience/experience.dart';
-import '../../../../../domain/usecase/experience_get_by_key_usecase.dart';
-import '../../../../../domain/usecase/experience_get_all_usecase.dart';
+import '../../../../../domain/usecase/experience/experience_get_by_key_usecase.dart';
+import '../../../../../domain/usecase/experience/experience_get_all_usecase.dart';
 
 class ExperienceShowController extends WTWController<ExperienceShowController> {
 

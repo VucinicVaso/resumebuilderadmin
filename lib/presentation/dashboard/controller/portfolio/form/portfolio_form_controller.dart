@@ -3,9 +3,9 @@ import 'package:wtoolboxweb/external/lib_getx.dart';
 import 'package:wtoolboxweb/clean_architecture/controller/wtw_controller.dart';
 import 'package:wtoolboxweb/logger/wtw_logger.dart';
 import '../../../../../domain/entity/portfolio/portfolio.dart';
-import '../../../../../domain/usecase/portfolio_get_by_key_usecase.dart';
-import '../../../../../domain/usecase/portfolio_insert_usecase.dart';
-import '../../../../../domain/usecase/portfolio_update_usecase.dart';
+import '../../../../../domain/usecase/portfolio/portfolio_get_by_key_usecase.dart';
+import '../../../../../domain/usecase/portfolio/portfolio_insert_usecase.dart';
+import '../../../../../domain/usecase/portfolio/portfolio_update_usecase.dart';
 
 class PortfolioFormController extends WTWController<PortfolioFormController> {
 

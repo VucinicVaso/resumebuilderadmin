@@ -23,7 +23,9 @@ class DashboardEnUsTranslations extends WTWTranslations {
       "image": "Image",
       "dateOfBirth": "Date of birth",
       "city": "City",
-      "country": "Country"
+      "country": "Country",
+      "title": "Title",
+      "level": "Level"
     },
   };
 

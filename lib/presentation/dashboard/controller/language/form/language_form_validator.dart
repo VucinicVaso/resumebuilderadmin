@@ -3,14 +3,14 @@ import 'package:wtoolboxweb/validator/wtw_validator.dart';
 
 class LanguageFormValidator {
 
-  static String? titleValidator(String v) {
+  static String? validateTitle(String v) {
     String? error;
     error = WTWValidator.isEmpty(key: 'title'.tr, value: v);
     if(error!.isNotEmpty) { return error; }
     return null;
   }
 
-  static String? levelValidator(String v) {
+  static String? validateLevel(String v) {
     String? error;
     error = WTWValidator.isEmpty(key: 'level'.tr, value: v);
     if(error!.isNotEmpty) { return error; }

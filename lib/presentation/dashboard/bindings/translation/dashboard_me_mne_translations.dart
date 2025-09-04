@@ -23,7 +23,9 @@ class DashboardMeMneTranslations extends WTWTranslations {
       "image": "Slika",
       "dateOfBirth": "Darum rodjenja",
       "city": "Grad",
-      "country": "Drzava"
+      "country": "Drzava",
+      "title": "Naslov",
+      "level": "Nivo"
     },
   };
 

@@ -25,7 +25,7 @@ class DashboardRoutes extends WTWRoutes {
     registerRoute(name: '/education/form/:key',  view: () => EducationFormView());
     registerRoute(name: '/education',            view: () => EducationShowView());
     registerRoute(name: '/education/:key',       view: () => EducationShowView());
-    registerRoute(name: '/experience/form/',     view: () => ExperienceFormView());
+    registerRoute(name: '/experience/form',      view: () => ExperienceFormView());
     registerRoute(name: '/experience/form/:key', view: () => ExperienceFormView());
     registerRoute(name: '/experience',           view: () => ExperienceShowView());
     registerRoute(name: '/experience/:key',      view: () => ExperienceShowView());

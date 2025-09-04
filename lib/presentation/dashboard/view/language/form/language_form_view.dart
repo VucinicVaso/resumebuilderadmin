@@ -56,6 +56,10 @@ class LanguageFormView extends WTWView<LanguageFormController> {
         action: () async { await con!.navigateBack(); }, 
         icon: Symbols.arrow_back,
         label: 'language'.tr
+      )
+      ..addAction(
+        action: () async { await con!.submit(); },
+        label: 'save'.tr
       );
 
     var body = uiFactory!.createBody(WTWUIBodyType.basic1)!

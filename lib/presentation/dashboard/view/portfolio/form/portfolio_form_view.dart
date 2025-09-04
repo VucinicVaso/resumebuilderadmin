@@ -19,6 +19,10 @@ class PortfolioFormView extends WTWView<PortfolioFormController> {
         action: () async { await con!.navigateBack(); }, 
         icon: Symbols.arrow_back,
         label: 'portfolio'.tr
+      )
+      ..addAction(
+        action: () async { await con!.submit(); },
+        label: 'save'.tr
       );
 
     var body = uiFactory!.createBody(WTWUIBodyType.basic1);

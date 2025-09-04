@@ -101,6 +101,10 @@ class ExperienceFormView extends WTWView<ExperienceFormController> {
         action: () async { await con!.navigateBack(); }, 
         icon: Symbols.arrow_back,
         label: 'experience'.tr,
+      )
+      ..addAction(
+        action: () async { await con!.submit(); },
+        label: 'save'.tr
       );
 
     var body = uiFactory!.createBody(WTWUIBodyType.basic1)!

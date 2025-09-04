@@ -25,7 +25,13 @@ class DashboardEnUsTranslations extends WTWTranslations {
       "city": "City",
       "country": "Country",
       "title": "Title",
-      "level": "Level"
+      "level": "Level",
+      "link": "Link",
+      "position": "Position",
+      "description": "Description",
+      "dateFrom": "From",
+      "dateTo": "To",
+      "totalTime": "In Total"
     },
   };
 

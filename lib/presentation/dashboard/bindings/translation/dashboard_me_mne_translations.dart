@@ -24,14 +24,15 @@ class DashboardMeMneTranslations extends WTWTranslations {
       "dateOfBirth": "Darum rodjenja",
       "city": "Grad",
       "country": "Drzava",
-      "title": "Title",
-      "level": "Level",
+      "title": "Naslov",
+      "level": "Nivo",
       "link": "Link",
-      "position": "Position",
-      "description": "Description",
-      "dateFrom": "From",
-      "dateTo": "To",
-      "totalTime": "In Total"
+      "position": "Pozicija",
+      "description": "Opis",
+      "dateFrom": "Od",
+      "dateTo": "Do",
+      "totalTime": "Ukupno",
+      "dateTime": "Datum"
     },
   };
 

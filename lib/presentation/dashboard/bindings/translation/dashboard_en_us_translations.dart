@@ -31,7 +31,8 @@ class DashboardEnUsTranslations extends WTWTranslations {
       "description": "Description",
       "dateFrom": "From",
       "dateTo": "To",
-      "totalTime": "In Total"
+      "totalTime": "In Total",
+      "dateTime": "Date"
     },
   };
 

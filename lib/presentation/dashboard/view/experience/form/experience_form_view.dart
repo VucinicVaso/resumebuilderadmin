@@ -14,7 +14,7 @@ class ExperienceFormView extends WTWView<ExperienceFormController> {
     setController(ExperienceFormController());
   }
 
-    WTWUIComponent? createBody(ExperienceFormController? con) {
+  WTWUIComponent? createBody(ExperienceFormController? con) {
     var titleField = uiFactory!.createFormInputFiled(WTWUIFormInputFieldType.text)!
       ..setController(con!.titleController)
       ..validationOnUserInteraction()
@@ -22,7 +22,7 @@ class ExperienceFormView extends WTWView<ExperienceFormController> {
       ..required()
       ..setLabel('title'.tr)
       ..setPrefix(iconData: Symbols.title);
-
+    
     var linkField = uiFactory!.createFormInputFiled(WTWUIFormInputFieldType.text)!
       ..setController(con.linkController)
       ..validationOnUserInteraction()

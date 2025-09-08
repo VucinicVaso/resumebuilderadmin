@@ -46,6 +46,10 @@ class LanguageShowView extends WTWView<LanguageShowController> {
         action: () async { await con!.navigateBack(); }, 
         icon: Symbols.arrow_back,
         label: 'language'.tr
+      )
+      ..addAction(
+        action: () async { await con!.navigateTo(route: '/language/form', previousRoute: '/language', arguments: {}); },
+        icon: Symbols.create_new_folder
       );
 
     var body = uiFactory!.createBody(WTWUIBodyType.basic1)!

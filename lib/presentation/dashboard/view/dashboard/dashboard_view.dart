@@ -64,7 +64,7 @@ class DashboardView extends WTWView<DashboardController> {
       ..addComponent(portfolioActionCard)
       ..addComponent(languageActionCard)
       ..addComponent(cvActionCard);
-    
+
     var layout = uiFactory!.createLayout(WTWUILayoutType.verticalExpandedAndScrollable)!
       ..setMainAxisAlignment(MainAxisAlignment.center)
       ..setCrossAxisAlignment(CrossAxisAlignment.center)

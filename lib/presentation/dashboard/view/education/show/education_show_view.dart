@@ -46,6 +46,10 @@ class EducationShowView extends WTWView<EducationShowController> {
         action: () async { await con!.navigateBack(); }, 
         icon: Symbols.arrow_back,
         label: 'education'.tr
+      )
+      ..addAction(
+        action: () async { await con!.navigateTo(route: '/education/form', previousRoute: '/education', arguments: {}); },
+        icon: Symbols.create_new_folder
       );
 
     var body = uiFactory!.createBody(WTWUIBodyType.basic1)!

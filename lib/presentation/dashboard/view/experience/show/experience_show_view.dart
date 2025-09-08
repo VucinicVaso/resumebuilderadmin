@@ -46,6 +46,10 @@ class ExperienceShowView extends WTWView<ExperienceShowController> {
         action: () async { await con!.navigateBack(); }, 
         icon: Symbols.arrow_back,
         label: 'experience'.tr
+      )
+      ..addAction(
+        action: () async { await con!.navigateTo(route: '/experience/form', previousRoute: '/experience', arguments: {}); },
+        icon: Symbols.create_new_folder
       );
 
     var body = uiFactory!.createBody(WTWUIBodyType.basic1)!

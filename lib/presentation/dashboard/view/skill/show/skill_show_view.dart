@@ -46,6 +46,10 @@ class SkillShowView extends WTWView<SkillShowController> {
         action: () async { await con!.navigateBack(); }, 
         icon: Symbols.arrow_back,
         label: 'skill'.tr
+      )
+      ..addAction(
+        action: () async { await con!.navigateTo(route: '/skill/form', previousRoute: '/skill', arguments: {}); },
+        icon: Symbols.create_new_folder
       );
 
     var body = uiFactory!.createBody(WTWUIBodyType.basic1)!

@@ -3,7 +3,7 @@ import '../../entity/account/account.dart';
 
 abstract class AccountRepository extends WTWRepository<Account> {
 
-  Account? account;
+  Account? account = Account().empty();
 
   // login
   Future<bool>? singIn({ String? username, String? password });

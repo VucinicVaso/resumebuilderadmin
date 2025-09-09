@@ -100,8 +100,8 @@ class Account extends WTWEntity<Account> {
     return Account(
       key:         0,
       date:        '',
-      language:    '',
-      theme:       '',
+      language:    'me_MNE',
+      theme:       'light',
       isLoggedIn:  false,
       isAdmin:     false,
       token:       {},

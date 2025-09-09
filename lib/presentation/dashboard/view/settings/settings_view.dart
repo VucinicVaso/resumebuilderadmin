@@ -13,15 +13,58 @@ class SettingsView extends WTWView<SettingsController> {
     setController(SettingsController());
   }
 
+  WTWUIComponent? createBody(SettingsController? con) {
+    var languageField = uiFactory!.createFormInputFiled(WTWUIFormInputFieldType.dropdown)!
+      ..setController(con!.languageController)
+      ..validationOnUserInteraction()
+      ///..setValidator(SettingsValidator.validateLanguage)
+      ..required()
+      ..setLabel('language'.tr)
+      ..setPrefix(iconData: Symbols.language)
+      ..addDropdownItems(con.languages);
+
+    var themeField = uiFactory!.createFormInputFiled(WTWUIFormInputFieldType.dropdown)!
+      ..setController(con.themeController)
+      ..validationOnUserInteraction()
+      ///..setValidator(SettingsValidator.validateTheme)
+      ..required()
+      ..setLabel('theme'.tr)
+      ..setPrefix(iconData: Symbols.colors)
+      ..addDropdownItems(con.themes);
+
+    var form = uiFactory!.createForm(WTWUIFormType.basic)!
+      ..setFormKey(con.formKey)
+      ..validationOnUserInteraction()
+      ..addField(key: 'language'.tr, order: 0, component: languageField)
+      ..addField(key: 'theme'.tr,    order: 1, component: themeField);
+
+    var formLayout = uiFactory!.createLayout(WTWUILayoutType.vertical)!
+      ..setMainAxisAlignment(MainAxisAlignment.center)
+      ..setCrossAxisAlignment(CrossAxisAlignment.center)
+      ..md()
+      ..addComponent(form);
+
+    var layout = uiFactory!.createLayout(WTWUILayoutType.verticalExpandedAndScrollable)!
+      ..setMainAxisAlignment(MainAxisAlignment.center)
+      ..setCrossAxisAlignment(CrossAxisAlignment.center)
+      ..addComponent(formLayout);
+    return layout;
+  }
+
   WTWUIComponent? createScaffold(SettingsController? con) {
     var header = uiFactory!.createHeader(WTWUIHeaderType.basic1)!
       ..setBackAction(
         action: () async { await con!.navigateBack(); }, 
         icon: Symbols.arrow_back,
         label: 'settings'.tr
+      )
+      ..addAction(
+        action: () async => await con!.submit(),
+        label: 'save'.tr   
       );
 
-    var body = uiFactory!.createBody(WTWUIBodyType.basic1);
+    var body = uiFactory!.createBody(WTWUIBodyType.basic1)!
+      ..addComponent(createBody(con));
 
     var scaffold = uiFactory!.createScaffold(WTWUIScaffoldType.basic1)!
       ..setHeader(header)
@@ -31,8 +74,7 @@ class SettingsView extends WTWView<SettingsController> {
 
   @override
   Widget build(BuildContext context) {
-    return createScaffold(controller)!.build()!;
-    //return Obx(() => createScaffold(controller)!);
+    return Obx(() => createScaffold(controller)!.build()!);
   }
 
 }

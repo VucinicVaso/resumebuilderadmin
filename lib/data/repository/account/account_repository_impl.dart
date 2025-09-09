@@ -15,12 +15,12 @@ class AccountRepositoryImpl extends AccountRepository {
 
   @override
   Future<bool?> insert(Account? entity) async {
-    throw UnimplementedError();
+    return true;
   }
   
   @override
   Future<bool?> update(Account? entity) async {
-    throw UnimplementedError();
+    return true;
   }
 
   @override

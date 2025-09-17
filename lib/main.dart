@@ -33,8 +33,8 @@ void main() async {
       translations:   Get.find<WTWTranslation>(),
       initialRoute:   Get.find<WTWRouter>().getInitialRoute(),
       getPages:       Get.find<WTWRouter>().getRoutes(),
-      theme:          Get.find<WTWThemeService>().themeData,
-      darkTheme:      Get.find<WTWThemeService>().themeData,
+      theme:          Get.find<WTWThemeService>().getTheme()!.themeData!,
+      darkTheme:      Get.find<WTWThemeService>().getDarkTheme()!.themeData!,
     )
   );
 

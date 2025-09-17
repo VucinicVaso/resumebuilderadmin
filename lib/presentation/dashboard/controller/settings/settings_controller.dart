@@ -5,6 +5,7 @@ import 'package:wtoolboxweb/logger/wtw_logger.dart';
 import 'package:wtoolboxweb/clean_architecture/controller/wtw_controller.dart';
 import 'package:wtoolboxweb/theme/wtw_theme_service.dart';
 import 'package:wtoolboxweb/translation/wtw_translation.dart';
+import 'package:wtoolboxweb/ui_factory/factory/wtw_ui_factory.dart';
 import '../../../../domain/entity/account/account.dart';
 import '../../../../domain/usecase/account/account_get_usecase.dart';
 import '../../../../domain/usecase/account/account_update_usecase.dart';
@@ -67,7 +68,16 @@ class SettingsController extends WTWController<SettingsController> {
 
   String? language = '';
   TextEditingController? languageController = TextEditingController();
-  void languageListener() { language = languageController!.text; }
+  void languageListener() {
+    print('-----------------------');
+    print('languageListener');
+    print(languageController!.text);
+    print('-----------------------');  
+
+    if(languageController!.text.isNotEmpty) {
+      language = jsonDecode(languageController!.text)["label"];
+    } 
+  }
 
   var languages = List<Map<String, dynamic>>.empty(growable: true).obs;
   void setLanguages() {
@@ -89,7 +99,15 @@ class SettingsController extends WTWController<SettingsController> {
 
   String? theme = '';
   TextEditingController? themeController = TextEditingController();
-  void themeListener() { theme = themeController!.text; }
+  void themeListener() { 
+    print('-----------------------');
+    print('themeListener');
+    print(themeController!.text);
+    print('-----------------------');
+    if(themeController!.text.isNotEmpty) {
+      theme = jsonDecode(themeController!.text)["label"];
+    } 
+  }
 
   var themes = List<Map<String, dynamic>>.empty(growable: true).obs;
   void setThemes() {
@@ -107,6 +125,7 @@ class SettingsController extends WTWController<SettingsController> {
   }
   Future<void> updateTheme() async {
     Get.find<WTWThemeService>().updateTheme(entity.value!.theme);
+    Get.find<WTWUIFactory>().setTheme(Get.find<WTWThemeService>().getTheme()!.themeExtension!);
   }
 
 }

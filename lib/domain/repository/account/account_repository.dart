@@ -1,4 +1,4 @@
-import 'package:wtoolboxweb/clean_architecture/repository/wtw_repository.dart';
+import 'package:wtoolboxweb/base/repository/wtw_repository.dart';
 import '../../entity/account/account.dart';
 
 abstract class AccountRepository extends WTWRepository<Account> {

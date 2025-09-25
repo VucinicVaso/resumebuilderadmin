@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wtoolboxweb/external/lib_getx.dart';
 import 'package:wtoolboxweb/external/lib_material_symbols.dart';
-import 'package:wtoolboxweb/clean_architecture/view/wtw_view.dart';
+import 'package:wtoolboxweb/base/view/wtw_view.dart';
 import 'package:wtoolboxweb/ui_factory/component/wtw_ui_component.dart';
 import 'package:wtoolboxweb/ui_factory/type/impl/wtw_ui_component_type.dart';
 import '../../../controller/experience/form/experience_form_controller.dart';

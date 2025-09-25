@@ -1,5 +1,5 @@
-import 'package:wtoolboxweb/clean_architecture/entity/wtw_entity.dart';
-import 'package:wtoolboxweb/clean_architecture/entity/wtw_object_mapper.dart';
+import 'package:wtoolboxweb/base/entity/wtw_entity.dart';
+import 'package:wtoolboxweb/base/entity/wtw_object_mapper.dart';
 import '../../../domain/entity/experience/experience.dart';
 
 class ExperienceMapper extends WTWObjectMapper<Experience, ExperienceModel> {

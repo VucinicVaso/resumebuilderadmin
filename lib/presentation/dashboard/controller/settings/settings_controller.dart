@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:wtoolboxweb/external/lib_getx.dart';
 import 'package:wtoolboxweb/logger/wtw_logger.dart';
-import 'package:wtoolboxweb/clean_architecture/controller/wtw_controller.dart';
+import 'package:wtoolboxweb/base/controller/wtw_controller.dart';
 import 'package:wtoolboxweb/theme/wtw_theme_service.dart';
 import 'package:wtoolboxweb/translation/wtw_translation.dart';
 import 'package:wtoolboxweb/ui_factory/factory/wtw_ui_factory.dart';

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wtoolboxweb/external/lib_getx.dart';
 import 'package:wtoolboxweb/logger/wtw_logger.dart';
-import 'package:wtoolboxweb/clean_architecture/controller/wtw_controller.dart';
+import 'package:wtoolboxweb/base/controller/wtw_controller.dart';
 import 'package:wtoolboxweb/application_starter/wtw_application_starter_service.dart';
 import '../../../../domain/usecase/account/account_signin_usecase.dart';
 import '../../../../domain/usecase/account/account_signup_usecase.dart';

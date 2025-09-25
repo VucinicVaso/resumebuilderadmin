@@ -1,5 +1,5 @@
 import 'package:wtoolboxweb/external/lib_getx.dart';
-import 'package:wtoolboxweb/clean_architecture/usecase/wtw_usecase.dart';
+import 'package:wtoolboxweb/base/usecase/wtw_usecase.dart';
 import '../../entity/education/education.dart';
 import '../../repository/education/education_repository.dart';
 

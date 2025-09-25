@@ -1,5 +1,5 @@
-import 'package:wtoolboxweb/clean_architecture/entity/wtw_entity.dart';
-import 'package:wtoolboxweb/clean_architecture/entity/wtw_object_mapper.dart';
+import 'package:wtoolboxweb/base/entity/wtw_entity.dart';
+import 'package:wtoolboxweb/base/entity/wtw_object_mapper.dart';
 import '../../../domain/entity/portfolio/portfolio.dart';
 
 class PortfolioMapper extends WTWObjectMapper<Portfolio, PortfolioModel> {

@@ -1,5 +1,5 @@
 import 'package:wtoolboxweb/external/lib_getx.dart';
-import 'package:wtoolboxweb/clean_architecture/usecase/wtw_usecase_with_params.dart';
+import 'package:wtoolboxweb/base/usecase/wtw_usecase_with_params.dart';
 import '../../entity/skill/skill.dart';
 import '../../repository/skill/skill_repository.dart';
 

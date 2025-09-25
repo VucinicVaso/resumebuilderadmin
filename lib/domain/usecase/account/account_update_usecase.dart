@@ -1,7 +1,7 @@
 import 'package:wtoolboxweb/external/lib_getx.dart';
-import 'package:resumebuilderadmin/domain/repository/account/account_repository.dart';
-import 'package:wtoolboxweb/clean_architecture/usecase/wtw_usecase_with_params.dart';
+import 'package:wtoolboxweb/base/usecase/wtw_usecase_with_params.dart';
 import '../../entity/account/account.dart';
+import '../../repository/account/account_repository.dart';
 
 class AccountUpdateUseCase extends WTWUseCaseWithParams<bool, AccountUpdateUseCaseParams> {
 
